@@ -12,3 +12,7 @@ out/
 npm-debug.log*
 .DS_Store
 design-analysis/raw/
+
+# QA screenshots (regenerable evidence)
+qa/shots-iter*/
+qa/*.jpg

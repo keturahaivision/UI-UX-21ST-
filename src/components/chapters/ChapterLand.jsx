@@ -11,8 +11,8 @@ export default function ChapterLand() {
     <Chapter id="land" index={1} label="Land" tone="dark" pin scrub={1.4} onProgress={onProgress}>
       {/* raw terrain */}
       <div className="absolute inset-0">
-        <img src="/images/2015_07_Wb_porto-island-Aerial-02.webp" alt="Raw coastal land before development — a DMF reclamation site"
-          className="h-full w-full object-cover" style={{ transform: `scale(${1.08 + p * 0.06})`, filter: `saturate(${0.5 + p * 0.3}) brightness(${0.55 + p * 0.15})` }} />
+        <img src="/images/ch1-land.webp" alt="Raw reclaimed land before development — a DMF Engineering site emerging from the sea"
+          className="h-full w-full object-cover" style={{ transform: `scale(${1.12 + p * 0.06})`, filter: `saturate(${0.5 + p * 0.3}) brightness(${0.6 + p * 0.22})` }} />
         <div className="absolute inset-0 bg-ink-900/50" />
         <div className="absolute inset-0 u-scrim-dark" />
       </div>

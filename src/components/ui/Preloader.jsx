@@ -4,7 +4,7 @@ import { useReducedMotion } from '@/lib/useReducedMotion';
 
 // Preload the Chapter 1-3 hero imagery; the counter reflects REAL load progress.
 const CRITICAL = [
-  '/images/2015_07_Wb_porto-island-Aerial-02.webp', // Ch1 Land
+  '/images/ch1-land.webp', // Ch1 Land (Porto Island raw reclamation)
   '/images/2019_11_Wb_EURO-N-MP.webp',              // Ch2 line-draw source
   '/images/2015_07_Wb_NAH-Masterplan.webp',         // Ch3 plan
   '/images/2015_07_Wb_NAH-01.webp',                 // Ch3 built
