@@ -1,0 +1,43 @@
+{
+  "slug": "grand-hyatt",
+  "name": "Grand Hyatt",
+  "scope_tagline": "Roads, Infrastructure, Traffic",
+  "listing_category": "",
+  "description": "project",
+  "details": {
+    "Type of service": "Roads, Infrastructure, Traffic",
+    "Client": "Grand Hyatt Regency",
+    "Size": "54 Hectares",
+    "Location": "Dubai, UAE"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/grand-hyatt-conventional-centre-side-elevation-002.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rve3_Phase-B.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/op1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/page1.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/grand-hyatt/",
+  "target_url": "/projects/grand-hyatt",
+  "category_slugs": [
+    "roads",
+    "traffic"
+  ],
+  "category_display": "Roads & Infrastructure, Traffic",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/page1.jpg"
+}

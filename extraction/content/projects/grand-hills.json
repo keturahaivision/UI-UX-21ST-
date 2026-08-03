@@ -1,0 +1,67 @@
+{
+  "slug": "grand-hills",
+  "name": "Grand Hills",
+  "scope_tagline": "Masterplan, Buildings, Landscape, Roads, Infrastructure,Traffic, EIA",
+  "listing_category": "",
+  "description": "project. This project comprises Residential Villas, Residential Townhouses, Residential Apartments, Mixed-use areas (Retail/Residential), Commercial spaces (Shopping Mall/Offices/Hotel Apartments), Open Spaces, and Public Facilities.",
+  "details": {
+    "Type of service": "Masterplan, Buildings, Landscape, Roads, Infrastructure,Traffic, EIA",
+    "Client": "Rhodes Hills LLC",
+    "Size": "1,715,753 sq.m",
+    "Location": "Dubai, UAE"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/20230825_Small-villa-4-br-Night.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/28.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/26.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/9.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/8.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/7.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/6.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/01A.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/18.png",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/grand-hills/",
+  "target_url": "/projects/grand-hills",
+  "category_slugs": [
+    "buildings",
+    "eia",
+    "landscape",
+    "masterplan",
+    "roads",
+    "traffic"
+  ],
+  "category_display": "Buildings, EIA",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/18.png"
+}

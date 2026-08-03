@@ -1,0 +1,60 @@
+{
+  "slug": "al-mayar-2",
+  "name": "Al Mayar",
+  "scope_tagline": "Master Planning , Roads and Infrastructure Design",
+  "listing_category": "",
+  "description": "Development.",
+  "details": {
+    "Type of service": "Master Planning , Roads and Infrastructure",
+    "Client": "Ewaan",
+    "Size": "33 hectares",
+    "Location": "Jeddah, Saudi Arabia",
+    "Completion date": "2012"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0_Al-Mayar-3d_4.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_MP1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0_Al-Mayar-3d_3.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0_Al-Mayar-3d_2.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0_Al-Mayar-3d_6.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0_Al-Mayar-3d_5.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_MP.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/al-mayar-2/",
+  "target_url": "/projects/al-mayar-2",
+  "category_slugs": [
+    "masterplan",
+    "roads"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_MP.jpg"
+}

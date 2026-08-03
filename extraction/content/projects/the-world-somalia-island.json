@@ -1,0 +1,35 @@
+{
+  "slug": "the-world-somalia-island",
+  "name": "The World Somalia Island",
+  "scope_tagline": "Infrastructure and Road Design",
+  "listing_category": "",
+  "description": "The World is a man-made archipelago of 300 islands constructed in the rough shape of a map of the landmasses of the Earth, located 4 kilometers off the coast of Dubai, United Arab Emirates. DMF was tasked with providing mainly infrastructure design as well as any needed road design.",
+  "details": {
+    "Type of service": "Infrastructure and Road Design",
+    "Client": "LACASA",
+    "Size": "TBD",
+    "Location": "Dubai, UAE",
+    "Completion date": "2009"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/DEVELOPMENT-PROPOSAL-SITE-PLAN.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/somalia2.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/the-world-somalia-island/",
+  "target_url": "/projects/the-world-somalia-island",
+  "category_slugs": [
+    "roads"
+  ],
+  "category_display": "Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/somalia2.jpg"
+}

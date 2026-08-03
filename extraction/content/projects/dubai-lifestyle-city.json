@@ -1,0 +1,43 @@
+{
+  "slug": "dubai-lifestyle-city",
+  "name": "Dubai Lifestyle City",
+  "scope_tagline": "Infrastructure Design and Sign Off Sheet (SOS)",
+  "listing_category": "« Previous 1 … 3 4 5 6 7 8 Next » \"At DMF, innovation, expertise, and dedication",
+  "description": "DMF Engineering was commissioned to carry out the Design of External Irrigation and Water connection from the existing network and to obtain the Sign Off Sheet (SOS) approval.",
+  "details": {
+    "Type of service": "Infrastructure Design and Sign Off Sheet (SOS)",
+    "Client": "Dubai Lifestyle City",
+    "Size": "39 Hectares",
+    "Location": "Dubai, UAE",
+    "Completion date": "TBD"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_001.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_002.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Cover.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/dubai-lifestyle-city/",
+  "target_url": "/projects/dubai-lifestyle-city",
+  "category_slugs": [
+    "roads"
+  ],
+  "category_display": "Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Cover.jpg"
+}

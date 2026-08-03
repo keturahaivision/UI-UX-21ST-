@@ -1,0 +1,56 @@
+{
+  "slug": "gardenia-ii-jebel-ali",
+  "name": "Gardenia II, Jebel Ali",
+  "scope_tagline": "Masterplan, Landscape, Roads, Infrastructure, Traffic",
+  "listing_category": "",
+  "description": "JAG Development LLC appointed DMF Engineering for landscape design, roads and infrastructure design, liaison with authorities, and supervision of temporary water supply and construction works.",
+  "details": {
+    "Type of service": "Masterplan, Landscape, Roads, Infrastructure, Traffic",
+    "Client": "JAG Development LLC",
+    "Location": "Dubai, UAE"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/wasl-dubai-Gardenia-Townhomes-scaled-1.jpeg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/JAD_Gardenia-Villas_Phase-II_Master-Plan_Coloring-Model.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Image28_000.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Image27_000.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Image26_000.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Elevated_with-stairs_000.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/000_Proposed-TH.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/gardenia-ii-jebel-ali/",
+  "target_url": "/projects/gardenia-ii-jebel-ali",
+  "category_slugs": [
+    "landscape",
+    "masterplan",
+    "roads",
+    "traffic"
+  ],
+  "category_display": "Landscape, Master Plan",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/000_Proposed-TH.jpg"
+}

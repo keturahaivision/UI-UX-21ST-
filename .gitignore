@@ -1,0 +1,13 @@
+# Downloaded binary assets (150MB) — re-fetchable from extraction/assets/manifest.json
+extraction/assets/files/
+# Raw HTML/JSON crawl dumps — normalized versions kept in extraction/content/
+extraction/raw/
+
+# Node / Next.js (Phase 4)
+node_modules/
+.next/
+out/
+.env
+.env.local
+npm-debug.log*
+.DS_Store

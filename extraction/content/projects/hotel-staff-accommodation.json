@@ -1,0 +1,69 @@
+{
+  "slug": "hotel-staff-accommodation",
+  "name": "Hotel Staff Accommodation",
+  "scope_tagline": "Master Planning, Roads & Infrastructure and Site Supervision",
+  "listing_category": "",
+  "description": "Development.",
+  "details": {
+    "Type of service": "Master Planning, Roads & Infrastructure and Site Supervision",
+    "Client": "WASL / AWAJ",
+    "Size": "12 Hectares",
+    "Location": "Dubai, UAE",
+    "Completion date": "2020"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_mp.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_3d.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Site_1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Site_3.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Site_2.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Site_4.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Site_5.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_02.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_01.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/hotel-staff-accommodation/",
+  "target_url": "/projects/hotel-staff-accommodation",
+  "category_slugs": [
+    "masterplan",
+    "roads",
+    "supervision"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_3d.jpg"
+}

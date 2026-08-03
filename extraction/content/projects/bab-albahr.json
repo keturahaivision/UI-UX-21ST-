@@ -1,0 +1,51 @@
+{
+  "slug": "bab-albahr",
+  "name": "Bab Albahr",
+  "scope_tagline": "Roads Design,Grading Design,Roads Horizontal and Vertical Alignment,Pavement Design,Marking & Signage",
+  "listing_category": "",
+  "description": "DMF was appointed to undertake the Roads Design at Bab Al Bahr, Ras Al Khaimah. The man-made coral-shaped island is built to extend four kilometers into the Arabian Gulf. DMF was challenged to develop a design suited for reclaimed land that would meet strict development guidelines. The Rixos Hotel Bab Al Bahr is a self-contained community, presenting residents and visitors with leisure facilities including a nearby golf-course, exotic gardens, beach parks, a la carte dining options and beach activities.",
+  "details": {
+    "Type of service": "Roads Design,Grading Design,Roads Horizontal and Vertical Alignment,Pavement Design,Marking & Signage",
+    "Client": "Conin",
+    "Size": "TBD",
+    "Location": "Al Marjan Island (RAK), UAE",
+    "Completion date": "2008"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/220327767.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/babalbahr1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/RIXOS-BAB-AL-BAHR_2400.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Rixos-Bab-Al-Bahr.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/babalbahr.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/bab-albahr/",
+  "target_url": "/projects/bab-albahr",
+  "category_slugs": [
+    "grading-design",
+    "horizontal-and-vertical-alignment",
+    "marking-signage",
+    "pavement-design",
+    "roads"
+  ],
+  "category_display": "Grading Design, Horizontal and Vertical Alignment",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/babalbahr.jpg"
+}

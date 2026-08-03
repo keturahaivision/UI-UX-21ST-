@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "master-planning",
+    "name": "Master Planning",
+    "description": "Our master planning team is comprised of planners, architects, and engineers to provide the best outcome in an iterative process. A master plan is a result of many components and influences. The design process must involve all stakeholders from architects and planners, to a variety of engineering specialties. Our team works closely with our client’s consultants from financiers, bankers, and process consultants to achieve not only an aesthetic plan but also one that also meets financial and operational targets. Having access to a diversified team enables DMF to deliver an environment that works on multiple levels. We understand the approval processes and deliverables required in order to get our work approved from the many government agencies that must approve a master plan, from municipality offices and police operations to telecommunication and utility providers. The relationships we have fostered over the years with these agencies and offices enables DMF to maintain schedule and budget targets."
+  },
+  {
+    "slug": "architecture",
+    "name": "Architecture",
+    "description": "Our design team starts with developing a complete understanding of our client’s goals before we start any project. This requires careful analysis of project needs, including budget, level of quality and function. Once complete, this basic pre-design process becomes the foundation of decision making and project success. Design success is not just about aesthetics, it must encompass function and commercial needs. Our pre-design and planning process is unique. It is a process we follow that enables the entire team, from owner to consultants, to fully embrace the goals of the project and make decisions that will lead to a successful project outcome. Using the latest industry design tools, our team quickly delivers concepts that are functional and memorable. We understand that design is place driven and develop options that respond to our region and culture. Along with our traditional architectural design services, our team can assist clients to develop pre-design project deliverables including: Feasibility Design Studies Concept Studies 3D Modeling and Video Fly-through Character and Capacity Studies"
+  },
+  {
+    "slug": "road-and-infrastructure-design",
+    "name": "Road and Infrastructure Design",
+    "description": "The road and infrastructure team at DMF has extensive experience in the region. Having worked on many of Dubai’s most prestigious projects with many major developers, our team has become the ‘go to’ team for roads and infrastructure design. Not only do our clients rely on our roads and infrastructure team to provide unique solutions, but even our colleagues and competitors. We proudly work along side many local architect and engineering firms to assist when needed. Our expertise is appreciated and the ability of our team to work with local municipalities is well known. From large to small engagements, our road and infrastructure group can provide all necessary services including: Infrastructure Master Planning Grading Design Roads Design Street Lighting Design Stormwater Drainage Design Sewerage Network Design and Lifting Stations Irrigation Main Line and Pumping Station Design Fire Hydrant Network and Pumping Station Design Potable Water Network Design Telecommunication Network Design LV Network Design"
+  },
+  {
+    "slug": "structural-engineering",
+    "name": "Structural Engineering",
+    "description": "Our structural design team works closely with our planners, architects and roads & infrastructure teams. We do this as part of our planning and design process in order to get vital engineering considerations integrated into our design early in the process. Why? Because structural design systems can greatly influence cost later in the design process. Our structural team can suggest options early and provide valuable feedback on options that may impact design and in many cases improve it. Using the latest industry software, our structural team works closely with local municipalities and has developed strong relationships with them. The relationships they have with Dubai Municipality have allowed many of our projects to obtain approvals quickly which in turn keep project schedules moving forward."
+  },
+  {
+    "slug": "civil-engineering",
+    "name": "Civil Engineering",
+    "description": "Infrastructure is the backbone of modern society, and DMF is proud to lead the way in its design and construction. Our civil engineers apply their expertise to develop innovative and sustainable solutions for vital projects, including transportation systems, utilities, and public works. From efficient roadways to advanced water supply systems, the DMF civil engineering team is dedicated to transforming the landscape of our communities. By harnessing cutting-edge materials and integrating smart technologies, we create designs that not only meet today’s demands but also lay the groundwork for a resilient and sustainable future. Our commitment to excellence ensures that we are not just building infrastructure; we are shaping a better tomorrow."
+  },
+  {
+    "slug": "landscape",
+    "name": "Landscape",
+    "description": "DMF’s landscape design encompasses the planning and creation of outdoor spaces that are both functional and visually appealing. It involves analyzing the site’s topography, climate, and existing flora to develop harmonious designs that integrate natural and built elements. Key components include selecting appropriate plant materials, designing pathways and hardscaping features, and incorporating water elements and structures like pergolas. Sustainability is a central focus, with an emphasis on native plants and efficient irrigation systems that promote ecological balance. The aim is to create environments that enhance usability, aesthetics, and biodiversity while also considering maintenance and accessibility for all users. Ultimately, effective landscape design transforms spaces into engaging, sustainable outdoor experiences."
+  },
+  {
+    "slug": "traffic-engineering",
+    "name": "Traffic Engineering",
+    "description": "DMF’s engineers are passionate about enhancing mobility and safety in urban environments. With deep expertise in traffic analysis, planning, and design, we craft innovative solutions that optimize traffic flow, alleviate congestion, and prioritize pedestrian safety. From comprehensive intersection redesigns to forward-thinking public transit initiatives, DMF is committed to developing transportation systems that serve the needs of all users. Our holistic approach ensures that every project not only improves infrastructure but also fosters a more connected and vibrant community, making urban spaces more accessible and engaging for everyone."
+  },
+  {
+    "slug": "construction-supervison",
+    "name": "Construction Supervison",
+    "description": "DMF’s construction supervision team is dedicated to ensuring that every project is executed with unmatched precision and quality. With a steadfast commitment to safety and excellence, we meticulously oversee all aspects of construction, guaranteeing compliance with specifications, schedules, and budgets. From the commencement of construction to the handing over of the project, DMF stands by your side every step of the way, delivering not just projects, but a promise of integrity and excellence. Our proactive approach ensures that challenges are swiftly addressed, allowing us to create successful outcomes that meet and exceed expectations. With DMF, you can trust that your vision is in capable hands, resulting in a seamless and successful construction journey."
+  },
+  {
+    "slug": "cost-management",
+    "name": "Cost Management",
+    "description": "DMF is dedicated to delivering exceptional value to our clients. Our cost management experts employ a meticulous approach to planning, monitoring, and controlling project expenditures, ensuring that budgets are adhered to without sacrificing quality or timeline. With transparency and accountability as our guiding principles, we strive to maximize the return on investment for every project. By leveraging innovative strategies and comprehensive analysis, we not only meet our clients’ financial goals but also enhance project efficiency and effectiveness, paving the way for successful outcomes that truly reflect our commitment to excellence."
+  },
+  {
+    "slug": "project-management",
+    "name": "Project Management",
+    "description": "DMF’s project management services are the cornerstone of our success. Our skilled project managers expertly coordinate every facet of the project lifecycle, from initial planning and execution to diligent monitoring and successful closure. With an unwavering focus on communication, collaboration, and efficiency, we ensure that each project is delivered on time, within budget, and to the highest standards of quality. By fostering a culture of proactive problem-solving and stakeholder engagement, we not only meet our clients’ objectives but also elevate the overall project experience, paving the way for outcomes that consistently exceed expectations."
+  }
+]

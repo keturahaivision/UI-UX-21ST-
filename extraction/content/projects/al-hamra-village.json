@@ -1,0 +1,46 @@
+{
+  "slug": "al-hamra-village",
+  "name": "Al Hamra Village Phase III",
+  "scope_tagline": "Roads and Infrastructure Design, Grading Design and Site Supervision",
+  "listing_category": "",
+  "description": "DMF was appointed by RAK to provide Roads and Infrastructure Design & Supervision Services for phase III of this project. Al Hamra Village is a sea-side premium real estate and tourism project and is the first freehold development to be built in the city of Ras Al Khaimah. The project value is AED 1 billion. The resort and residential development, will consist of more than 1,350 residential units, a marina, 3 hotels, an 18-hole golf course, a shopping mall, a 5 kilometer jogging track, and yachting and golf clubs.",
+  "details": {
+    "Type of service": "Roads and Infrastructure Design, Grading Design & Supervision Services",
+    "Client": "RAK",
+    "Size": "200 hectares"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Header1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/0Master-Plan_Al-Hamra-Village.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Ph3_71.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Ph3_6.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Cover.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/al-hamra-village/",
+  "target_url": "/projects/al-hamra-village",
+  "category_slugs": [
+    "roads",
+    "supervision"
+  ],
+  "category_display": "Roads & Infrastructure, Supervision",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Cover.jpg"
+}

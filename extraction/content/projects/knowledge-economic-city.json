@@ -1,0 +1,39 @@
+{
+  "slug": "knowledge-economic-city",
+  "name": "Knowledge Economic City",
+  "scope_tagline": "Peer Review - Road and Infrastructure",
+  "listing_category": "",
+  "description": "DMF scope included peer review for road and infrastructure design carried out by others.",
+  "details": {
+    "Type of service": "Peer Review - Road and Infrastructure",
+    "Client": "Knowledge Economic City",
+    "Size": "TBD",
+    "Location": "Al Madina, Saudi Arabia",
+    "Completion date": "2012"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/KEC_Cover-1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_kec41.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_kec211.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/knowledge-economic-city/",
+  "target_url": "/projects/knowledge-economic-city",
+  "category_slugs": [
+    "roads"
+  ],
+  "category_display": "Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_kec211.jpg"
+}

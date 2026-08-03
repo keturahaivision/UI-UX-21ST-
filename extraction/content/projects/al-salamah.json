@@ -1,0 +1,58 @@
+{
+  "slug": "al-salamah",
+  "name": "Al Salamah Community",
+  "scope_tagline": "Master Planning, Roads and Infrastructure, Building's Architectural, Structural and MEP Design,",
+  "listing_category": "",
+  "description": "DMF provided full master planning, roads and infrastructure and architecture for the 13 hectare site in Jeddah, Saudi Arabia. Full design and engineering services were performed for JDURC, Jeddah Development and Urban Regeneration Company, KSA.",
+  "details": {
+    "Type of service": "Master Planning, Roads and Infrastructure, Building's Architectural, Structural and MEP Design,",
+    "Client": "JDURC",
+    "Size": "13 hectares",
+    "Location": "Jeddah, Saudi Arabia",
+    "Completion date": "2011"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH_Header1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-MP.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-2.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-7.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-8.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-17.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/al-salamah/",
+  "target_url": "/projects/al-salamah",
+  "category_slugs": [
+    "architectural",
+    "masterplan",
+    "roads",
+    "structural"
+  ],
+  "category_display": "Architectural, Master Plan",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-1.jpg"
+}

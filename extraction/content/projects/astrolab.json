@@ -1,0 +1,46 @@
+{
+  "slug": "astrolab",
+  "name": "Astrolab",
+  "scope_tagline": "Roads and Infrastructure Design Roads,Horizontal and Vertical Alignment,Pavement design,Marking & Signage,Street Lighting Design,Roads Drainage Design,Sewerage Network Design Irrigation Main line and Pumping Station ,Potable Water Network Design, Telecommunication Network Design,Electrical HV & LV Design,Street Fire Fighting Network Design,Contract documentation",
+  "listing_category": "",
+  "description": "invention and its use in navigation to travel through time, DMF provided significant engineering work. Located within the massive Dubailand community, DMF continues to provide work within the development.",
+  "details": {
+    "Type of service": "Roads and Infrastructure Design Roads,Horizontal and Vertical Alignment,Pavement design,Marking & Signage,Street Lighting Design,Roads Drainage Design,Sewerage Network Design Irrigation Main line and Pumping Station ,Potable Water Network Design, Telecommunication Network Design,Electrical HV & LV Design,Street Fire Fighting Network Design,Contract documentation",
+    "Client": "LACASA",
+    "Size": "13 Hectares",
+    "Location": "Dubai, UAE",
+    "Completion date": "2008"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab2a.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/astrolab/",
+  "target_url": "/projects/astrolab",
+  "category_slugs": [
+    "contract-documentation",
+    "electrical-hv-lv-design",
+    "horizontal-and-vertical-alignment",
+    "marking-signage",
+    "pavement-design",
+    "potable-water-network-design",
+    "roads",
+    "roads-drainage-design",
+    "sewerage-network-design-irrigation-main-line-and-pumping-station",
+    "street-fire-fighting-network-design",
+    "street-lighting-design",
+    "telecommunication-network-design"
+  ],
+  "category_display": "Contract documentation, Electrical HV & LV Design",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab2a.jpg"
+}

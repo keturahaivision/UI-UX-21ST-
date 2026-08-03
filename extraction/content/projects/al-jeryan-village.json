@@ -1,0 +1,43 @@
+{
+  "slug": "al-jeryan-village",
+  "name": "Al Jeryan Village",
+  "scope_tagline": "Roads & Infrastructure Design",
+  "listing_category": "",
+  "description": "DMF Engineering was commissioned to carry out the Roads & Infrastructure Design for the Al Jeryan project at Doha, Qatar. The Al Jeryan Development consists of villas, community facilities, commercial activities and supermarket stores, etc.",
+  "details": {
+    "Type of service": "Roads & Infrastructure design",
+    "Client": "LACASA",
+    "Size": "54 Hectares",
+    "Location": "Doha, Qatar",
+    "Completion date": "TBD"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Jeryan_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Jeryan-project.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Road-Heirarchy-Model.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Road-layout-Model.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/al-jeryan-village/",
+  "target_url": "/projects/al-jeryan-village",
+  "category_slugs": [
+    "roads"
+  ],
+  "category_display": "Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Jeryan-project.jpg"
+}
