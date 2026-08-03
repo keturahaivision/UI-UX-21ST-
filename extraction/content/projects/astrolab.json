@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab1.jpg",
       "alt": ""
     },
@@ -42,5 +38,6 @@
     "telecommunication-network-design"
   ],
   "category_display": "Contract documentation, Electrical HV & LV Design",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab2a.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab2a.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab1.jpg"
 }

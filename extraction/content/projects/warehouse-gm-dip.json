@@ -11,10 +11,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/Artboard-4.jpg",
       "alt": ""
     },
@@ -39,5 +35,6 @@
     "structural"
   ],
   "category_display": "Architectural, MEP",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Artboard-1.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Artboard-1.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Artboard-4.jpg"
 }

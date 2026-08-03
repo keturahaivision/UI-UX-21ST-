@@ -11,10 +11,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/08/Al-Ahli_Header1.jpg",
       "alt": ""
     },
@@ -54,5 +50,6 @@
     "roads"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-7.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-7.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Al-Ahli_Header1.jpg"
 }

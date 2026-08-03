@@ -12,10 +12,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/Landuse-option-4.jpg",
       "alt": ""
     },
@@ -44,5 +40,6 @@
     "traffic"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/villa_01.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/villa_01.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Landuse-option-4.jpg"
 }

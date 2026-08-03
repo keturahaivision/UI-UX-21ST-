@@ -49,3 +49,33 @@ UAE **36** · Saudi Arabia **5** · Afghanistan **2** · Qatar **1** · Bahrain 
 
 ---
 *Phase 1 complete. Awaiting approval to proceed to Phase 2 (Hubtown design-language analysis).*
+
+---
+
+# CHECKPOINT 1 — v2 ADDENDUM (image classification, chapter pairs, stats)
+
+Per master-prompt v2 (pre-approved 6-chapter "empty land → living city" narrative), Phase 1 gained three deliverables. **All 412 gallery images were visually reviewed** via 12 labeled contact sheets in `design-analysis/montages/`.
+
+## Image classification → `extraction/assets/classification.json`
+Filename-verified, high-precision tags (visual review confirms more plan-type renders exist among the 293 "render" bucket):
+- masterplan-drawing **27** · hero **32** · aerial-terrain **2** · detail **7** · render **293**
+- 51 leaked DMF-logo refs (`1.png`) stripped from galleries.
+
+## Chapter 2→3 plan↔built pairs → `extraction/chapter-pairs.json` (all same-site)
+| Rank | Project | Plan | Built | Notes |
+|---|---|---|---|---|
+| **1** | **Nadd Al Hamar** | `Wb_NAH-Masterplan.jpg` | `Wb_NAH-01.jpg` | **Brief-preferred; cleanest registration** (same triangular footprint on E311) |
+| 2 | Euro University Bahrain | `Wb_EURO-N-MP.jpg` | `Wb_EURO-N-12.jpg` | Best for SVG line-draw; flagship |
+| 3 | Al Salamah | `Wb_SALAMAH-MP.jpg` | `Wb_SALAMAH-1.jpg` | Flagship |
+| 4 | Jebel Ali Development | `JAD_MasterplanN2.jpg` | `06092020_jad61.jpg` | Flagship |
+| 5 | Bawabat Al Sharq | *(none — flag)* | villa renders | Brief-preferred BUT no true plan drawing in gallery |
+
+## Chapter 1 "Land" candidates
+Porto Island reclamation aerials (stored under `hillside-library`), Heart of Jeddah empty-plot aerial, Al Qusais raw desert site.
+
+## Derived stats → `extraction/stats.json`
+Projects **51** · Countries **5** (UAE 36 / KSA 5 / Afghanistan 2 / Qatar 1 / Bahrain 1) · Disciplines **7** (Roads 45 / Master Plan 24 / Supervision 15 / Traffic 11 / Architectural 8 / Structural 7 / Landscape 4) · Gallery images **412**.
+
+## Flags for the narrative
+- **Bawabat** (a brief preference) has no clean masterplan drawing → **recommend Nadd Al Hamar as Chapter 2→3 primary**.
+- No single project has raw-terrain + plan + built at identical framing, so **Chapter 1 (Land) uses a different project** than Chapters 2–3 (which stay same-site). Disclosed, not silently mismatched.

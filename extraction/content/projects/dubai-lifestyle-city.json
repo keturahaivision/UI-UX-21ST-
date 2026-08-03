@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Header.jpg",
       "alt": ""
     },
@@ -39,5 +35,6 @@
     "roads"
   ],
   "category_display": "Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Cover.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Header.jpg"
 }

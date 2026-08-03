@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_Header55.jpg",
       "alt": ""
     },
@@ -92,5 +88,6 @@
     "traffic"
   ],
   "category_display": "Architectural Design, Master Plan",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_10.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_10.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_Header55.jpg"
 }

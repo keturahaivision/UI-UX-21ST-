@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/09/Teejan_Headerjpg.jpg",
       "alt": ""
     },
@@ -43,5 +39,6 @@
     "roads"
   ],
   "category_display": "Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/3-Teejan-MP.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/3-Teejan-MP.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Teejan_Headerjpg.jpg"
 }

@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Header.jpg",
       "alt": ""
     },
@@ -65,5 +61,6 @@
     "supervision"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_3d.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_3d.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Header.jpg"
 }

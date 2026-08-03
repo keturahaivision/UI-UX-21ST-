@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_header_f.jpg",
       "alt": ""
     },
@@ -64,5 +60,6 @@
     "roads"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_Cover.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_header_f.jpg"
 }

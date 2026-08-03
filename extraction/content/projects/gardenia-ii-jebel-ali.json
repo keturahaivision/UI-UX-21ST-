@@ -11,10 +11,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/wasl-dubai-Gardenia-Townhomes-scaled-1.jpeg",
       "alt": ""
     },
@@ -52,5 +48,6 @@
     "traffic"
   ],
   "category_display": "Landscape, Master Plan",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/000_Proposed-TH.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/000_Proposed-TH.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/wasl-dubai-Gardenia-Townhomes-scaled-1.jpeg"
 }

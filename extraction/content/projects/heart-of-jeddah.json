@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ_Header.jpg",
       "alt": ""
     },
@@ -52,5 +48,6 @@
     "structural"
   ],
   "category_display": "Roads & Infrastructure, Structural",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-3.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-3.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ_Header.jpg"
 }

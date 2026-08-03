@@ -11,10 +11,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/09/Bawabat_header36Villas11.jpg",
       "alt": ""
     },
@@ -79,5 +75,6 @@
     "structural"
   ],
   "category_display": "Architectural, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-VIlla3.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-VIlla3.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Bawabat_header36Villas11.jpg"
 }

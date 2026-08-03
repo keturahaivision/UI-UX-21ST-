@@ -12,10 +12,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/living-legend_PHASE-1.png",
       "alt": ""
     },
@@ -52,5 +48,6 @@
     "tis"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rev3_Phase-CD.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rev3_Phase-CD.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/living-legend_PHASE-1.png"
 }

@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/05/KEC_Cover-1.jpg",
       "alt": ""
     },
@@ -35,5 +31,6 @@
     "roads"
   ],
   "category_display": "Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_kec211.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_kec211.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/KEC_Cover-1.jpg"
 }

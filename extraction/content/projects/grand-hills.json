@@ -12,10 +12,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/20230825_Small-villa-4-br-Night.png",
       "alt": ""
     },
@@ -63,5 +59,6 @@
     "traffic"
   ],
   "category_display": "Buildings, EIA",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/18.png"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/18.png",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/20230825_Small-villa-4-br-Night.png"
 }

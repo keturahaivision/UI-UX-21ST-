@@ -12,10 +12,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/Street_View_02.png",
       "alt": ""
     },
@@ -46,5 +42,6 @@
     "traffic-impact-study"
   ],
   "category_display": "Environmental, Landscape",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Ariel_View_03.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Ariel_View_03.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Street_View_02.png"
 }

@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/green_community_dubai_43.jpg",
       "alt": ""
     },
@@ -40,5 +36,6 @@
     "telecommunication-network-design"
   ],
   "category_display": "Electrical HV & LV Design, Horizontal and Vertical Alignment",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/6-Green-Community-Expansion.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/6-Green-Community-Expansion.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/green_community_dubai_43.jpg"
 }

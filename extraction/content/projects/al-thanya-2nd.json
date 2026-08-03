@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Header.jpg",
       "alt": ""
     },
@@ -40,5 +36,6 @@
     "traffic"
   ],
   "category_display": "Roads & Infrastructure, Traffic",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Cover11.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Cover11.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Header.jpg"
 }

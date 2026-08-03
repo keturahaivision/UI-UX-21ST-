@@ -13,10 +13,6 @@
     },
     "gallery": [
       {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
-      {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/5-AA-1.jpg",
         "alt": ""
       },
@@ -41,7 +37,8 @@
       "traffic"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/111-A.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/111-A.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/5-AA-1.jpg"
   },
   {
     "slug": "access-road-to-remraam-housing-project",
@@ -57,10 +54,6 @@
       "Completion date": "2012"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Remraam_Access-Road_Header1.jpg",
         "alt": ""
@@ -81,7 +74,8 @@
       "supervision"
     ],
     "category_display": "Roads & Infrastructure, Supervision",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Remraam_Access-Road_3.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Remraam_Access-Road_3.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Remraam_Access-Road_Header1.jpg"
   },
   {
     "slug": "ajman-industrial-area-roads",
@@ -96,10 +90,6 @@
       "Completion date": "2007"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_06092020_AJMAN_Header.jpg",
         "alt": ""
@@ -131,7 +121,8 @@
       "supervision"
     ],
     "category_display": "Supervision",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_06092020_AJMAN_Icon1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_06092020_AJMAN_Icon1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_06092020_AJMAN_Header.jpg"
   },
   {
     "slug": "akoya-by-damac",
@@ -147,10 +138,6 @@
       "Completion date": "2016"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/05/Akoya_Cover1-e1599986851230.jpg",
         "alt": ""
@@ -195,7 +182,8 @@
       "supervision"
     ],
     "category_display": "Roads & Infrastructure, Supervision",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Akoya_Keyplan1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Akoya_Keyplan1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Akoya_Cover1-e1599986851230.jpg"
   },
   {
     "slug": "al-ahli-club-master-plan",
@@ -209,10 +197,6 @@
       "Size": "20 Hectares"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/08/Al-Ahli_Header1.jpg",
         "alt": ""
@@ -253,7 +237,8 @@
       "roads"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-7.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-7.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Al-Ahli_Header1.jpg"
   },
   {
     "slug": "al-furjan-villas-and-townhomes",
@@ -269,10 +254,6 @@
       "Completion date": "2013-2015"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/05/Al-Furjan_Cover.jpg",
         "alt": ""
@@ -305,7 +286,8 @@
       "supervision"
     ],
     "category_display": "Roads & Infrastructure, Supervision",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/WbAl-Furjan_08.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/WbAl-Furjan_08.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Al-Furjan_Cover.jpg"
   },
   {
     "slug": "al-hamra-avenue",
@@ -319,10 +301,6 @@
       "Size": "30 Hectares"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/01/0Al-Hamra-Avenue_Header.jpg",
         "alt": ""
@@ -379,7 +357,8 @@
       "roads"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/01/0Al-Hamra-Avenue21-e1599991947553.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/01/0Al-Hamra-Avenue21-e1599991947553.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/01/0Al-Hamra-Avenue_Header.jpg"
   },
   {
     "slug": "al-hamra-village",
@@ -393,10 +372,6 @@
       "Size": "200 hectares"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Header1.jpg",
         "alt": ""
@@ -425,7 +400,8 @@
       "supervision"
     ],
     "category_display": "Roads & Infrastructure, Supervision",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Cover.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Cover.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Header1.jpg"
   },
   {
     "slug": "al-jeryan-village",
@@ -441,10 +417,6 @@
       "Completion date": "TBD"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Jeryan_Header.jpg",
         "alt": ""
@@ -468,7 +440,8 @@
       "roads"
     ],
     "category_display": "Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Jeryan-project.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Jeryan-project.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Jeryan_Header.jpg"
   },
   {
     "slug": "al-layan-1-industrial-area",
@@ -484,10 +457,6 @@
       "Completion date": "TBD"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/08/0al_layan_Header1.jpg",
         "alt": ""
@@ -521,7 +490,8 @@
       "supervision"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/0al_layan_simple_01.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/0al_layan_simple_01.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/0al_layan_Header1.jpg"
   },
   {
     "slug": "al-mayar-2",
@@ -537,10 +507,6 @@
       "Completion date": "2012"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_Header.jpg",
         "alt": ""
@@ -581,7 +547,8 @@
       "roads"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_MP.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_MP.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_Header.jpg"
   },
   {
     "slug": "al-qusais",
@@ -597,10 +564,6 @@
       "Completion date": "2020"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/08/Qusais-Header1.jpg",
         "alt": ""
@@ -664,7 +627,8 @@
       "traffic"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_9.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_9.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Qusais-Header1.jpg"
   },
   {
     "slug": "al-salamah",
@@ -680,10 +644,6 @@
       "Completion date": "2011"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH_Header1.jpg",
         "alt": ""
@@ -722,7 +682,8 @@
       "structural"
     ],
     "category_display": "Architectural, Master Plan",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH_Header1.jpg"
   },
   {
     "slug": "al-thanya-2nd",
@@ -738,10 +699,6 @@
       "Completion date": "TBD"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Header.jpg",
         "alt": ""
@@ -766,7 +723,8 @@
       "traffic"
     ],
     "category_display": "Roads & Infrastructure, Traffic",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Cover11.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Cover11.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Header.jpg"
   },
   {
     "slug": "architectural-designs",
@@ -776,10 +734,6 @@
     "description": "Previous Project Next Project \"At DMF, innovation, expertise, and dedication converge to redefine excellence in architectural and engineering solutions.\" DMF Engineering ©2025 DMF Engineering, All Rights Reserved. > JAVASCRIPT ============================================================================== --> > /JAVASCRIPT ============================================================================= -->",
     "details": {},
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Archi_Header.jpg",
         "alt": ""
@@ -843,7 +797,8 @@
       "architectural"
     ],
     "category_display": "Architectural",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Archi_Cover-1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Archi_Cover-1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Archi_Header.jpg"
   },
   {
     "slug": "astrolab",
@@ -859,10 +814,6 @@
       "Completion date": "2008"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab1.jpg",
         "alt": ""
@@ -889,7 +840,8 @@
       "telecommunication-network-design"
     ],
     "category_display": "Contract documentation, Electrical HV & LV Design",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab2a.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab2a.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/astrolab1.jpg"
   },
   {
     "slug": "bab-albahr",
@@ -905,10 +857,6 @@
       "Completion date": "2008"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/220327767.jpg",
         "alt": ""
@@ -940,7 +888,8 @@
       "roads"
     ],
     "category_display": "Grading Design, Horizontal and Vertical Alignment",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/babalbahr.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/babalbahr.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/220327767.jpg"
   },
   {
     "slug": "bawabat-al-sharq-phase-5",
@@ -954,10 +903,6 @@
       "Size": "40,112 sq.m"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Bawabat_header36Villas11.jpg",
         "alt": ""
@@ -1023,7 +968,8 @@
       "structural"
     ],
     "category_display": "Architectural, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-VIlla3.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-VIlla3.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Bawabat_header36Villas11.jpg"
   },
   {
     "slug": "dubai-center-for-research-and-development-of-fisheries",
@@ -1039,10 +985,6 @@
       "Completion date": "TBD"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/1-Dubai-Fish-Hatchery_Header.jpg",
         "alt": ""
@@ -1070,7 +1012,8 @@
       "roads"
     ],
     "category_display": "Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/1-Dubai-Fish-Hatchery_Cover.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/1-Dubai-Fish-Hatchery_Cover.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/1-Dubai-Fish-Hatchery_Header.jpg"
   },
   {
     "slug": "dubai-lifestyle-city",
@@ -1086,10 +1029,6 @@
       "Completion date": "TBD"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Header.jpg",
         "alt": ""
@@ -1113,7 +1052,8 @@
       "roads"
     ],
     "category_display": "Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Cover.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Cover.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Dubai-Life-Style-City_Header.jpg"
   },
   {
     "slug": "dubailand-community",
@@ -1129,10 +1069,6 @@
       "Completion date": "2007-2008"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_Dubailand_Header.jpg",
         "alt": ""
@@ -1170,7 +1106,8 @@
       "supervision"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_MP-model-1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_MP-model-1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_Dubailand_Header.jpg"
   },
   {
     "slug": "euro-university-bahrein",
@@ -1186,10 +1123,6 @@
       "Completion date": "2021"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2019/11/Euro_HeaderFinal.jpg",
         "alt": ""
@@ -1246,7 +1179,8 @@
       "roads"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2019/11/Wb_EURO-N-6.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2019/11/Wb_EURO-N-6.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2019/11/Euro_HeaderFinal.jpg"
   },
   {
     "slug": "gardenia-ii-jebel-ali",
@@ -1260,10 +1194,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/wasl-dubai-Gardenia-Townhomes-scaled-1.jpeg",
         "alt": ""
@@ -1302,7 +1232,8 @@
       "traffic"
     ],
     "category_display": "Landscape, Master Plan",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/000_Proposed-TH.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/000_Proposed-TH.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/wasl-dubai-Gardenia-Townhomes-scaled-1.jpeg"
   },
   {
     "slug": "golf-course-shooting-club",
@@ -1318,10 +1249,6 @@
       "Completion date": "2007 - 2009"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/05/Golf_Header3.jpg",
         "alt": ""
@@ -1354,7 +1281,8 @@
       "supervision"
     ],
     "category_display": "Roads & Infrastructure, Supervision",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Sharjah-Golf_.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Sharjah-Golf_.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Golf_Header3.jpg"
   },
   {
     "slug": "grand-hills",
@@ -1369,10 +1297,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/20230825_Small-villa-4-br-Night.png",
         "alt": ""
@@ -1421,7 +1345,8 @@
       "traffic"
     ],
     "category_display": "Buildings, EIA",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/18.png"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/18.png",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/20230825_Small-villa-4-br-Night.png"
   },
   {
     "slug": "grand-hyatt",
@@ -1436,10 +1361,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/grand-hyatt-conventional-centre-side-elevation-002.png",
         "alt": ""
@@ -1464,7 +1385,8 @@
       "traffic"
     ],
     "category_display": "Roads & Infrastructure, Traffic",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/page1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/page1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/grand-hyatt-conventional-centre-side-elevation-002.png"
   },
   {
     "slug": "green-community-expansion",
@@ -1480,10 +1402,6 @@
       "Completion date": "2012"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/green_community_dubai_43.jpg",
         "alt": ""
@@ -1508,7 +1426,8 @@
       "telecommunication-network-design"
     ],
     "category_display": "Electrical HV & LV Design, Horizontal and Vertical Alignment",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/6-Green-Community-Expansion.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/6-Green-Community-Expansion.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/green_community_dubai_43.jpg"
   },
   {
     "slug": "heart-of-jeddah",
@@ -1524,10 +1443,6 @@
       "Completion date": "2025"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ_Header.jpg",
         "alt": ""
@@ -1564,7 +1479,8 @@
       "structural"
     ],
     "category_display": "Roads & Infrastructure, Structural",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-3.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-3.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ_Header.jpg"
   },
   {
     "slug": "hillside-library",
@@ -1580,10 +1496,6 @@
       "Completion date": "2013-2015"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_Header.jpg",
         "alt": ""
@@ -1629,7 +1541,8 @@
       "supervision"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island-Aerial-01.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island-Aerial-01.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_Header.jpg"
   },
   {
     "slug": "hotel-staff-accommodation",
@@ -1645,10 +1558,6 @@
       "Completion date": "2020"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Header.jpg",
         "alt": ""
@@ -1698,7 +1607,8 @@
       "supervision"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_3d.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_3d.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Hotelstaff_Header.jpg"
   },
   {
     "slug": "jebel-ali-development",
@@ -1714,10 +1624,6 @@
       "Completion date": "2020"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_Header55.jpg",
         "alt": ""
@@ -1794,7 +1700,8 @@
       "traffic"
     ],
     "category_display": "Architectural Design, Master Plan",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_10.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_10.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_Header55.jpg"
   },
   {
     "slug": "jumairah-lake-towers-cluster-identification-signage",
@@ -1808,10 +1715,6 @@
       "Location": "Dubai,UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/JLT_Phase-3_Site-Photos_20220421_Page_4.jpg",
         "alt": ""
@@ -1839,7 +1742,8 @@
       "cluster-identification-signage"
     ],
     "category_display": "Cluster Identification Signage",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/JLT_Phase-3_Site-Photos_20220421_Page_5.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/JLT_Phase-3_Site-Photos_20220421_Page_5.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/JLT_Phase-3_Site-Photos_20220421_Page_4.jpg"
   },
   {
     "slug": "kabul-new-city",
@@ -1855,10 +1759,6 @@
       "Completion date": "2013"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/05/KNC_Header1.jpg",
         "alt": ""
@@ -1933,7 +1833,8 @@
       "structural"
     ],
     "category_display": "Architectural Design, Master Plan",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/KNC_ICON.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/KNC_ICON.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/KNC_Header1.jpg"
   },
   {
     "slug": "knowledge-economic-city",
@@ -1949,10 +1850,6 @@
       "Completion date": "2012"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/05/KEC_Cover-1.jpg",
         "alt": ""
@@ -1972,7 +1869,8 @@
       "roads"
     ],
     "category_display": "Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_kec211.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_kec211.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/KEC_Cover-1.jpg"
   },
   {
     "slug": "living-legend",
@@ -1987,10 +1885,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/living-legend_PHASE-1.png",
         "alt": ""
@@ -2028,7 +1922,8 @@
       "tis"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rev3_Phase-CD.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rev3_Phase-CD.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/living-legend_PHASE-1.png"
   },
   {
     "slug": "mayasem",
@@ -2044,10 +1939,6 @@
       "Completion date": "2012-2014"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/08/Mayasem_Header1.jpg",
         "alt": ""
@@ -2076,7 +1967,8 @@
       "traffic"
     ],
     "category_display": "Roads & Infrastructure, Traffic",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_2-RI-Mayasem.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_2-RI-Mayasem.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Mayasem_Header1.jpg"
   },
   {
     "slug": "mirdif-central-park",
@@ -2092,10 +1984,6 @@
     },
     "gallery": [
       {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
-      {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/Untitled-1.jpg",
         "alt": ""
       }
@@ -2106,7 +1994,8 @@
       "roads"
     ],
     "category_display": "Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Untitled-1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Untitled-1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Untitled-1.jpg"
   },
   {
     "slug": "mixed-use-development-alrowaiyah-third",
@@ -2121,10 +2010,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/Landuse-option-4.jpg",
         "alt": ""
@@ -2154,7 +2039,8 @@
       "traffic"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/villa_01.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/villa_01.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Landuse-option-4.jpg"
   },
   {
     "slug": "nah",
@@ -2170,10 +2056,6 @@
       "Completion date": "2020"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_NAH-Header.jpg",
         "alt": ""
@@ -2227,7 +2109,8 @@
       "supervision"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_nah-0211.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_nah-0211.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_NAH-Header.jpg"
   },
   {
     "slug": "nujoom-island",
@@ -2243,10 +2126,6 @@
       "Completion date": "2008"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/08/1-Traffic-Nujoom-Island_Header.jpg",
         "alt": ""
@@ -2270,7 +2149,8 @@
       "traffic"
     ],
     "category_display": "Traffic",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Nujoom-Island_Cover.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Nujoom-Island_Cover.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/1-Traffic-Nujoom-Island_Header.jpg"
   },
   {
     "slug": "omarzay-residential-apartments",
@@ -2286,10 +2166,6 @@
       "Completion date": "N/A"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_Header.jpg",
         "alt": ""
@@ -2337,7 +2213,8 @@
       "architectural-design"
     ],
     "category_display": "Architectural Design",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Cover.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Cover.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_Header.jpg"
   },
   {
     "slug": "ordos-museus",
@@ -2353,10 +2230,6 @@
       "Completion date": "N/A"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_header_f.jpg",
         "alt": ""
@@ -2405,7 +2278,8 @@
       "roads"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_Cover.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_Cover.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_header_f.jpg"
   },
   {
     "slug": "ras-alkhor-development-amlak",
@@ -2420,10 +2294,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/R0014.03-DevelopmentofRasAlKhorWildlifeSanctuary.jpg",
         "alt": ""
@@ -2467,7 +2337,8 @@
       "traffic"
     ],
     "category_display": "EIA, Landscape",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/DMF_Option-1_Cam-1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/DMF_Option-1_Cam-1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/R0014.03-DevelopmentofRasAlKhorWildlifeSanctuary.jpg"
   },
   {
     "slug": "ras-alkhor-ii-development-wasl",
@@ -2482,10 +2353,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/Street_View_02.png",
         "alt": ""
@@ -2517,7 +2384,8 @@
       "traffic-impact-study"
     ],
     "category_display": "Environmental, Landscape",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Ariel_View_03.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Ariel_View_03.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Street_View_02.png"
   },
   {
     "slug": "remraam-access-road",
@@ -2533,10 +2401,6 @@
       "Completion date": "2012"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/08/Remraam_Header3.jpg",
         "alt": ""
@@ -2581,7 +2445,8 @@
       "supervision"
     ],
     "category_display": "Roads & Infrastructure, Supervision",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Remraam_Cover.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Remraam_Cover.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Remraam_Header3.jpg"
   },
   {
     "slug": "reportage-village-1-and-village-2-and-bianca-community",
@@ -2596,10 +2461,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/05.jpg",
         "alt": ""
@@ -2632,7 +2493,8 @@
       "roads"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/03.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/03.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/05.jpg"
   },
   {
     "slug": "residential-development-on-plot-811-1444-warsan-3rd",
@@ -2648,10 +2510,6 @@
       "Completion date": "TBD"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Warsan3_Header.jpg",
         "alt": ""
@@ -2684,7 +2542,8 @@
       "roads"
     ],
     "category_display": "Master Plan, Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/New-Warsan3_006.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/New-Warsan3_006.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Warsan3_Header.jpg"
   },
   {
     "slug": "sharjah-airport-free-zone",
@@ -2700,10 +2559,6 @@
       "Completion date": "2011"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/SAIF-ZONE_Header.jpg",
         "alt": ""
@@ -2758,7 +2613,8 @@
       "supervision"
     ],
     "category_display": "Architectural, Master Plan",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/SAIF-ZONE_Cover1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/SAIF-ZONE_Cover1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/SAIF-ZONE_Header.jpg"
   },
   {
     "slug": "teejan-villas-dubailand",
@@ -2774,10 +2630,6 @@
       "Completion date": "2008"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2020/09/Teejan_Headerjpg.jpg",
         "alt": ""
@@ -2805,7 +2657,8 @@
       "roads"
     ],
     "category_display": "Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/3-Teejan-MP.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/3-Teejan-MP.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Teejan_Headerjpg.jpg"
   },
   {
     "slug": "the-world-somalia-island",
@@ -2822,10 +2675,6 @@
     },
     "gallery": [
       {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
-      {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/DEVELOPMENT-PROPOSAL-SITE-PLAN.jpg",
         "alt": ""
       },
@@ -2840,7 +2689,8 @@
       "roads"
     ],
     "category_display": "Roads & Infrastructure",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/somalia2.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/somalia2.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/DEVELOPMENT-PROPOSAL-SITE-PLAN.jpg"
   },
   {
     "slug": "warehouse-gm-dip",
@@ -2854,10 +2704,6 @@
       "Location": "Dubai, UAE"
     },
     "gallery": [
-      {
-        "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-        "alt": ""
-      },
       {
         "url": "https://dmfeng.com/wp-content/uploads/2024/10/Artboard-4.jpg",
         "alt": ""
@@ -2883,6 +2729,7 @@
       "structural"
     ],
     "category_display": "Architectural, MEP",
-    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Artboard-1.jpg"
+    "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Artboard-1.jpg",
+    "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Artboard-4.jpg"
   }
 ]

@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/05/Al-Furjan_Cover.jpg",
       "alt": ""
     },
@@ -48,5 +44,6 @@
     "supervision"
   ],
   "category_display": "Roads & Infrastructure, Supervision",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/WbAl-Furjan_08.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/WbAl-Furjan_08.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Al-Furjan_Cover.jpg"
 }

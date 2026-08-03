@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/05/KNC_Header1.jpg",
       "alt": ""
     },
@@ -90,5 +86,6 @@
     "structural"
   ],
   "category_display": "Architectural Design, Master Plan",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/KNC_ICON.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/KNC_ICON.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/KNC_Header1.jpg"
 }

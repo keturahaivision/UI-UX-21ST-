@@ -11,10 +11,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Header1.jpg",
       "alt": ""
     },
@@ -42,5 +38,6 @@
     "supervision"
   ],
   "category_display": "Roads & Infrastructure, Supervision",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Cover.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/0Al-Hamra-Header1.jpg"
 }

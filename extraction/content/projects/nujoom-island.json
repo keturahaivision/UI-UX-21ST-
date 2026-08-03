@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/08/1-Traffic-Nujoom-Island_Header.jpg",
       "alt": ""
     },
@@ -39,5 +35,6 @@
     "traffic"
   ],
   "category_display": "Traffic",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Nujoom-Island_Cover.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Nujoom-Island_Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/1-Traffic-Nujoom-Island_Header.jpg"
 }

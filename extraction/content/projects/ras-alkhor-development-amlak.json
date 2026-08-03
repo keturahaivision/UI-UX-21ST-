@@ -12,10 +12,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/R0014.03-DevelopmentofRasAlKhorWildlifeSanctuary.jpg",
       "alt": ""
     },
@@ -58,5 +54,6 @@
     "traffic"
   ],
   "category_display": "EIA, Landscape",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/DMF_Option-1_Cam-1.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/DMF_Option-1_Cam-1.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/R0014.03-DevelopmentofRasAlKhorWildlifeSanctuary.jpg"
 }

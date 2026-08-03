@@ -11,10 +11,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/JLT_Phase-3_Site-Photos_20220421_Page_4.jpg",
       "alt": ""
     },
@@ -41,5 +37,6 @@
     "cluster-identification-signage"
   ],
   "category_display": "Cluster Identification Signage",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/JLT_Phase-3_Site-Photos_20220421_Page_5.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/JLT_Phase-3_Site-Photos_20220421_Page_5.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/JLT_Phase-3_Site-Photos_20220421_Page_4.jpg"
 }

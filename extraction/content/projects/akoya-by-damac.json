@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/05/Akoya_Cover1-e1599986851230.jpg",
       "alt": ""
     },
@@ -60,5 +56,6 @@
     "supervision"
   ],
   "category_display": "Roads & Infrastructure, Supervision",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Akoya_Keyplan1.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/0Akoya_Keyplan1.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Akoya_Cover1-e1599986851230.jpg"
 }

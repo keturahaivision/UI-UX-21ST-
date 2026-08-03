@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/08/Qusais-Header1.jpg",
       "alt": ""
     },
@@ -79,5 +75,6 @@
     "traffic"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_9.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_9.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Qusais-Header1.jpg"
 }

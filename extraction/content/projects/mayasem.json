@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/08/Mayasem_Header1.jpg",
       "alt": ""
     },
@@ -44,5 +40,6 @@
     "traffic"
   ],
   "category_display": "Roads & Infrastructure, Traffic",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_2-RI-Mayasem.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_2-RI-Mayasem.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Mayasem_Header1.jpg"
 }

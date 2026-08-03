@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/08/Remraam_Header3.jpg",
       "alt": ""
     },
@@ -60,5 +56,6 @@
     "supervision"
   ],
   "category_display": "Roads & Infrastructure, Supervision",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Remraam_Cover.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Remraam_Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Remraam_Header3.jpg"
 }

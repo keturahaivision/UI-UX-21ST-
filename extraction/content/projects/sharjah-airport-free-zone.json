@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/09/SAIF-ZONE_Header.jpg",
       "alt": ""
     },
@@ -70,5 +66,6 @@
     "supervision"
   ],
   "category_display": "Architectural, Master Plan",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/SAIF-ZONE_Cover1.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/SAIF-ZONE_Cover1.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/SAIF-ZONE_Header.jpg"
 }

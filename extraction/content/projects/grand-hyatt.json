@@ -12,10 +12,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2024/10/grand-hyatt-conventional-centre-side-elevation-002.png",
       "alt": ""
     },
@@ -39,5 +35,6 @@
     "traffic"
   ],
   "category_display": "Roads & Infrastructure, Traffic",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/page1.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/page1.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/grand-hyatt-conventional-centre-side-elevation-002.png"
 }

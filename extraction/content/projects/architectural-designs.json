@@ -7,10 +7,6 @@
   "details": {},
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/09/Archi_Header.jpg",
       "alt": ""
     },
@@ -73,5 +69,6 @@
     "architectural"
   ],
   "category_display": "Architectural",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Archi_Cover-1.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Archi_Cover-1.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Archi_Header.jpg"
 }

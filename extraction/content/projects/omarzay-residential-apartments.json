@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_Header.jpg",
       "alt": ""
     },
@@ -63,5 +59,6 @@
     "architectural-design"
   ],
   "category_display": "Architectural Design",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Cover.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_Header.jpg"
 }

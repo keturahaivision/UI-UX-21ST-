@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_Header.jpg",
       "alt": ""
     },
@@ -56,5 +52,6 @@
     "roads"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_MP.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_MP.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/AL-MAYAR_Header.jpg"
 }

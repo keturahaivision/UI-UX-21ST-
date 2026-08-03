@@ -13,10 +13,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_Header.jpg",
       "alt": ""
     },
@@ -61,5 +57,6 @@
     "supervision"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island-Aerial-01.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island-Aerial-01.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_Header.jpg"
 }

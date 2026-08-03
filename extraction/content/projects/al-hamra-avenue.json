@@ -11,10 +11,6 @@
   },
   "gallery": [
     {
-      "url": "https://dmfeng.com/wp-content/uploads/2019/10/1.png",
-      "alt": ""
-    },
-    {
       "url": "https://dmfeng.com/wp-content/uploads/2020/01/0Al-Hamra-Avenue_Header.jpg",
       "alt": ""
     },
@@ -70,5 +66,6 @@
     "roads"
   ],
   "category_display": "Master Plan, Roads & Infrastructure",
-  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/01/0Al-Hamra-Avenue21-e1599991947553.jpg"
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/01/0Al-Hamra-Avenue21-e1599991947553.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/01/0Al-Hamra-Avenue_Header.jpg"
 }
