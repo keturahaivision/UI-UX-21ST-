@@ -16,3 +16,4 @@ design-analysis/raw/
 # QA screenshots (regenerable evidence)
 qa/shots-iter*/
 qa/*.jpg
+qa/video/
