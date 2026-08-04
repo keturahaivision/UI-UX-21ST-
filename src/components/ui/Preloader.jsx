@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useReducedMotion } from '@/lib/useReducedMotion';
+import { asset } from '@/lib/asset';
 
 // Preload the Chapter 1-3 hero imagery; the counter reflects REAL load progress.
 const CRITICAL = [
@@ -27,7 +28,7 @@ export default function Preloader() {
     };
     CRITICAL.forEach((src) => {
       const img = new Image();
-      img.onload = done; img.onerror = done; img.src = src;
+      img.onload = done; img.onerror = done; img.src = asset(src);
     });
     // safety: never trap the user
     const t = setTimeout(() => !cancelled && setGone(true), 6000);

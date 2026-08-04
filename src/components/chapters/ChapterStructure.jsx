@@ -1,6 +1,7 @@
 'use client';
 import { useState, useCallback } from 'react';
 import Chapter from './Chapter';
+import { asset } from '@/lib/asset';
 
 // Ch3 — same site: masterplan cross-fades into the built aerial, bound to scroll.
 export default function ChapterStructure() {
@@ -11,10 +12,10 @@ export default function ChapterStructure() {
       <div className="relative min-h-screen">
         <div className="absolute inset-0">
           {/* plan (before) */}
-          <img src="/images/2015_07_Wb_NAH-Masterplan.webp" alt="Nadd Al Hamar master plan"
+          <img src={asset('/images/2015_07_Wb_NAH-Masterplan.webp')} alt="Nadd Al Hamar master plan"
             className="absolute inset-0 h-full w-full object-cover" />
           {/* built (after) revealed by scroll */}
-          <img src="/images/2015_07_Wb_NAH-01.webp" alt="Nadd Al Hamar community as built — aerial view"
+          <img src={asset('/images/2015_07_Wb_NAH-01.webp')} alt="Nadd Al Hamar community as built — aerial view"
             className="absolute inset-0 h-full w-full object-cover" style={{ opacity: p }} />
           <div className="absolute inset-0 u-scrim-dark" />
           {/* progress seam */}

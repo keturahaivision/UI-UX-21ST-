@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Gallery from '@/components/ui/Gallery';
 import { pageMeta, projectJsonLd } from '@/lib/seo';
 import data from '@/data/content.json';
+import { asset } from '@/lib/asset';
 
 export function generateStaticParams() {
   return data.projects.map((p) => ({ slug: p.slug }));
@@ -37,7 +38,7 @@ export default function ProjectDetail({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd(p)) }} />
       {/* hero */}
       <section className="relative h-[70vh] min-h-[520px] w-full overflow-hidden">
-        {p.hero && <img src={p.hero} alt={p.name} className="absolute inset-0 h-full w-full object-cover" />}
+        {p.hero && <img src={asset(p.hero)} alt={p.name} className="absolute inset-0 h-full w-full object-cover" />}
         <div className="absolute inset-0 u-scrim-dark" />
         <div className="u-container relative z-10 flex h-full flex-col justify-end pb-14">
           <Link href="/projects" className="u-label u-link-underline mb-6 text-paper-50/70">← All projects</Link>

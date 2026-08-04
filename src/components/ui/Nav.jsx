@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { asset } from '@/lib/asset';
 
 const LINKS = [
   { label: 'Projects', href: '/projects' },
@@ -25,7 +26,7 @@ export default function Nav() {
     <header className={`fixed inset-x-0 top-0 z-[90] transition-colors duration-500 ease-standard ${scrolled || open ? 'bg-ink-900/85 backdrop-blur-md' : 'bg-transparent'}`}>
       <div className="u-container flex h-16 items-center justify-between md:h-20">
         <Link href="/" className="flex items-center gap-3" aria-label="DMF Engineering home">
-          <img src="/dmf-logo.png" alt="DMF Engineering" className="h-7 w-auto md:h-8" />
+          <img src={asset('/dmf-logo.png')} alt="DMF Engineering" className="h-7 w-auto md:h-8" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {LINKS.map((l) => (

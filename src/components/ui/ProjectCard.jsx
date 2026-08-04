@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { asset } from '@/lib/asset';
 
 export default function ProjectCard({ project, className = '', wide = false }) {
   const p = project;
@@ -8,7 +9,7 @@ export default function ProjectCard({ project, className = '', wide = false }) {
       className={`group relative block overflow-hidden rounded-xs bg-ink-800 ${className}`}>
       <div className={`relative ${wide ? 'aspect-[4/3]' : 'aspect-[3/4]'} w-full overflow-hidden`}>
         {p.thumb ? (
-          <img src={p.thumb} alt={p.name} loading="lazy"
+          <img src={asset(p.thumb)} alt={p.name} loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 ease-settle group-hover:scale-105" />
         ) : <div className="h-full w-full bg-slate-700" />}
         <div className="absolute inset-0 u-scrim-dark opacity-90" />

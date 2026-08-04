@@ -3,6 +3,7 @@ import { useState, useCallback } from 'react';
 import Chapter from './Chapter';
 import Reveal from '@/components/motion/Reveal';
 import SurveyLines from './SurveyLines';
+import { asset } from '@/lib/asset';
 
 export default function ChapterLand() {
   const [p, setP] = useState(0);
@@ -11,7 +12,7 @@ export default function ChapterLand() {
     <Chapter id="land" index={1} label="Land" tone="dark" pin scrub={1.4} onProgress={onProgress}>
       {/* raw terrain */}
       <div className="absolute inset-0">
-        <img src="/images/ch1-land.webp" alt="Raw reclaimed land before development — a DMF Engineering site emerging from the sea"
+        <img src={asset('/images/ch1-land.webp')} alt="Raw reclaimed land before development — a DMF Engineering site emerging from the sea"
           className="h-full w-full object-cover" style={{ transform: `scale(${1.12 + p * 0.06})`, filter: `saturate(${0.5 + p * 0.3}) brightness(${0.6 + p * 0.22})` }} />
         <div className="absolute inset-0 bg-ink-900/50" />
         <div className="absolute inset-0 u-scrim-dark" />

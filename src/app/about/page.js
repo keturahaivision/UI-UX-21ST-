@@ -1,6 +1,7 @@
 import PageHeader from '@/components/ui/PageHeader';
 import { pageMeta } from '@/lib/seo';
 import data from '@/data/content.json';
+import { asset } from '@/lib/asset';
 
 export const metadata = pageMeta({
   title: 'About', path: '/about',
@@ -42,7 +43,7 @@ export default function AboutPage() {
         <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-xs bg-slate-700 sm:grid-cols-3 lg:grid-cols-5">
           {data.clients.filter((c) => c.logo).map((c) => (
             <div key={c.logo} className="flex items-center justify-center bg-ink-900 p-6">
-              <img src={c.logo} alt={c.name || 'DMF Engineering client'} loading="lazy" className="max-h-12 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0" />
+              <img src={asset(c.logo)} alt={c.name || 'DMF Engineering client'} loading="lazy" className="max-h-12 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0" />
             </div>
           ))}
         </div>

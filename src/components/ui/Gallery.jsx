@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState, useCallback } from 'react';
+import { asset } from '@/lib/asset';
 
 export default function Gallery({ images = [] }) {
   const [idx, setIdx] = useState(-1);
@@ -25,7 +26,7 @@ export default function Gallery({ images = [] }) {
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
         {images.map((img, i) => (
           <button key={i} onClick={() => setIdx(i)} className="group relative aspect-[4/3] overflow-hidden rounded-xs bg-ink-800" aria-label={`Open image ${i + 1}`}>
-            <img src={img.src} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-settle group-hover:scale-105" />
+            <img src={asset(img.src)} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-settle group-hover:scale-105" />
           </button>
         ))}
       </div>
@@ -33,7 +34,7 @@ export default function Gallery({ images = [] }) {
         <div className="fixed inset-0 z-[110] flex items-center justify-center bg-ink-900/95 p-4" role="dialog" aria-modal="true" onClick={close}>
           <button className="absolute right-5 top-5 u-label text-paper-50" onClick={close} aria-label="Close">CLOSE ✕</button>
           <button className="absolute left-4 u-label text-paper-50 md:left-8" onClick={(e) => { e.stopPropagation(); move(-1); }} aria-label="Previous">←</button>
-          <img src={images[idx].src} alt={images[idx].alt} className="max-h-[85vh] max-w-[90vw] object-contain" onClick={(e) => e.stopPropagation()} />
+          <img src={asset(images[idx].src)} alt={images[idx].alt} className="max-h-[85vh] max-w-[90vw] object-contain" onClick={(e) => e.stopPropagation()} />
           <button className="absolute right-4 u-label text-paper-50 md:right-8" onClick={(e) => { e.stopPropagation(); move(1); }} aria-label="Next">→</button>
           <span className="absolute bottom-5 font-mono text-label-sm text-paper-50/70">{idx + 1} / {images.length}</span>
         </div>

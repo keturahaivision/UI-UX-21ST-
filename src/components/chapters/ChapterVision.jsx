@@ -2,6 +2,7 @@
 import { useState, useCallback } from 'react';
 import Chapter from './Chapter';
 import SurveyLines from './SurveyLines';
+import { asset } from '@/lib/asset';
 
 // Ch2 — the plan draws itself, then the real DMF masterplan resolves beneath the lines.
 export default function ChapterVision() {
@@ -25,7 +26,7 @@ export default function ChapterVision() {
           </div>
           {/* drawing canvas */}
           <div className="relative aspect-[12/7] w-full overflow-hidden rounded-xs border border-slate-700 bg-ink-800">
-            <img src="/images/2015_07_Wb_NAH-Masterplan.webp" alt="Nadd Al Hamar master plan drawing by DMF Engineering"
+            <img src={asset('/images/2015_07_Wb_NAH-Masterplan.webp')} alt="Nadd Al Hamar master plan drawing by DMF Engineering"
               className="absolute inset-0 h-full w-full object-cover transition-opacity"
               style={{ opacity: planFade }} />
             <div className="absolute inset-0" style={{ opacity: 1 - planFade * 0.85 }}>
