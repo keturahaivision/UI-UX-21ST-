@@ -17,3 +17,6 @@ design-analysis/raw/
 qa/shots-iter*/
 qa/*.jpg
 qa/video/
+
+# Vendored design-intelligence skill (re-installable via npx ui-ux-pro-max-cli)
+.claude/skills/
