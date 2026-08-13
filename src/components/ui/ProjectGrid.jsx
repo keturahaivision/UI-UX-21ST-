@@ -1,10 +1,14 @@
 'use client';
 import { useMemo, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import ProjectCard from './ProjectCard';
 import data from '@/data/content.json';
 
 export default function ProjectGrid() {
-  const [discipline, setDiscipline] = useState('All');
+  const params = useSearchParams();
+  const initialD = params.get('d');
+  const validD = data.filters.disciplines.some((f) => f.label === initialD) ? initialD : 'All';
+  const [discipline, setDiscipline] = useState(validD);
   const [country, setCountry] = useState('All');
 
   const filtered = useMemo(() => data.projects.filter((p) => {

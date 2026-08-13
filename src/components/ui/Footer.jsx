@@ -15,9 +15,12 @@ export default function Footer() {
           <div>
             <p className="u-label text-stone-500">Explore</p>
             <ul className="mt-4 space-y-2 font-body text-caption">
+              <li><Link href="/expertise" className="u-link-underline">Expertise</Link></li>
               <li><Link href="/projects" className="u-link-underline">Projects</Link></li>
-              <li><Link href="/services" className="u-link-underline">Services</Link></li>
               <li><Link href="/about" className="u-link-underline">About</Link></li>
+              <li><Link href="/partnerships" className="u-link-underline">Partnerships</Link></li>
+              <li><Link href="/insights" className="u-link-underline">Insights</Link></li>
+              <li><Link href="/careers" className="u-link-underline">Careers</Link></li>
               <li><Link href="/contact" className="u-link-underline">Contact</Link></li>
             </ul>
           </div>

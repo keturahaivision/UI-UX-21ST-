@@ -58,7 +58,7 @@ export default function ProjectDetail({ params }) {
             </p>
           )}
         </div>
-        <dl className="lg:pt-1">
+        <dl className="glass h-fit rounded-sm p-6 lg:pt-6">
           <Fact label="Discipline" value={p.disciplineDisplay} />
           <Fact label="Client" value={p.client} />
           <Fact label="Location" value={p.location} />

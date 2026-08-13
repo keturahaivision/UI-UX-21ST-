@@ -11,6 +11,7 @@ const nextConfig = {
     return [
       { source: '/sh_projects/:slug', destination: '/projects/:slug', permanent: true },
       { source: '/our-clients', destination: '/about', permanent: true },
+      { source: '/services', destination: '/expertise', permanent: true },
     ];
   },
 };

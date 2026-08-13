@@ -31,7 +31,7 @@ export default function Strata() {
             {LAYERS.map((l, i) => {
               const on = i < shown;
               return (
-                <div key={l.key} className="overflow-hidden rounded-xs border border-slate-700 bg-ink-800 transition-all duration-500 ease-settle"
+                <div key={l.key} className="glass overflow-hidden rounded-xs transition-all duration-500 ease-settle"
                   style={{ opacity: on ? 1 : 0.12, transform: on ? 'translateX(0)' : 'translateX(24px)' }}>
                   <div className="flex items-center justify-between px-4 pt-3">
                     <span className="font-mono text-label-sm text-paper-50">{String(i + 1).padStart(2, '0')} · {l.key}</span>

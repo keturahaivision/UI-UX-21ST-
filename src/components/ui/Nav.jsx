@@ -5,9 +5,10 @@ import { useEffect, useState } from 'react';
 import { asset } from '@/lib/asset';
 
 const LINKS = [
+  { label: 'Expertise', href: '/expertise' },
   { label: 'Projects', href: '/projects' },
-  { label: 'Services', href: '/services' },
   { label: 'About', href: '/about' },
+  { label: 'Partnerships', href: '/partnerships' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -23,10 +24,10 @@ export default function Nav() {
   useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-[90] transition-colors duration-500 ease-standard ${scrolled || open ? 'bg-ink-900/85 backdrop-blur-md' : 'bg-transparent'}`}>
-      <div className="u-container flex h-16 items-center justify-between md:h-20">
+    <header className={`fixed inset-x-0 top-0 z-[90] transition-all duration-500 ease-standard ${scrolled || open ? 'glass-strong' : 'bg-gradient-to-b from-ink-900/50 to-transparent'}`}>
+      <div className="u-container flex h-20 items-center justify-between md:h-24">
         <Link href="/" className="flex items-center gap-3" aria-label="DMF Engineering home">
-          <img src={asset('/dmf-logo.png')} alt="DMF Engineering" className="h-7 w-auto md:h-8" />
+          <img src={asset('/dmf-logo.png')} alt="DMF Engineering" className="h-11 w-auto md:h-14" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {LINKS.map((l) => (
@@ -41,7 +42,7 @@ export default function Nav() {
         </button>
       </div>
       {/* Mobile overlay */}
-      <div className={`fixed inset-0 -z-10 flex flex-col justify-center gap-2 bg-ink-900 px-8 transition-all duration-500 ease-settle md:hidden ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}>
+      <div className={`fixed inset-0 -z-10 flex flex-col justify-center gap-2 glass-strong px-8 transition-all duration-500 ease-settle md:hidden ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}>
         {[{ label: 'Home', href: '/' }, ...LINKS].map((l) => (
           <Link key={l.href} href={l.href} className="font-display text-h2 text-paper-50 hover:text-accent">{l.label}</Link>
         ))}
