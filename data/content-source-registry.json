@@ -1,0 +1,537 @@
+{
+  "generated": "2026-08",
+  "policy": "Nothing marked UNVERIFIED or CONFLICTING publishes without explicit owner approval. Facts sourced only to the company's own site are VERIFIED_OFFICIAL as self-descriptions but are flagged where independent corroboration or owner confirmation is prudent (contact details, leadership, client names, areas, dates).",
+  "entries": [
+    {
+      "claim": "DMF Engineering is an engineering & architectural consultancy based in Dubai, UAE.",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/about/",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-description on the company's own About page."
+    },
+    {
+      "claim": "Company ethos: 'At DMF, innovation, expertise, and dedication converge to redefine excellence in architectural and engineering solutions.'",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Footer quote on the company's own site."
+    },
+    {
+      "claim": "Founded by David Ghosheh.",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/about/",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "REQUIRES_CONFIRMATION",
+      "notes": "Stated on the company's own About page; corroborate leadership name/title/spelling with owner. See Agent A research."
+    },
+    {
+      "claim": "Office: Baniyas Road, Green Tower, 5th floor, Office 504, Deira, Dubai, UAE.",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/contact/",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "REQUIRES_CONFIRMATION",
+      "notes": "Must be re-confirmed by owner before publication."
+    },
+    {
+      "claim": "Phone: +971 4-227-2525.",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/contact/",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "REQUIRES_CONFIRMATION",
+      "notes": "Confirm current number with owner."
+    },
+    {
+      "claim": "Public contact email.",
+      "source_type": "",
+      "source_url": "",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "REQUIRES_CONFIRMATION",
+      "notes": "No email published on the source site; owner must supply."
+    },
+    {
+      "claim": "LinkedIn: linkedin.com/company/dmfdubai/",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Linked from the company's own site."
+    },
+    {
+      "claim": "Disciplines: Master Planning, Roads & Infrastructure, Architecture, Structural, Civil, Landscape, Traffic, Construction Supervision, Cost Management, Project Management.",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/services/",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Listed on the company's own Services page."
+    },
+    {
+      "claim": "Project '224 Villas Al Khawaneej 2nd Development' — scope: Masterplan, Roads, Infrastructure, Traffic; client: Dubai Limited Investment LLC; location: Dubai, UAE; size: 14.5 Hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/224-villas-al-khawaneej-2nd-development/",
+      "source_file": "extraction/content/projects/224-villas-al-khawaneej-2nd-development.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'External Access Road To Remraam Housing Project' — scope: Roads and Infrastructure Design and Site Supervision; client: Dubai Properties; location: Dubai, UAE; size: N/A; completion: 2012",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/access-road-to-remraam-housing-project/",
+      "source_file": "extraction/content/projects/access-road-to-remraam-housing-project.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Ajman Industrial Area' — scope: Roads & Infrastructure, Construction Supervision, Utilities Diversion & Relocation; client: Ajman Municipality; size: TBD; completion: 2007",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/ajman-industrial-area-roads/",
+      "source_file": "extraction/content/projects/ajman-industrial-area-roads.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Akoya by Damac' — scope: Roads and Infrastructure Design, Bulk Earthworks - Site Supervision; client: Damac; location: Dubai, UAE; size: 103.6 Hectares; completion: 2016",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/akoya-by-damac/",
+      "source_file": "extraction/content/projects/akoya-by-damac.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Ahli Club' — scope: Detailed Master Plan, Roads and Infrastructure Design, Concept Architecture/Massing, 3D Model, Plot Guidelines, Landscape Design, Strategy Renderings; client: Wasl and Dubai Sports Corporation; size: 20 Hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-ahli-club-master-plan/",
+      "source_file": "extraction/content/projects/al-ahli-club-master-plan.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Furjan Villas and Townhomes' — scope: Roads & Infrastructure design and Supervision; client: Nakheel; location: Dubai, UAE; size: 30 Hectares; completion: 2013-2015",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-furjan-villas-and-townhomes/",
+      "source_file": "extraction/content/projects/al-furjan-villas-and-townhomes.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Hamra Avenue' — scope: Master Plan, Roads & Infrastructure, Landscape Design, Detailed 3D Model Renderings Video Flythrough; client: First Invest Group; size: 30 Hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-hamra-avenue/",
+      "source_file": "extraction/content/projects/al-hamra-avenue.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Hamra Village Phase III' — scope: Roads and Infrastructure Design, Grading Design & Supervision Services; client: RAK; size: 200 hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-hamra-village/",
+      "source_file": "extraction/content/projects/al-hamra-village.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Jeryan Village' — scope: Roads & Infrastructure design; client: LACASA; location: Doha, Qatar; size: 54 Hectares; completion: TBD",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-jeryan-village/",
+      "source_file": "extraction/content/projects/al-jeryan-village.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Layan 1 Industrial Area' — scope: Roads and Infrastructure Design, Bulk Earthworks & Temporary Access Road Supervision; client: Dubai Real Estate Corporation / Wasl; location: Dubai, UAE; size: 950 Hectares; completion: TBD",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-layan-1-industrial-area/",
+      "source_file": "extraction/content/projects/al-layan-1-industrial-area.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Mayar' — scope: Master Planning , Roads and Infrastructure; client: Ewaan; location: Jeddah, Saudi Arabia; size: 33 hectares; completion: 2012",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-mayar-2/",
+      "source_file": "extraction/content/projects/al-mayar-2.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Qusais Residential Development' — scope: Master Planning, Roads & Infrastructure Design, Traffic Engineering and Site Supervision; client: Dubai Real Estate Corporation / Wasl; location: Dubai, UAE; size: 23.5 Hectar; completion: 2020",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-qusais/",
+      "source_file": "extraction/content/projects/al-qusais.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Salamah Community' — scope: Master Planning, Roads and Infrastructure, Building's Architectural, Structural and MEP Design,; client: JDURC; location: Jeddah, Saudi Arabia; size: 13 hectares; completion: 2011",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-salamah/",
+      "source_file": "extraction/content/projects/al-salamah.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Al Thanya 2nd' — scope: Roads & Infrastructure Design and Traffic Engineering; client: Office of Sheikh Ahmed Bin Rashid Al Maktoum; location: Dubai, UAE; size: 63 Hectares; completion: TBD",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/al-thanya-2nd/",
+      "source_file": "extraction/content/projects/al-thanya-2nd.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Architectural & Interior Designs' — listed in DMF portfolio",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/architectural-designs/",
+      "source_file": "extraction/content/projects/architectural-designs.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Astrolab' — scope: Roads and Infrastructure Design Roads,Horizontal and Vertical Alignment,Pavement design,Marking & Signage,Street Lighting Design,Roads Drainage Design,Sewerage Network Design Irrigation Main line and Pumping Station ,Potable Water Network Design, Telecommunication Network Design,Electrical HV & LV Design,Street Fire Fighting Network Design,Contract documentation; client: LACASA; location: Dubai, UAE; size: 13 Hectares; completion: 2008",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/astrolab/",
+      "source_file": "extraction/content/projects/astrolab.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Bab Albahr' — scope: Roads Design,Grading Design,Roads Horizontal and Vertical Alignment,Pavement Design,Marking & Signage; client: Conin; location: Al Marjan Island (RAK), UAE; size: TBD; completion: 2008",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/bab-albahr/",
+      "source_file": "extraction/content/projects/bab-albahr.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Bawabat Al Sharq- Phase 5' — scope: Architectural, Structural & MEP Design; client: Baniyas Investment Company; size: 40,112 sq.m",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/bawabat-al-sharq-phase-5/",
+      "source_file": "extraction/content/projects/bawabat-al-sharq-phase-5.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Dubai Center for Research and Development of Fisheries' — scope: Roads & Infrastructure Design; client: HDR / Dubai Municipality; location: Dubai, UAE; size: 10 Hectares; completion: TBD",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/dubai-center-for-research-and-development-of-fisheries/",
+      "source_file": "extraction/content/projects/dubai-center-for-research-and-development-of-fisheries.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Dubai Lifestyle City' — scope: Infrastructure Design and Sign Off Sheet (SOS); client: Dubai Lifestyle City; location: Dubai, UAE; size: 39 Hectares; completion: TBD",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/dubai-lifestyle-city/",
+      "source_file": "extraction/content/projects/dubai-lifestyle-city.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Dubailand Community' — scope: Master Planning Roads and Infrastructure Design, Bulk Earthworks; client: Dubai Properties; location: Dubai, UAE; size: 210 Hectares; completion: 2007-2008",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/dubailand-community/",
+      "source_file": "extraction/content/projects/dubailand-community.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Euro University Bahrain' — scope: Master Planning Roads and Infrastructure Design Detailed 3D Model Renderings; client: Kaizen / Euro University; location: Manama, Bahrain; size: 260,000 square metres; completion: 2021",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/euro-university-bahrein/",
+      "source_file": "extraction/content/projects/euro-university-bahrein.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Gardenia II, Jebel Ali' — scope: Masterplan, Landscape, Roads, Infrastructure, Traffic; client: JAG Development LLC; location: Dubai, UAE",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/gardenia-ii-jebel-ali/",
+      "source_file": "extraction/content/projects/gardenia-ii-jebel-ali.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Golf Course & Shooting Club' — scope: Roads & Infrastructure Design, Bulk Earthworks Site Supervision Works; client: SAIF Zone Authority; location: Sharjah, UAE; size: 32 Hectares; completion: 2007 - 2009",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/golf-course-shooting-club/",
+      "source_file": "extraction/content/projects/golf-course-shooting-club.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Grand Hills' — scope: Masterplan, Buildings, Landscape, Roads, Infrastructure,Traffic, EIA; client: Rhodes Hills LLC; location: Dubai, UAE; size: 1,715,753 sq.m",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/grand-hills/",
+      "source_file": "extraction/content/projects/grand-hills.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Grand Hyatt' — scope: Roads, Infrastructure, Traffic; client: Grand Hyatt Regency; location: Dubai, UAE; size: 54 Hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/grand-hyatt/",
+      "source_file": "extraction/content/projects/grand-hyatt.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Green Community Expansion' — scope: Roads and Infrastructure Design Horizontal and Vertical Alignment Pavement design; client: Dubai Properties; location: Dubai, UAE; size: 208 Hectares; completion: 2012",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/green-community-expansion/",
+      "source_file": "extraction/content/projects/green-community-expansion.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Heart of Jeddah' — scope: Roads and Infrastructure Design, MEP Design, Lake, Tunnel and Footbridges, Structural Design; client: Kaizen / JDURC; location: Jeddah, Saudi Arabia; size: 85 Hectares; completion: 2025",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/heart-of-jeddah/",
+      "source_file": "extraction/content/projects/heart-of-jeddah.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Porto Island' — scope: Detailed Master Plan, Roads and Infrastructure Design, Bulk Earthwork Supervision; client: Dubai Real Estate Corporation / Wasl; location: Dubai, UAE; size: 10.5 Hectares; completion: 2013-2015",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/hillside-library/",
+      "source_file": "extraction/content/projects/hillside-library.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Hotel Staff Accommodation' — scope: Master Planning, Roads & Infrastructure and Site Supervision; client: WASL / AWAJ; location: Dubai, UAE; size: 12 Hectares; completion: 2020",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/hotel-staff-accommodation/",
+      "source_file": "extraction/content/projects/hotel-staff-accommodation.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Jebel Ali Development' — scope: Master Planning, Roads and Infrastructure, Architecture Design, Environmental Impact Study, Traffic Study, Landscape Design & Supervision; client: Dubai Real Estate Corporation / Wasl; location: Dubai, UAE; size: 112 Hectares; completion: 2020",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/jebel-ali-development/",
+      "source_file": "extraction/content/projects/jebel-ali-development.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Jumairah Lake towers -Cluster Identification Signage' — scope: Cluster Identification Signage; client: Dubai Multi Commodities Centre (DMCC); location: Dubai,UAE",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/jumairah-lake-towers-cluster-identification-signage/",
+      "source_file": "extraction/content/projects/jumairah-lake-towers-cluster-identification-signage.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Kabul New City' — scope: Master Planning, Roads & Infrastructure Design, Pumping Station Structural Design, Villas and Building Architectural & Structural Design, Landscape Design; client: Omarzay; location: Kabul, Afghanistan; size: 1569 Hectares; completion: 2013",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/kabul-new-city/",
+      "source_file": "extraction/content/projects/kabul-new-city.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Knowledge Economic City' — scope: Peer Review - Road and Infrastructure; client: Knowledge Economic City; location: Al Madina, Saudi Arabia; size: TBD; completion: 2012",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/knowledge-economic-city/",
+      "source_file": "extraction/content/projects/knowledge-economic-city.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Living Legend' — scope: Master Plan, Roads, Infrastructure, TIS; client: Amer Al Ghurair; location: Dubai, UAE; size: 400,000 sq.ft.",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/living-legend/",
+      "source_file": "extraction/content/projects/living-legend.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Mayasem' — scope: Roads & Infrastructure design, Traffic Study; client: LACASA / SHAMAYEL; location: Jeddah, Saudi Arabia; size: 160 Acres; completion: 2012-2014",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/mayasem/",
+      "source_file": "extraction/content/projects/mayasem.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Mirdif Central Park' — scope: Roads & Infrastructure Design; client: HDR / DM; location: Dubai, UAE; size: 15 Hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/mirdif-central-park/",
+      "source_file": "extraction/content/projects/mirdif-central-park.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Mixed-use Development @Alrowaiyah Third' — scope: Master Planning, Roads & Infrastructure Design, Traffic Engineering and Site Supervision; client: Confidential; location: Dubai, UAE; size: 53.4 Hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/mixed-use-development-alrowaiyah-third/",
+      "source_file": "extraction/content/projects/mixed-use-development-alrowaiyah-third.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Nadd Al Hamar' — scope: Master Planning, Roads & Infrastructure Construction Supervision; client: Wasl; location: Dubai, UAE; size: 56 Hectares; completion: 2020",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/nah/",
+      "source_file": "extraction/content/projects/nah.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Nujoom Island' — scope: Traffic Impact Study; client: Al Hanoo Holding; location: Sharjah, UAE; size: TBD; completion: 2008",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/nujoom-island/",
+      "source_file": "extraction/content/projects/nujoom-island.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Omarzay Residential Apartments' — scope: Architectural Design; client: Omarzay; location: Kabul, Afghanistan; size: TBD; completion: N/A",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/omarzay-residential-apartments/",
+      "source_file": "extraction/content/projects/omarzay-residential-apartments.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Bawabat Al Sharq' — scope: Master Planning, Roads and Infrastructure; client: Baniyas Investment Company; location: Abu Dhabi, UAE; size: 181 Hectares; completion: N/A",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/ordos-museus/",
+      "source_file": "extraction/content/projects/ordos-museus.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Ras Alkhor Development Amlak' — scope: Masterplan, Landscape, Roads, Infrastructure, Traffic, EIA; client: Amlak Property Investment LLC; location: Dubai, UAE; size: 20 Hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/ras-alkhor-development-amlak/",
+      "source_file": "extraction/content/projects/ras-alkhor-development-amlak.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Ras Alkhor II Development - Wasl' — scope: Masterplan, Roads, Infrastructure, Landscape, Environmental, Traffic Impact Study; client: Dubai Real Estate Corporation (DREC) / Wasl Asset Management Group; location: Dubai, UAE; size: 350,086sq.m",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/ras-alkhor-ii-development-wasl/",
+      "source_file": "extraction/content/projects/ras-alkhor-ii-development-wasl.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Remraam Housing Project' — scope: Roads & Infrastructure Design, Civil, Structural and MEP Site Supervision Works; client: Dubai Properties; location: Dubai, UAE; size: 208 hectares; completion: 2012",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/remraam-access-road/",
+      "source_file": "extraction/content/projects/remraam-access-road.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Reportage Village 1 and Village 2 and Bianca Community' — scope: Masterplan, Roads, Infrastructure; client: Reportage Prime Properties; location: Dubai, UAE; size: 15.37 Hectares",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/reportage-village-1-and-village-2-and-bianca-community/",
+      "source_file": "extraction/content/projects/reportage-village-1-and-village-2-and-bianca-community.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Residential Development, Warsan 3rd' — scope: Master Planning, Roads and Infrastructure Design; client: WASL; location: Dubai, UAE; size: 15 Hectares; completion: TBD",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/residential-development-on-plot-811-1444-warsan-3rd/",
+      "source_file": "extraction/content/projects/residential-development-on-plot-811-1444-warsan-3rd.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Sharjah Airport Free Zone' — scope: Roads & Infrastructure, Industrial Warehouses Design and Site Construction Supervision Works; client: SAIF Zone Authority; location: Sharjah, UAE; size: 265 Hectares; completion: 2011",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/sharjah-airport-free-zone/",
+      "source_file": "extraction/content/projects/sharjah-airport-free-zone.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Teejan Villas - Dubailand' — scope: Roads and Infrastructure Design, Bulk Earthworks; client: Mizin / Conin; location: Dubai, UAE; size: 365 Hectares; completion: 2008",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/teejan-villas-dubailand/",
+      "source_file": "extraction/content/projects/teejan-villas-dubailand.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'The World Somalia Island' — scope: Infrastructure and Road Design; client: LACASA; location: Dubai, UAE; size: TBD; completion: 2009",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/the-world-somalia-island/",
+      "source_file": "extraction/content/projects/the-world-somalia-island.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Warehouse (G+M) DIP' — scope: Architectural, Structural, MEP; client: Ridge Household Trading LLC; location: Dubai, UAE",
+      "source_type": "official_website",
+      "source_url": "https://dmfeng.com/sh_projects/warehouse-gm-dip/",
+      "source_file": "extraction/content/projects/warehouse-gm-dip.json",
+      "date_checked": "2026-08",
+      "verification_status": "VERIFIED_OFFICIAL",
+      "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    }
+  ]
+}
