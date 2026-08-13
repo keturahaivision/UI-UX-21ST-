@@ -532,6 +532,15 @@
       "date_checked": "2026-08",
       "verification_status": "VERIFIED_OFFICIAL",
       "notes": "Self-reported on the company's own project page. Independent corroboration pending (see Agent A). Client/area/dates should be owner-confirmed before emphasising."
+    },
+    {
+      "claim": "Project 'Euro University Bahrain' — DMF role/authorship",
+      "source_type": "research",
+      "source_url": "documentation/DMF_RESEARCH_DATABASE.md",
+      "source_file": "",
+      "date_checked": "2026-08",
+      "verification_status": "CONFLICTING",
+      "notes": "Public records credit the Euro University Bahrain campus to Gulf House Engineering, not DMF. DO NOT publish or feature until owner clarifies DMF role. Removed from flagship emphasis."
     }
   ]
 }
