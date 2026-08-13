@@ -11,7 +11,7 @@ export default function ChapterScale() {
     <Chapter id="scale" index={4} label="Scale" tone="dark">
       <div className="u-container flex min-h-screen flex-col justify-center py-32">
         <Reveal as="h2" className="max-w-3xl font-display text-h1 text-paper-50">
-          Three decades of work, measured.
+          The work, measured.
         </Reveal>
         <div className="mt-20 grid gap-12 sm:grid-cols-3">
           <StatCounter value={s.total_projects} label="Projects delivered" />
