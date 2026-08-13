@@ -15,6 +15,9 @@ module.exports = {
         display: ['var(--font-display)', 'Space Grotesk', 'sans-serif'],
         mono: ['var(--font-mono)', 'Space Mono', 'monospace'],
         body: ['var(--font-body)', 'Inter', 'system-ui', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'sans-serif'],
+        lexend: ['var(--font-lexend)', 'sans-serif'],
+        fraunces: ['var(--font-fraunces)', 'serif'],
       },
       fontSize: {
         // rem scale extracted from reference CSS
