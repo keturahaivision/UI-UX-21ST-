@@ -18,11 +18,11 @@ export default function Strata() {
   const onProgress = useCallback((v) => setP(v), []);
   const shown = Math.round(p * (LAYERS.length + 1));
   return (
-    <Chapter id="systems-below" index={2} label="The Systems Below" tone="dark" pin scrub={2.4} onProgress={onProgress}>
-      <div className="relative flex min-h-screen items-center">
+    <Chapter id="systems-below" index={2} tone="dark" pin scrub={2.4} onProgress={onProgress}>
+      <div className="relative flex min-h-screen items-start lg:items-center">
         <div className="u-container grid w-full gap-10 lg:grid-cols-[0.9fr_1.4fr]">
           <div className="relative z-10">
-            <p className="u-label text-accent">The systems below</p>
+            <p className="u-label text-accent-soft">The systems below</p>
             <h2 className="mt-5 font-display text-h2">A city is more<br />than what you see.</h2>
             <p className="mt-5 max-w-sm font-body text-body text-paper-50/70">Scroll to assemble the systems beneath a development — the layers that make the city above possible. <span className="text-stone-500">Conceptual schematic.</span></p>
             <p className="mt-8 font-mono text-label-sm text-stone-500">LAYER {String(Math.min(shown, LAYERS.length)).padStart(2, '0')} / {LAYERS.length}</p>
@@ -35,16 +35,16 @@ export default function Strata() {
                   style={{ opacity: on ? 1 : 0.12, transform: on ? 'translateX(0)' : 'translateX(24px)' }}>
                   <div className="flex items-center justify-between px-4 pt-3">
                     <span className="font-mono text-label-sm text-paper-50">{String(i + 1).padStart(2, '0')} · {l.key}</span>
-                    <span className="font-mono text-label-sm text-accent">{l.depth}m</span>
+                    <span className="font-mono text-label-sm text-accent-soft">{l.depth}m</span>
                   </div>
                   <svg viewBox="0 0 1200 70" className="h-9 w-full" preserveAspectRatio="none"><path d={l.d} fill="none" stroke={on ? '#D81F2A' : '#3A4048'} strokeWidth="2" /></svg>
-                  <span className="block px-4 pb-3 font-mono text-[10px] uppercase tracking-wide text-stone-500">{l.note}</span>
+                  <span className="block px-4 pb-3 font-mono text-label-sm uppercase text-stone-500">{l.note}</span>
                 </div>
               );
             })}
           </div>
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-10 text-center font-display text-h3 transition-opacity duration-700" style={{ opacity: p > 0.9 ? 1 : 0 }}>This is where DMF works.</div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-10 hidden text-center font-display text-h3 transition-opacity duration-700 lg:block" style={{ opacity: p > 0.9 ? 1 : 0 }}>This is where DMF works.</div>
       </div>
     </Chapter>
   );

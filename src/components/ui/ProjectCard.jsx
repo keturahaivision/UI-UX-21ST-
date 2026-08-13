@@ -15,7 +15,7 @@ export default function ProjectCard({ project, className = '', wide = false }) {
         <div className="absolute inset-0 u-scrim-dark opacity-90" />
       </div>
       <div className="absolute inset-x-0 bottom-0 p-5">
-        <p className="u-label truncate text-accent">{p.disciplines[0] || 'Project'}</p>
+        <p className="u-label truncate text-accent-soft">{p.disciplines[0] || 'Project'}</p>
         <h3 className="mt-2 font-display text-title leading-tight text-paper-50">{p.name}</h3>
         {p.location && <p className="mt-1 font-mono text-label-sm text-paper-50/60">{p.location}</p>}
       </div>

@@ -31,7 +31,7 @@ export default function AboutPage() {
       <section className="u-container grid gap-px overflow-hidden rounded-xs bg-slate-700 pb-0 md:grid-cols-3">
         {VALUES.map(([k, v]) => (
           <div key={k} className="bg-ink-900 p-8">
-            <h2 className="u-label text-accent">{k}</h2>
+            <h2 className="u-label text-accent-soft">{k}</h2>
             <p className="mt-4 font-body text-body text-stone-300">{v}</p>
           </div>
         ))}

@@ -31,7 +31,7 @@ export default function ConceptA() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink-900/40 via-ink-900/10 to-ink-900" />
         <div className="u-container relative z-10">
           <div className="mb-8 flex items-center gap-4 font-mono text-label-sm text-stone-400">
-            <span className="text-accent">01 / POSITIONING</span><span className="opacity-40">·</span><span>25°16′N 55°19′E · DUBAI</span>
+            <span className="text-accent-soft">01 / POSITIONING</span><span className="opacity-40">·</span><span>25°16′N 55°19′E · DUBAI</span>
           </div>
           <h1 className="max-w-5xl font-display text-display-1 leading-[0.9] tracking-tightest">
             Engineering<br />the roots of<br />development.
@@ -54,7 +54,7 @@ export default function ConceptA() {
         <div className="relative flex min-h-screen items-center">
           <div className="u-container grid w-full gap-10 lg:grid-cols-[0.9fr_1.4fr]">
             <div className="relative z-10">
-              <p className="u-label text-accent">The signature</p>
+              <p className="u-label text-accent-soft">The signature</p>
               <h2 className="mt-5 font-display text-h2">A city is more<br />than what you see.</h2>
               <p className="mt-5 max-w-sm font-body text-body text-paper-50/70">Scroll to assemble the systems beneath a development — the layers that make the city above possible.</p>
               <p className="mt-8 font-mono text-label-sm text-stone-500">LAYER {String(Math.min(shown, LAYERS.length)).padStart(2, '0')} / {LAYERS.length}</p>
@@ -69,7 +69,7 @@ export default function ConceptA() {
                       style={{ opacity: on ? 1 : 0.12, transform: on ? 'translateX(0)' : 'translateX(24px)' }}>
                       <div className="flex items-center justify-between px-4 pt-3">
                         <span className="font-mono text-label-sm text-paper-50">{String(i + 1).padStart(2, '0')} · {l.key}</span>
-                        <span className="font-mono text-label-sm text-accent">{l.depth}m</span>
+                        <span className="font-mono text-label-sm text-accent-soft">{l.depth}m</span>
                       </div>
                       <svg viewBox="0 0 1200 70" className="h-10 w-full" preserveAspectRatio="none">
                         <path d={l.d} fill="none" stroke={on ? '#D81F2A' : '#3A4048'} strokeWidth="2" />

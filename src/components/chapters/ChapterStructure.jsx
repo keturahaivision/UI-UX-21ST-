@@ -22,7 +22,7 @@ export default function ChapterStructure() {
           <div className="absolute inset-y-0 w-px bg-accent/80" style={{ left: `${p * 100}%` }} aria-hidden />
         </div>
         <div className="u-container relative z-10 flex min-h-screen flex-col justify-center">
-          <p className="u-label text-accent">Drawing → built</p>
+          <p className="u-label text-accent-soft">Drawing → built</p>
           <h2 className="mt-6 max-w-3xl font-display text-display-2 text-paper-50">The same ground,<br />now a neighbourhood.</h2>
           <p className="mt-8 max-w-md font-body text-body-lg text-paper-50/80">
             What began as survey lines becomes streets, homes and infrastructure — Nadd Al Hamar, delivered.

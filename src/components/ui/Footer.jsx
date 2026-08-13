@@ -32,7 +32,8 @@ export default function Footer() {
             <p className="u-label text-stone-500">Contact</p>
             <ul className="mt-4 space-y-2 font-body text-caption">
               <li><a href={`tel:${SITE.phone.replace(/\s/g, '')}`} className="u-link-underline">{SITE.phone}</a></li>
-              <li><a href={`mailto:${SITE.email}`} className="u-link-underline">{SITE.email}</a></li>
+              {SITE.email && <li><a href={`mailto:${SITE.email}`} className="u-link-underline">{SITE.email}</a></li>}
+              <li><a href="/contact" className="u-link-underline">Contact form</a></li>
             </ul>
           </div>
           <div>

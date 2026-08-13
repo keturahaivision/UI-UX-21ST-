@@ -36,7 +36,7 @@ export default function ExpertisePage() {
           {HOW_WE_WORK.map((step, i) => (
             <span key={step} className="flex items-center gap-2">
               <span className="glass rounded-sm px-4 py-2 font-mono text-label-sm uppercase text-paper-50">{String(i + 1).padStart(2, '0')} {step}</span>
-              {i < HOW_WE_WORK.length - 1 && <span className="text-accent">→</span>}
+              {i < HOW_WE_WORK.length - 1 && <span className="text-accent-soft">→</span>}
             </span>
           ))}
         </div>
@@ -49,7 +49,7 @@ export default function ExpertisePage() {
             <div key={s.slug} className="bg-ink-900 p-8 md:p-10">
               <div className="flex items-baseline justify-between gap-4">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-label-sm text-accent">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-label-sm text-accent-soft">{String(i + 1).padStart(2, '0')}</span>
                   <h2 className="font-display text-h3 text-paper-50">{s.name}</h2>
                 </div>
                 {s.related.length > 0 && (
@@ -60,10 +60,10 @@ export default function ExpertisePage() {
               {s.related.length > 0 && (
                 <div className="mt-6 flex flex-wrap gap-2">
                   {s.related.slice(0, 4).map((p) => (
-                    <Link key={p.slug} href={`/projects/${p.slug}`} className="glass rounded-sm px-3 py-1.5 font-mono text-label-sm text-paper-50/80 transition-colors hover:text-accent">{p.name}</Link>
+                    <Link key={p.slug} href={`/projects/${p.slug}`} className="glass rounded-sm px-3 py-1.5 font-mono text-label-sm text-paper-50/80 transition-colors hover:text-accent-soft">{p.name}</Link>
                   ))}
                   {s.related.length > 4 && (
-                    <Link href={`/projects?d=${encodeURIComponent(s.label)}`} className="rounded-sm px-3 py-1.5 font-mono text-label-sm text-accent u-link-underline">+{s.related.length - 4} more →</Link>
+                    <Link href={`/projects?d=${encodeURIComponent(s.label)}`} className="rounded-sm px-3 py-1.5 font-mono text-label-sm text-accent-soft u-link-underline">+{s.related.length - 4} more →</Link>
                   )}
                 </div>
               )}

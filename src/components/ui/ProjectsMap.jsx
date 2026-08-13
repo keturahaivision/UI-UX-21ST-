@@ -41,8 +41,8 @@ export default function ProjectsMap() {
       <div className="mt-6 flex flex-wrap gap-2">
         {countries.map((c) => (
           <Link key={c.label} href={`/projects?c=${encodeURIComponent(c.label)}`}
-            className="glass rounded-sm px-3 py-1.5 font-mono text-label-sm text-paper-50/80 transition-colors hover:text-accent">
-            {c.label} <span className="text-accent">{String(c.count).padStart(2, '0')}</span>
+            className="glass rounded-sm px-3 py-1.5 font-mono text-label-sm text-paper-50/80 transition-colors hover:text-accent-soft">
+            {c.label} <span className="text-accent-soft">{String(c.count).padStart(2, '0')}</span>
           </Link>
         ))}
       </div>

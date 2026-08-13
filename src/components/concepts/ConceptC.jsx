@@ -18,7 +18,7 @@ export default function ConceptC() {
           className="absolute inset-0 h-full w-full object-cover opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-t from-paper-50 via-paper-50/30 to-transparent" />
         <div className="u-container relative z-10 pb-20">
-          <div className="mb-6 font-mono text-label-sm text-accent">03 / POSITIONING · THE EDITORIAL VIEW</div>
+          <div className="mb-6 font-mono text-label-sm text-accent-soft">03 / POSITIONING · THE EDITORIAL VIEW</div>
           <h1 className="max-w-4xl font-display text-display-1 leading-[0.9] tracking-tightest text-ink-900">From plan<br />to place.</h1>
           <p className="mt-8 max-w-xl font-body text-body-lg text-slate-700">A line on paper becomes a road under wheels. Every DMF project is the story of drawing becoming ground — master planning, engineering, delivery.</p>
         </div>
@@ -35,7 +35,7 @@ export default function ConceptC() {
           <div className="u-container relative z-10 flex min-h-screen items-center">
             <div className="grid w-full gap-10 lg:grid-cols-3">
               <div className="reveal-in">
-                <p className="u-label text-accent">Case · Nadd Al Hamar</p>
+                <p className="u-label text-accent-soft">Case · Nadd Al Hamar</p>
                 <p className="mt-4 font-mono text-label-sm text-paper-50/60">DUBAI, UAE · MASTER PLAN + ROADS & INFRASTRUCTURE · CLIENT: WASL</p>
               </div>
               <div>

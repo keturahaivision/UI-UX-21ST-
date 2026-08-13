@@ -23,7 +23,11 @@ const DISCIPLINE_LABELS = {
 };
 const primaryDisciplines = ['Roads & Infrastructure','Master Plan','Architectural','Structural','Traffic','Landscape','Supervision'];
 
-const norm = projects.map((p) => {
+// Provenance: exclude CONFLICTING projects (public records credit Euro University
+// Bahrain to Gulf House Engineering, not DMF). See data/content-source-registry.json.
+const EXCLUDE = new Set(['euro-university-bahrein']);
+
+const norm = projects.filter((p) => !EXCLUDE.has(p.slug)).map((p) => {
   const disciplines = [...new Set(p.category_slugs.map((s) => DISCIPLINE_LABELS[s]).filter(Boolean))];
   const d = p.details || {};
   const location = d.Location || null;
@@ -49,9 +53,23 @@ const norm = projects.map((p) => {
   };
 });
 
-// Flagship ordering for Chapter 5 + featured
-const FLAGSHIP = ['nah','al-salamah','euro-university-bahrein','jebel-ali-development','bawabat-al-sharq-phase-5','hillside-library','al-ahli-club-master-plan','ordos-museus'];
+// Flagship ordering for Chapter 5 + featured (Euro University excluded on provenance grounds)
+const FLAGSHIP = ['nah','al-salamah','jebel-ali-development','bawabat-al-sharq-phase-5','hillside-library','al-ahli-club-master-plan','ordos-museus','akoya-by-damac'];
 const flagships = FLAGSHIP.map((s) => norm.find((p) => p.slug === s)).filter(Boolean);
+
+// Recompute stats from the (filtered) project set — never from a stale static file.
+const disciplineCounts = {};
+for (const p of norm) for (const d of p.disciplines) disciplineCounts[d] = (disciplineCounts[d] || 0) + 1;
+const orderedDisc = primaryDisciplines.filter((d) => disciplineCounts[d]).reduce((o, d) => (o[d] = disciplineCounts[d], o), {});
+const countrySet = [...new Set(norm.map((p) => p.country).filter(Boolean))];
+const computedStats = {
+  total_projects: norm.length,
+  total_gallery_images: norm.reduce((n, p) => n + p.gallery.length, 0),
+  countries_served: countrySet.length,
+  countries: countrySet.reduce((o, c) => (o[c] = norm.filter((p) => p.country === c).length, o), {}),
+  disciplines: orderedDisc,
+  disciplines_count: Object.keys(disciplineCounts).length,
+};
 
 const disciplineFilters = primaryDisciplines
   .map((label) => ({ label, count: norm.filter((p) => p.disciplines.includes(label)).length }))
@@ -64,7 +82,7 @@ const out = {
   projects: norm,
   flagships,
   services,
-  stats,
+  stats: computedStats,
   clients: clients.map((c) => ({ name: c.name_guess, logo: toPublic(c.logo) })),
   filters: { disciplines: disciplineFilters, countries: countryFilters },
   site: {

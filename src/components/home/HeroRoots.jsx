@@ -17,8 +17,8 @@ export default function HeroRoots() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink-900/30 to-ink-900" style={{ opacity: 0.4 + p * 0.6 }} />
       </div>
       <div className="u-container relative z-10 flex min-h-screen flex-col justify-center">
-        <div className="mb-8 flex flex-wrap items-center gap-4 font-mono text-label-sm text-stone-300">
-          <span className="text-accent">DMF ENGINEERING</span><span className="opacity-40">·</span><span>DUBAI · UAE · 25°16′N 55°19′E</span>
+        <div className="mb-8 flex flex-wrap items-center gap-4 font-mono text-label-sm text-paper-50/80">
+          <span className="text-accent-soft">ENGINEERING CONSULTANT</span><span className="opacity-40">·</span><span>DUBAI · UAE · 25°16′N 55°19′E</span>
         </div>
         <Reveal as="h1" className="max-w-5xl font-display text-display-1 leading-[0.9] tracking-tightest text-paper-50">
           Engineering<br />the roots of<br />development.

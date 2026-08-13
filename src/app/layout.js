@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${display.variable} ${mono.variable} ${body.variable}`}>
       <body className="font-body antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd()) }} />
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120] focus:rounded-sm focus:bg-accent focus:px-4 focus:py-2 focus:font-mono focus:text-label focus:uppercase focus:text-paper-50">Skip to content</a>
         <Preloader />
         <SmoothScroll>
           <Nav />

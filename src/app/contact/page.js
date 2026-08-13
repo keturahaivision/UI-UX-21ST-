@@ -21,10 +21,12 @@ export default function ContactPage() {
             <p className="u-label text-stone-500">Phone</p>
             <a href={`tel:${SITE.phone.replace(/\s/g, '')}`} className="mt-3 block u-link-underline font-body text-body text-stone-200">{SITE.phone}</a>
           </div>
-          <div>
-            <p className="u-label text-stone-500">Email</p>
-            <a href={`mailto:${SITE.email}`} className="mt-3 block u-link-underline font-body text-body text-stone-200">{SITE.email}</a>
-          </div>
+          {SITE.email && (
+            <div>
+              <p className="u-label text-stone-500">Email</p>
+              <a href={`mailto:${SITE.email}`} className="mt-3 block u-link-underline font-body text-body text-stone-200">{SITE.email}</a>
+            </div>
+          )}
           <div>
             <p className="u-label text-stone-500">Follow</p>
             <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" className="mt-3 block u-link-underline font-body text-body text-stone-200">LinkedIn</a>

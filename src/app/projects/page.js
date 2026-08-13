@@ -6,7 +6,7 @@ import data from '@/data/content.json';
 
 export const metadata = pageMeta({
   title: 'Projects', path: '/projects',
-  description: `Explore ${data.stats.total_projects} DMF Engineering projects across master planning, roads & infrastructure, architecture and structural design in the UAE, Saudi Arabia, Bahrain, Qatar and beyond.`,
+  description: `Explore ${data.stats.total_projects} DMF Engineering projects across master planning, roads & infrastructure, architecture and structural design in the UAE, Saudi Arabia, Qatar and beyond.`,
 });
 
 export default function ProjectsPage() {

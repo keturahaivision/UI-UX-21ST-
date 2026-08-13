@@ -3,8 +3,9 @@ export const SITE = {
   url: 'https://dmfeng.com',
   tagline: 'Architectural & engineering excellence across the UAE, Gulf and beyond.',
   description:
-    'DMF Engineering delivers innovative, sustainable master planning, roads & infrastructure, architecture and structural design across the UAE, Saudi Arabia, Bahrain, Qatar and beyond.',
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@dmfeng.com',
+    'DMF Engineering delivers innovative, sustainable master planning, roads & infrastructure, architecture and structural design across the UAE, Saudi Arabia, Qatar and beyond.',
+  // No email is published until the owner confirms one (provenance). Set NEXT_PUBLIC_CONTACT_EMAIL to enable it.
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || null,
   phone: '+971 4 227 2525',
   address: 'Baniyas Road, Green Tower, 5th floor, Office 504, Deira Area, PO BOX 123211, Dubai, United Arab Emirates',
   linkedin: 'https://www.linkedin.com/company/dmfdubai/',
@@ -27,7 +28,7 @@ export function orgJsonLd() {
     '@context': 'https://schema.org', '@type': 'Organization',
     name: SITE.name, url: SITE.url, description: SITE.description,
     address: { '@type': 'PostalAddress', streetAddress: SITE.address, addressLocality: 'Dubai', addressCountry: 'AE' },
-    telephone: SITE.phone, email: SITE.email, sameAs: [SITE.linkedin],
+    telephone: SITE.phone, ...(SITE.email ? { email: SITE.email } : {}), sameAs: [SITE.linkedin],
   };
 }
 export function projectJsonLd(p) {

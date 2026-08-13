@@ -36,9 +36,11 @@ export default function ContactForm() {
         className="rounded-sm bg-accent px-8 py-4 font-mono text-label uppercase text-paper-50 transition-colors duration-500 ease-settle hover:bg-accent-ink disabled:opacity-60">
         {status === 'sending' ? 'Sending…' : 'Send message'}
       </button>
-      {status === 'sent' && <p className="font-body text-caption text-accent">Thank you — we'll be in touch shortly.</p>}
-      {status === 'error' && <p className="font-body text-caption text-accent">Something went wrong. Please email us directly.</p>}
-      {status === 'unconfigured' && <p className="font-body text-caption text-stone-400">Form endpoint not configured yet — set NEXT_PUBLIC_FORM_ENDPOINT in .env.</p>}
+      <div role="status" aria-live="polite" className="min-h-[1.25rem]">
+        {status === 'sent' && <p className="font-body text-caption text-accent-soft">Thank you — we'll be in touch shortly.</p>}
+        {status === 'error' && <p className="font-body text-caption text-accent-soft">Something went wrong. Please try again, or call us on the number on the contact page.</p>}
+        {status === 'unconfigured' && <p className="font-body text-caption text-stone-400">Form endpoint not configured yet — set NEXT_PUBLIC_FORM_ENDPOINT in .env.</p>}
+      </div>
     </form>
   );
 }

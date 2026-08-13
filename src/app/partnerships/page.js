@@ -22,7 +22,7 @@ export default function PartnershipsPage() {
       <section className="u-container pb-20">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {TIERS.map(([t, d]) => (
-            <div key={t} className="glass rounded-sm p-6">
+            <div key={t} className="border border-slate-700 bg-ink-800 rounded-sm p-6">
               <h2 className="font-display text-title text-paper-50">{t}</h2>
               <p className="mt-3 font-body text-caption text-stone-300">{d}</p>
             </div>
@@ -34,7 +34,7 @@ export default function PartnershipsPage() {
           ))}
         </div>
         <div className="mt-16 max-w-2xl rounded-sm border border-slate-700 p-8">
-          <p className="u-label text-accent">A note on truth</p>
+          <p className="u-label text-accent-soft">A note on truth</p>
           <p className="mt-4 font-body text-body text-stone-300">
             We publish a collaborator’s name or logo only when the relationship is verified and we have permission to show it. Verified relationships, project collaborations, strategic partnerships and professional networks are kept distinct — never blurred. This page fills in as those confirmations arrive.
           </p>

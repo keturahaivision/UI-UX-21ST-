@@ -42,14 +42,14 @@ export default function ProjectDetail({ params }) {
         <div className="absolute inset-0 u-scrim-dark" />
         <div className="u-container relative z-10 flex h-full flex-col justify-end pb-14">
           <Link href="/projects" className="u-label u-link-underline mb-6 text-paper-50/70">← All projects</Link>
-          <p className="u-label text-accent">{p.disciplineDisplay}</p>
+          <p className="u-label text-accent-soft">{p.disciplineDisplay}</p>
           <h1 className="mt-4 max-w-4xl font-display text-display-3 text-paper-50">{p.name}</h1>
         </div>
       </section>
 
       <section className="u-container grid gap-12 py-20 lg:grid-cols-[1.4fr_1fr]">
         <div>
-          {p.scope && <p className="u-label text-accent">{p.scope}</p>}
+          {p.scope && <p className="u-label text-accent-soft">{p.scope}</p>}
           {p.description ? (
             <p className="mt-6 max-w-prose font-body text-body-lg leading-relaxed text-stone-200">{p.description}</p>
           ) : (
@@ -78,11 +78,11 @@ export default function ProjectDetail({ params }) {
         <div className="u-container grid grid-cols-2">
           <Link href={`/projects/${prev.slug}`} className="group border-r border-slate-700 py-10 pr-4">
             <span className="u-label text-stone-500">← Previous</span>
-            <p className="mt-2 font-display text-title text-paper-50 group-hover:text-accent">{prev.name}</p>
+            <p className="mt-2 font-display text-title text-paper-50 group-hover:text-accent-soft">{prev.name}</p>
           </Link>
           <Link href={`/projects/${next.slug}`} className="group py-10 pl-4 text-right">
             <span className="u-label text-stone-500">Next →</span>
-            <p className="mt-2 font-display text-title text-paper-50 group-hover:text-accent">{next.name}</p>
+            <p className="mt-2 font-display text-title text-paper-50 group-hover:text-accent-soft">{next.name}</p>
           </Link>
         </div>
       </nav>

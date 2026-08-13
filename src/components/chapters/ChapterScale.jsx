@@ -21,7 +21,7 @@ export default function ChapterScale() {
         <div className="mt-16 flex flex-wrap gap-x-8 gap-y-3 border-t border-slate-700 pt-8">
           {Object.entries(s.disciplines).map(([k, v]) => (
             <span key={k} className="font-mono text-label-sm text-stone-400">
-              {k} <span className="text-accent">{String(v).padStart(2, '0')}</span>
+              {k} <span className="text-accent-soft">{String(v).padStart(2, '0')}</span>
             </span>
           ))}
         </div>

@@ -13,7 +13,9 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-stopped { overflow: hidden; }
 
 @layer components {
-  .u-label { @apply font-mono uppercase text-label text-accent; }
+  /* accent-soft (#E85761, 5.53:1 on ink-900) for small text — brand red #D81F2A
+     is reserved for fills, strokes and large display where it clears AA large. */
+  .u-label { @apply font-mono uppercase text-label text-accent-soft; }
   .u-container { @apply mx-auto w-full max-w-container px-6 md:px-10; }
   .u-scrim-dark { background: linear-gradient(180deg, rgba(11,13,15,.2) 0%, rgba(11,13,15,.65) 100%); }
   .u-scrim-light { background: linear-gradient(180deg, rgba(246,244,241,.1) 0%, rgba(246,244,241,.6) 100%); }
@@ -40,21 +42,12 @@ html.lenis, html.lenis body { height: auto; }
     -webkit-backdrop-filter: blur(18px) saturate(140%);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
-  .glass-light {
-    background: rgba(246, 244, 241, 0.62);
-    backdrop-filter: blur(14px) saturate(130%);
-    -webkit-backdrop-filter: blur(14px) saturate(130%);
-    border: 1px solid rgba(11, 13, 15, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  }
-  .glass-hairline { border: 1px solid rgba(255, 255, 255, 0.08); }
 }
 
 /* No-backdrop-filter fallback: keep panels legible with a solid-ish fill. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass { background: rgba(20, 24, 28, 0.92); }
   .glass-strong { background: rgba(11, 13, 15, 0.94); }
-  .glass-light { background: rgba(246, 244, 241, 0.94); }
 }
 
 /* Reduced motion: neutralize transforms/pins the JS engine may leave */

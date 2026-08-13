@@ -16,7 +16,7 @@ export default function ChapterVision() {
         <div className="u-container grid w-full items-center gap-12 lg:grid-cols-[1fr_1.15fr]">
           {/* pinned side text — real About copy */}
           <div className="relative z-10">
-            <p className="u-label text-accent">Who we are</p>
+            <p className="u-label text-accent-soft">Who we are</p>
             <h2 className="mt-6 font-display text-h2 text-paper-50">A plan is a promise to the ground.</h2>
             <p className="mt-6 max-w-prose font-body text-body text-paper-50/80">
               DMF Engineering, founded by David Ghosheh, has earned a strong reputation for delivering

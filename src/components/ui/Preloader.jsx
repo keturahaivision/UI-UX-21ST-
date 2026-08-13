@@ -5,10 +5,8 @@ import { asset } from '@/lib/asset';
 
 // Preload the Chapter 1-3 hero imagery; the counter reflects REAL load progress.
 const CRITICAL = [
-  '/images/ch1-land.webp', // Ch1 Land (Porto Island raw reclamation)
-  '/images/2019_11_Wb_EURO-N-MP.webp',              // Ch2 line-draw source
-  '/images/2015_07_Wb_NAH-Masterplan.webp',         // Ch3 plan
-  '/images/2015_07_Wb_NAH-01.webp',                 // Ch3 built
+  '/images/2015_07_Wb_NAH-01.webp',          // hero (the city above) + connection built
+  '/images/2015_07_Wb_NAH-Masterplan.webp',  // connection plan
 ];
 
 export default function Preloader() {
@@ -46,7 +44,7 @@ export default function Preloader() {
       aria-hidden="true"
     >
       <div className="u-label mb-6 text-stone-400">DMF ENGINEERING</div>
-      <div className="font-mono text-display-2 tabular-nums text-paper-50">{String(pct).padStart(3, '0')}<span className="text-accent">%</span></div>
+      <div className="font-mono text-display-2 tabular-nums text-paper-50">{String(pct).padStart(3, '0')}<span className="text-accent-soft">%</span></div>
       <div className="mt-8 h-px w-48 overflow-hidden bg-slate-700">
         <div className="h-full bg-accent transition-[width] duration-500 ease-settle" style={{ width: `${pct}%` }} />
       </div>

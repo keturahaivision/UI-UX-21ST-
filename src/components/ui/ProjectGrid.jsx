@@ -8,8 +8,10 @@ export default function ProjectGrid() {
   const params = useSearchParams();
   const initialD = params.get('d');
   const validD = data.filters.disciplines.some((f) => f.label === initialD) ? initialD : 'All';
+  const initialC = params.get('c');
+  const validC = data.filters.countries.some((f) => f.label === initialC) ? initialC : 'All';
   const [discipline, setDiscipline] = useState(validD);
-  const [country, setCountry] = useState('All');
+  const [country, setCountry] = useState(validC);
 
   const filtered = useMemo(() => data.projects.filter((p) => {
     const dOk = discipline === 'All' || p.disciplines.includes(discipline);
@@ -43,7 +45,7 @@ export default function ProjectGrid() {
         </div>
       </div>
 
-      <p className="mt-6 font-mono text-label-sm text-stone-500">{filtered.length} projects</p>
+      <h2 className="mt-6 font-mono text-label-sm text-stone-500" aria-live="polite">{filtered.length} projects</h2>
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((p) => <ProjectCard key={p.slug} project={p} wide />)}
       </div>

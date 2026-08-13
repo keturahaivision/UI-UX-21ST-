@@ -7,7 +7,7 @@ export default function ChapterBegin() {
   return (
     <Chapter id="begin" index={6} label="Begin" tone="light">
       <div className="u-container flex min-h-screen flex-col items-start justify-center py-32">
-        <Reveal as="p" className="u-label text-accent">The ethos</Reveal>
+        <Reveal as="p" className="u-label text-accent-soft">The ethos</Reveal>
         <Reveal as="blockquote" className="mt-8 max-w-4xl font-display text-display-2 text-ink-900">
           Innovation, expertise, and dedication converge to redefine excellence.
         </Reveal>
