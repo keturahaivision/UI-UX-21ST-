@@ -2,6 +2,7 @@
 import Link from 'next/link';
 
 const DIRS = [
+  { id: 'R', name: 'Refined', href: '/redesign/refined' },
   { id: 'A', name: 'Clarity', href: '/redesign/clarity' },
   { id: 'B', name: 'Momentum', href: '/redesign/momentum' },
   { id: 'C', name: 'Legacy', href: '/redesign/legacy' },
