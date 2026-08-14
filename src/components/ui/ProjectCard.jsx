@@ -2,23 +2,20 @@
 import Link from 'next/link';
 import { asset } from '@/lib/asset';
 
+// Light Refined card — imagery-led, caption below the image.
 export default function ProjectCard({ project, className = '', wide = false }) {
   const p = project;
   return (
-    <Link href={`/projects/${p.slug}`}
-      className={`group relative block overflow-hidden rounded-xs bg-ink-800 ${className}`}>
-      <div className={`relative ${wide ? 'aspect-[4/3]' : 'aspect-[3/4]'} w-full overflow-hidden`}>
+    <Link href={`/projects/${p.slug}`} className={`group block ${className}`}>
+      <div className={`relative ${wide ? 'aspect-[4/3]' : 'aspect-[3/4]'} w-full overflow-hidden rounded-[1rem] bg-black/[0.04]`}>
         {p.thumb ? (
           <img src={asset(p.thumb)} alt={p.name} loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-700 ease-settle group-hover:scale-105" />
-        ) : <div className="h-full w-full bg-slate-700" />}
-        <div className="absolute inset-0 u-scrim-dark opacity-90" />
+            className="h-full w-full object-cover transition-transform duration-[600ms] ease-settle group-hover:scale-[1.04]" />
+        ) : <div className="h-full w-full bg-black/5" />}
       </div>
-      <div className="absolute inset-x-0 bottom-0 p-5">
-        <p className="u-label truncate text-accent-soft">{p.disciplines[0] || 'Project'}</p>
-        <h3 className="mt-2 font-display text-title leading-tight text-paper-50">{p.name}</h3>
-        {p.location && <p className="mt-1 font-mono text-label-sm text-paper-50/60">{p.location}</p>}
-      </div>
+      <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-dmf-red">{p.disciplines[0] || 'Project'}</p>
+      <h3 className="mt-1.5 font-fraunces text-xl font-medium leading-tight text-dmf-ink">{p.name}</h3>
+      {p.location && <p className="mt-0.5 text-sm text-dmf-ink/50">{p.location}</p>}
     </Link>
   );
 }

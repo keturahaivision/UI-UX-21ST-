@@ -47,7 +47,7 @@ export default function Gallery({ images = [] }) {
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
         {images.map((img, i) => (
           <button key={i} onClick={(e) => { triggerRef.current = e.currentTarget; setIdx(i); }}
-            className="group relative aspect-[4/3] overflow-hidden rounded-xs bg-ink-800" aria-label={`Open image ${i + 1} of ${images.length}`}>
+            className="group relative aspect-[4/3] overflow-hidden rounded-[0.9rem] bg-black/[0.04]" aria-label={`Open image ${i + 1} of ${images.length}`}>
             <img src={asset(img.src)} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-settle group-hover:scale-105" />
           </button>
         ))}
