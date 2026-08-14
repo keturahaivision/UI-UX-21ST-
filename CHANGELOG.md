@@ -9,3 +9,10 @@
 
 ## Phase 05+ (in progress)
 - Design system documented; homepage rebuilt in the chosen direction; full multi-page build underway.
+
+## Redesign → Refined (light premium)
+- Owner reviewed the dark build: too dark/heavy, not premium enough. Referenced TRC + Jacobs. Removed the "systems below" infrastructure explainer.
+- Prototyped four light directions under `/redesign` (Refined, Clarity, Momentum, Legacy). **Owner chose "Refined"** — clean off-white base, editorial Fraunces headlines, red accent, imagery-led.
+- Adopted Refined as the site-wide design system: `dmf` tokens (paper #FBFAF8, ink #1A1A1A, red #C4202B), light SiteNav + SiteFooter, light glass, PageHeader/StatCounter restyled.
+- Rebuilt every production page in Refined: Home, About, Expertise, Projects (grid + footprint map), Project detail + Gallery, Partnerships, Insights, Careers, Contact, 404.
+- Retired the dark chrome (Preloader, FloatingCTA, old Nav/Footer) from the live site; `/redesign` and `/concepts` prototypes retain their own chrome.
