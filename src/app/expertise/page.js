@@ -31,12 +31,14 @@ export default function ExpertisePage() {
 
       {/* How we work */}
       <section className="u-container pb-16">
-        <p className="u-label text-stone-500">How we work</p>
+        <p className="r-eyebrow">How we work</p>
         <div className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-3">
           {HOW_WE_WORK.map((step, i) => (
             <span key={step} className="flex items-center gap-2">
-              <span className="glass rounded-sm px-4 py-2 font-mono text-label-sm uppercase text-paper-50">{String(i + 1).padStart(2, '0')} {step}</span>
-              {i < HOW_WE_WORK.length - 1 && <span className="text-accent-soft">→</span>}
+              <span className="rounded-full border border-black/10 bg-white px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-dmf-ink/70">
+                {String(i + 1).padStart(2, '0')} {step}
+              </span>
+              {i < HOW_WE_WORK.length - 1 && <span className="text-dmf-red">→</span>}
             </span>
           ))}
         </div>
@@ -44,26 +46,26 @@ export default function ExpertisePage() {
 
       {/* Disciplines */}
       <section className="u-container pb-32">
-        <div className="grid gap-px overflow-hidden rounded-sm bg-slate-700 md:grid-cols-2">
+        <div className="grid gap-px overflow-hidden rounded-[1.25rem] bg-black/[0.06] md:grid-cols-2">
           {services.map((s, i) => (
-            <div key={s.slug} className="bg-ink-900 p-8 md:p-10">
+            <div key={s.slug} className="bg-dmf-paper p-8 md:p-10">
               <div className="flex items-baseline justify-between gap-4">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-label-sm text-accent-soft">{String(i + 1).padStart(2, '0')}</span>
-                  <h2 className="font-display text-h3 text-paper-50">{s.name}</h2>
+                  <span className="font-mono text-[11px] tracking-[0.14em] text-dmf-red">{String(i + 1).padStart(2, '0')}</span>
+                  <h2 className="font-fraunces text-2xl font-medium">{s.name}</h2>
                 </div>
                 {s.related.length > 0 && (
-                  <span className="shrink-0 font-mono text-label-sm text-stone-500">{String(s.related.length).padStart(2, '0')} projects</span>
+                  <span className="shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-dmf-ink/40">{String(s.related.length).padStart(2, '0')} projects</span>
                 )}
               </div>
-              <p className="mt-4 font-body text-body leading-relaxed text-stone-300">{s.description}</p>
+              <p className="mt-4 text-[15px] leading-relaxed text-dmf-ink/65">{s.description}</p>
               {s.related.length > 0 && (
                 <div className="mt-6 flex flex-wrap gap-2">
                   {s.related.slice(0, 4).map((p) => (
-                    <Link key={p.slug} href={`/projects/${p.slug}`} className="glass rounded-sm px-3 py-1.5 font-mono text-label-sm text-paper-50/80 transition-colors hover:text-accent-soft">{p.name}</Link>
+                    <Link key={p.slug} href={`/projects/${p.slug}`} className="rounded-full border border-black/10 bg-white px-3 py-1.5 text-xs font-medium text-dmf-ink/70 transition-colors hover:text-dmf-red">{p.name}</Link>
                   ))}
                   {s.related.length > 4 && (
-                    <Link href={`/projects?d=${encodeURIComponent(s.label)}`} className="rounded-sm px-3 py-1.5 font-mono text-label-sm text-accent-soft u-link-underline">+{s.related.length - 4} more →</Link>
+                    <Link href={`/projects?d=${encodeURIComponent(s.label)}`} className="px-3 py-1.5 text-xs font-semibold text-dmf-red underline underline-offset-4">+{s.related.length - 4} more →</Link>
                   )}
                 </div>
               )}

@@ -10,6 +10,14 @@ module.exports = {
         sky: { 200: '#DCE6F0', 100: '#EDF2F8' },
         paper: { 50: '#F6F4F1', 100: '#EFEBE6' },
         accent: { DEFAULT: '#D81F2A', ink: '#A31620', soft: '#E85761' },
+        // Refined design system — light premium
+        dmf: {
+          paper: '#FBFAF8',   // page background
+          panel: '#F3F1EC',   // subtle section tint
+          ink: '#1A1A1A',     // primary text / dark blocks
+          red: '#C4202B',     // accent
+          'red-ink': '#A11923',
+        },
       },
       fontFamily: {
         display: ['var(--font-display)', 'Space Grotesk', 'sans-serif'],

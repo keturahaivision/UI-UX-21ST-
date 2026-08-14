@@ -7,7 +7,7 @@ export const metadata = {
   metadataBase: new URL('https://dmfeng.com'),
   ...pageMeta({}),
 };
-export const viewport = { themeColor: '#0B0D0F', width: 'device-width', initialScale: 1 };
+export const viewport = { themeColor: '#FBFAF8', width: 'device-width', initialScale: 1 };
 
 export default function RootLayout({ children }) {
   return (

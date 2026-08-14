@@ -27,10 +27,10 @@ export default function StatCounter({ value, label, suffix = '', duration = 1400
   }, [value, duration, reduced]);
   return (
     <div ref={ref} className="flex flex-col">
-      <span className="font-mono text-display-3 tabular-nums leading-none">
+      <span className="font-fraunces text-5xl font-medium tabular-nums leading-none md:text-6xl">
         {String(n).padStart(2, '0')}{suffix}
       </span>
-      <span className="u-label mt-4 text-current opacity-70">{label}</span>
+      <span className="mt-3 text-sm font-medium text-dmf-ink/50">{label}</span>
     </div>
   );
 }
