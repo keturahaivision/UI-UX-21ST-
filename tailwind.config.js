@@ -29,12 +29,16 @@ module.exports = {
         brand: {
           ink: '#141518',      // near-black text / cinematic ground
           coal: '#0C0D0F',     // deepest ground (behind imagery)
-          paper: '#FBFAF9',    // warm off-white content base
-          mist: '#F0EEEA',     // subtle tint
-          line: '#E4E1DB',     // light borders
+          surface: '#131519',  // subtly raised dark section
+          raise: '#181B20',    // top dark surface / hover
+          hair: '#242830',     // hairline border on dark
+          paper: '#FBFAF9',    // (retained) warm off-white
+          mist: '#F0EEEA',
+          line: '#E4E1DB',
           red: '#D42A2A',      // DMF red (from dmfeng.com)
           'red-deep': '#A81F1F',
-          muted: '#6B6A67',    // muted text on light
+          cyan: '#4DE3FF',     // neon render accent (hero only)
+          muted: '#6B6A67',
         },
       },
       fontFamily: {
