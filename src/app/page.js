@@ -190,9 +190,9 @@ export default function HomePage() {
           <p className="r-eyebrow">Trusted by</p>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
             {data.clients.filter((c) => c.logo).map((c) => (
-              <div key={c.logo} className="tile flex items-center justify-center rounded-xl p-6">
+              <div key={c.logo} className="flex items-center justify-center rounded-xl bg-white/90 p-6">
                 <img src={asset(c.logo)} alt={c.name || 'DMF Engineering client'} loading="lazy"
-                  className="max-h-10 w-auto opacity-70 brightness-0 invert transition hover:opacity-100" />
+                  className="max-h-10 w-auto opacity-80 transition hover:opacity-100" />
               </div>
             ))}
           </div>

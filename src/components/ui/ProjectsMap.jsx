@@ -23,16 +23,16 @@ export default function ProjectsMap() {
       </div>
       <div className="relative mt-6 overflow-hidden rounded-[1.25rem] border border-sys-line bg-sys-panel2" style={{ aspectRatio: '5 / 2' }}>
         <svg viewBox="0 0 100 40" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
-          {[...Array(11)].map((_, i) => <line key={'v' + i} x1={i * 10} y1="0" x2={i * 10} y2="40" stroke="#1A1A1A" strokeWidth="0.04" opacity="0.10" />)}
-          {[...Array(5)].map((_, i) => <line key={'h' + i} x1="0" y1={i * 10} x2="100" y2={i * 10} stroke="#1A1A1A" strokeWidth="0.04" opacity="0.10" />)}
+          {[...Array(11)].map((_, i) => <line key={'v' + i} x1={i * 10} y1="0" x2={i * 10} y2="40" stroke="#FFFFFF" strokeWidth="0.04" opacity="0.09" />)}
+          {[...Array(5)].map((_, i) => <line key={'h' + i} x1="0" y1={i * 10} x2="100" y2={i * 10} stroke="#FFFFFF" strokeWidth="0.04" opacity="0.09" />)}
           {countries.map((c) => {
             const p = POS[c.label]; const on = active === c.label;
             const r = 1.4 + Math.sqrt(c.count) * 0.9;
             return (
               <g key={c.label} onMouseEnter={() => setActive(c.label)} onMouseLeave={() => setActive(null)} className="cursor-pointer">
-                <circle cx={p.x} cy={p.y} r={r + 1.5} fill="#C4202B" opacity={on ? 0.20 : 0.10} />
-                <circle cx={p.x} cy={p.y} r={r} fill="#C4202B" opacity={on ? 1 : 0.8} />
-                <text x={p.x} y={p.y - r - 1} textAnchor="middle" className="font-mono" fontSize="1.6" fill="#1A1A1A">{c.label} · {c.count}</text>
+                <circle cx={p.x} cy={p.y} r={r + 1.5} fill="#E23D2C" opacity={on ? 0.24 : 0.12} />
+                <circle cx={p.x} cy={p.y} r={r} fill="#E23D2C" opacity={on ? 1 : 0.85} />
+                <text x={p.x} y={p.y - r - 1} textAnchor="middle" className="font-mono" fontSize="1.6" fill="#EAECEF">{c.label} · {c.count}</text>
               </g>
             );
           })}
