@@ -1,54 +1,60 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useReducedMotion } from '@/lib/useReducedMotion';
 import { asset } from '@/lib/asset';
+import { useReducedMotion } from '@/lib/useReducedMotion';
 
-// Preload the Chapter 1-3 hero imagery; the counter reflects REAL load progress.
-const CRITICAL = [
-  '/images/2015_07_Wb_NAH-01.webp',          // hero (the city above) + connection built
-  '/images/2015_07_Wb_NAH-Masterplan.webp',  // connection plan
-];
-
+// Branded first-load curtain: logo reveal + engineered count-up, then a lift-away.
+// Shows once per browser session so internal navigation stays instant.
 export default function Preloader() {
-  const [pct, setPct] = useState(0);
-  const [gone, setGone] = useState(false);
   const reduced = useReducedMotion();
+  const [pct, setPct] = useState(0);
+  const [state, setState] = useState('idle'); // idle | active | leaving | done
 
   useEffect(() => {
-    let loaded = 0, cancelled = false;
-    const total = CRITICAL.length;
-    const done = () => {
-      loaded += 1;
-      if (!cancelled) setPct(Math.round((loaded / total) * 100));
-      if (loaded >= total && !cancelled) {
-        setTimeout(() => setGone(true), reduced ? 0 : 500);
+    if (typeof window === 'undefined') return;
+    const seen = sessionStorage.getItem('dmf_preloaded');
+    if (seen || reduced) { setState('done'); return; }
+    setState('active');
+    document.documentElement.style.overflow = 'hidden';
+
+    const start = performance.now();
+    const DUR = 1500;
+    let raf;
+    const tick = (t) => {
+      const p = Math.min(1, (t - start) / DUR);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setPct(Math.round(eased * 100));
+      if (p < 1) raf = requestAnimationFrame(tick);
+      else {
+        setState('leaving');
+        setTimeout(() => {
+          setState('done');
+          document.documentElement.style.overflow = '';
+          sessionStorage.setItem('dmf_preloaded', '1');
+        }, 900);
       }
     };
-    CRITICAL.forEach((src) => {
-      const img = new Image();
-      img.onload = done; img.onerror = done; img.src = asset(src);
-    });
-    // safety: never trap the user
-    const t = setTimeout(() => !cancelled && setGone(true), 6000);
-    return () => { cancelled = true; clearTimeout(t); };
+    raf = requestAnimationFrame(tick);
+    return () => { cancelAnimationFrame(raf); document.documentElement.style.overflow = ''; };
   }, [reduced]);
 
-  useEffect(() => {
-    document.documentElement.style.overflow = gone ? '' : 'hidden';
-  }, [gone]);
+  if (state === 'done' || state === 'idle') return null;
 
-  if (gone) return null;
   return (
-    <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink-900 transition-opacity duration-700 ease-settle ${pct >= 100 ? 'opacity-0' : 'opacity-100'}`}
-      aria-hidden="true"
-    >
-      <div className="u-label mb-6 text-stone-400">DMF ENGINEERING</div>
-      <div className="font-mono text-display-2 tabular-nums text-paper-50">{String(pct).padStart(3, '0')}<span className="text-accent-soft">%</span></div>
-      <div className="mt-8 h-px w-48 overflow-hidden bg-slate-700">
-        <div className="h-full bg-accent transition-[width] duration-500 ease-settle" style={{ width: `${pct}%` }} />
+    <div aria-hidden className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-brand-coal transition-[clip-path,opacity] duration-[900ms] ease-[cubic-bezier(.7,0,.2,1)] ${state === 'leaving' ? '[clip-path:inset(0_0_100%_0)] opacity-0' : '[clip-path:inset(0_0_0_0)] opacity-100'}`}>
+      <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
+      <div className="relative flex flex-col items-center">
+        <img src={asset('/dmf-logo.png')} alt="DMF Engineering"
+          className="h-16 w-auto brightness-0 invert md:h-20"
+          style={{ opacity: Math.min(1, pct / 40), transform: `translateY(${(1 - Math.min(1, pct / 60)) * 10}px)` }} />
+        <div className="mt-8 h-px w-56 overflow-hidden bg-white/12">
+          <div className="h-full bg-brand-red" style={{ width: `${pct}%` }} />
+        </div>
+        <div className="mt-4 flex w-56 items-center justify-between font-raleway text-[11px] uppercase tracking-[0.24em] text-white/55">
+          <span>Engineering the systems</span>
+          <span className="tabular-nums text-white/80">{String(pct).padStart(3, '0')}</span>
+        </div>
       </div>
-      <div className="u-label mt-6 text-stone-500">{pct >= 100 ? 'READY TO EXPLORE' : 'PREPARING THE JOURNEY'}</div>
     </div>
   );
 }

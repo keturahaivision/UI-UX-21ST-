@@ -1,6 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import SmoothScroll from '@/components/motion/SmoothScroll';
+import Preloader from '@/components/ui/Preloader';
 import SiteNav from '@/components/ui/SiteNav';
 import SiteFooter from '@/components/ui/SiteFooter';
 
@@ -11,10 +12,13 @@ export default function SiteChrome({ children }) {
   const bare = pathname?.startsWith('/redesign');
   if (bare) return <SmoothScroll>{children}</SmoothScroll>;
   return (
-    <SmoothScroll>
-      <SiteNav />
-      <main id="main">{children}</main>
-      <SiteFooter />
-    </SmoothScroll>
+    <>
+      <Preloader />
+      <SmoothScroll>
+        <SiteNav />
+        <main id="main">{children}</main>
+        <SiteFooter />
+      </SmoothScroll>
+    </>
   );
 }
