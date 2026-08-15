@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import CinematicHero from '@/components/home/CinematicHero';
+import NeonMasterplanHero from '@/components/home/NeonMasterplanHero';
 import InteractiveMap from '@/components/home/InteractiveMap';
 import Reveal from '@/components/motion/Reveal';
 import StatCounter from '@/components/ui/StatCounter';
@@ -19,17 +19,32 @@ const PROCESS = [
   ['Deliver', 'Approvals secured and construction supervised, on time and on budget.'],
 ];
 
+// Masterplan plan-view / model images — the best candidates for neon capture.
+const MP_RE = /master[-_ ]?plan|mp[-_.]|[-_]mp[0-9]?\.|mp-model|coloring-model|masterplan/i;
+function masterplanFrames() {
+  const seen = new Set();
+  const out = [];
+  for (const p of data.projects) {
+    if (!p.disciplines?.includes('Master Plan')) continue;
+    const img = (p.gallery || []).map((g) => g.src).find((sctr) => MP_RE.test(sctr));
+    if (!img || seen.has(img)) continue;
+    seen.add(img);
+    out.push({ name: p.name, location: p.location, img });
+  }
+  return out.slice(0, 8);
+}
+
 export default function HomePage() {
   const s = data.stats;
-  const heroProjects = data.flagships.slice(0, 6);
+  const mpFrames = masterplanFrames();
   const work = data.flagships.slice(0, 6);
   const scaleImg = data.flagships[2]?.hero || data.flagships[0].hero;
   const disciplines = DISCIPLINE_ORDER.filter((d) => s.disciplines[d]).map((d) => [d, s.disciplines[d]]);
 
   return (
     <div className="bg-brand-coal">
-      {/* ── 01 · Cinematic scroll hero ─────────────── */}
-      <CinematicHero projects={heroProjects} />
+      {/* ── 01 · Neon masterplan hero (scroll-evolving) ── */}
+      <NeonMasterplanHero frames={mpFrames} />
 
       {/* ── 02 · Positioning (warm light) ──────────── */}
       <section className="bg-brand-paper text-brand-ink">
