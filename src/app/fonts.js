@@ -46,3 +46,15 @@ export const fraunces = localFont({
   ],
   variable: '--font-fraunces', display: 'swap', fallback: ['serif'],
 });
+// Brand faces from the original dmfeng.com — Raleway (display, variable) + PT Sans (body).
+export const raleway = localFont({
+  src: [{ path: './fonts/Raleway-400.woff2', weight: '400 800', style: 'normal' }],
+  variable: '--font-raleway', display: 'swap', fallback: ['system-ui', 'sans-serif'],
+});
+export const ptsans = localFont({
+  src: [
+    { path: './fonts/PTSans-400.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/PTSans-700.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-ptsans', display: 'swap', fallback: ['system-ui', 'sans-serif'],
+});

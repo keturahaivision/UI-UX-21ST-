@@ -18,12 +18,23 @@ module.exports = {
           red: '#C4202B',     // accent
           'red-ink': '#A11923',
         },
-        // Systems Layer — dark engineering environment (Direction 01, live site)
+        // Systems Layer — dark engineering environment (retired direction)
         sys: {
           ground: '#0E0F12', panel: '#15171B', panel2: '#1B1E23', raise: '#212530',
           line: '#2A2E36', 'line-soft': '#20242A',
           red: '#E23D2C', 'red-deep': '#B32619',
           ink: '#EAECEF', muted: '#9BA1AA', faint: '#6B7079',
+        },
+        // DMF brand — cinematic, imagery-led (Raleway/PT Sans, red), modernised from dmfeng.com
+        brand: {
+          ink: '#141518',      // near-black text / cinematic ground
+          coal: '#0C0D0F',     // deepest ground (behind imagery)
+          paper: '#FBFAF9',    // warm off-white content base
+          mist: '#F0EEEA',     // subtle tint
+          line: '#E4E1DB',     // light borders
+          red: '#D42A2A',      // DMF red (from dmfeng.com)
+          'red-deep': '#A81F1F',
+          muted: '#6B6A67',    // muted text on light
         },
       },
       fontFamily: {
@@ -33,6 +44,8 @@ module.exports = {
         poppins: ['var(--font-poppins)', 'sans-serif'],
         lexend: ['var(--font-lexend)', 'sans-serif'],
         fraunces: ['var(--font-fraunces)', 'serif'],
+        raleway: ['var(--font-raleway)', 'system-ui', 'sans-serif'],
+        ptsans: ['var(--font-ptsans)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         // rem scale extracted from reference CSS
