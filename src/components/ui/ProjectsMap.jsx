@@ -19,9 +19,9 @@ export default function ProjectsMap() {
     <section className="u-container pb-20">
       <div className="flex items-baseline justify-between">
         <p className="r-eyebrow">Regional footprint</p>
-        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-dmf-ink/35">Indicative · by country</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-sys-faint">Indicative · by country</p>
       </div>
-      <div className="relative mt-6 overflow-hidden rounded-[1.25rem] border border-black/[0.07] bg-dmf-panel" style={{ aspectRatio: '5 / 2' }}>
+      <div className="relative mt-6 overflow-hidden rounded-[1.25rem] border border-sys-line bg-sys-panel2" style={{ aspectRatio: '5 / 2' }}>
         <svg viewBox="0 0 100 40" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
           {[...Array(11)].map((_, i) => <line key={'v' + i} x1={i * 10} y1="0" x2={i * 10} y2="40" stroke="#1A1A1A" strokeWidth="0.04" opacity="0.10" />)}
           {[...Array(5)].map((_, i) => <line key={'h' + i} x1="0" y1={i * 10} x2="100" y2={i * 10} stroke="#1A1A1A" strokeWidth="0.04" opacity="0.10" />)}
@@ -41,8 +41,8 @@ export default function ProjectsMap() {
       <div className="mt-6 flex flex-wrap gap-2">
         {countries.map((c) => (
           <Link key={c.label} href={`/projects?c=${encodeURIComponent(c.label)}`}
-            className="rounded-full border border-black/10 bg-white px-3.5 py-1.5 text-xs font-medium text-dmf-ink/70 transition-colors hover:text-dmf-red">
-            {c.label} <span className="text-dmf-red">{String(c.count).padStart(2, '0')}</span>
+            className="rounded-full tile px-3.5 py-1.5 text-xs font-medium text-sys-muted transition-colors hover:text-sys-red">
+            {c.label} <span className="text-sys-red">{String(c.count).padStart(2, '0')}</span>
           </Link>
         ))}
       </div>

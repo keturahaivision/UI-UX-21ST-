@@ -22,20 +22,20 @@ export default function PartnershipsPage() {
       <section className="u-container pb-24">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {TIERS.map(([t, d]) => (
-            <div key={t} className="rounded-[1rem] border border-black/[0.08] bg-white p-6">
-              <h2 className="font-fraunces text-xl font-medium text-dmf-ink">{t}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-dmf-ink/60">{d}</p>
+            <div key={t} className="rounded-[1rem] tile p-6">
+              <h2 className="font-display text-xl font-medium text-sys-ink">{t}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-sys-muted">{d}</p>
             </div>
           ))}
         </div>
         <div className="mt-12 flex flex-wrap gap-2">
           {CATEGORIES.map((c) => (
-            <span key={c} className="rounded-full border border-black/10 bg-white px-3.5 py-1.5 text-xs font-medium text-dmf-ink/70">{c}</span>
+            <span key={c} className="rounded-full tile px-3.5 py-1.5 text-xs font-medium text-sys-muted">{c}</span>
           ))}
         </div>
-        <div className="mt-16 max-w-2xl rounded-[1.25rem] border border-black/[0.08] bg-dmf-panel p-8">
+        <div className="mt-16 max-w-2xl rounded-[1.25rem] border border-sys-line bg-sys-panel2 p-8">
           <p className="r-eyebrow">A note on truth</p>
-          <p className="mt-4 text-[15px] leading-relaxed text-dmf-ink/70">
+          <p className="mt-4 text-[15px] leading-relaxed text-sys-muted">
             We publish a collaborator’s name or logo only when the relationship is verified and we have permission to show it. Verified relationships, project collaborations, strategic partnerships and professional networks are kept distinct — never blurred. This page fills in as those confirmations arrive.
           </p>
         </div>
