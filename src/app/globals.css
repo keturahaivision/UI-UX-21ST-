@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
+:root { color-scheme: dark; }
 
 html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-body { background: theme('colors.dmf.paper'); color: theme('colors.dmf.ink'); }
+body { background: theme('colors.sys.ground'); color: theme('colors.sys.ink'); }
 
 /* Lenis */
 html.lenis, html.lenis body { height: auto; }
@@ -13,14 +13,14 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-stopped { overflow: hidden; }
 
 @layer components {
-  /* Refined design system — light premium.
-     Brand red #C4202B on paper #FBFAF8 ≈ 4.9:1 → passes AA for normal text. */
-  .u-container { @apply mx-auto w-full max-w-[1220px] px-6; }
-  .r-container { @apply mx-auto w-full max-w-[1220px] px-6; }
-  .u-label { @apply font-mono uppercase text-label text-dmf-red; }
-  .r-eyebrow { @apply text-[13px] font-semibold uppercase tracking-[0.18em] text-dmf-red; }
-  .r-h { @apply font-fraunces font-medium tracking-[-0.01em] text-dmf-ink; }
-  .u-scrim-dark { background: linear-gradient(180deg, rgba(11,13,15,.15) 0%, rgba(11,13,15,.62) 100%); }
+  /* Systems Layer — dark engineering environment (Direction 01).
+     Accent DMF red #E23D2C on graphite #0E0F12 ≈ 5.0:1 → AA for normal text. */
+  .u-container { @apply mx-auto w-full max-w-[1200px] px-6; }
+  .r-container { @apply mx-auto w-full max-w-[1200px] px-6; }
+  .u-label { @apply font-mono uppercase text-label text-sys-red; }
+  .r-eyebrow { @apply font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-sys-red; }
+  .r-h { @apply font-display font-bold tracking-[-0.02em] text-sys-ink; }
+  .u-scrim-dark { background: linear-gradient(180deg, rgba(8,9,11,.25) 0%, rgba(8,9,11,.78) 100%); }
   .u-link-underline { @apply relative inline-block; }
   .u-link-underline::after {
     content: ''; @apply absolute left-0 -bottom-0.5 h-px w-full bg-current origin-right scale-x-0;
@@ -28,27 +28,40 @@ html.lenis, html.lenis body { height: auto; }
   }
   .u-link-underline:hover::after { @apply origin-left scale-x-100; }
 
-  /* Glass system (per ui-ux-pro-max: blur 10-20px, translucent fill, 1px border,
-     soft depth shadow — light-tinted for the paper theme; text kept ≥4.5:1). */
-  .glass {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(14px) saturate(130%);
-    -webkit-backdrop-filter: blur(14px) saturate(130%);
-    border: 1px solid rgba(26, 26, 26, 0.07);
-    box-shadow: 0 8px 32px rgba(26, 26, 26, 0.08);
+  /* Transparent tile system — the signature UI surface.
+     Translucent fill + blur + hairline border, layered over the graphite ground. */
+  .tile {
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 12px 40px -24px rgba(0, 0, 0, 0.8);
   }
-  .glass-strong {
-    background: rgba(251, 250, 248, 0.82);
-    backdrop-filter: blur(18px) saturate(130%);
-    -webkit-backdrop-filter: blur(18px) saturate(130%);
-    border-bottom: 1px solid rgba(26, 26, 26, 0.06);
+  .tile-hover { transition: border-color .4s ease, background-color .4s ease, transform .4s cubic-bezier(.2,0,0,1); }
+  .tile-hover:hover { background: rgba(255,255,255,0.055); border-color: rgba(226,61,44,0.5); }
+  .tile-strong {
+    background: rgba(14, 15, 18, 0.72);
+    backdrop-filter: blur(18px) saturate(120%);
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  /* aliases kept so any lingering .glass refs stay dark-correct */
+  .glass { background: rgba(255,255,255,0.035); backdrop-filter: blur(14px) saturate(120%); -webkit-backdrop-filter: blur(14px) saturate(120%); border: 1px solid rgba(255,255,255,0.09); }
+  .glass-strong { background: rgba(14,15,18,0.72); backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%); border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+  /* Blueprint hairline grid — texture for hero/section bands */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 46px 46px;
   }
 }
 
-/* No-backdrop-filter fallback: keep panels legible with a solid-ish fill. */
+/* No-backdrop-filter fallback: keep tiles legible with a solid-ish fill. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .glass { background: rgba(255, 255, 255, 0.94); }
-  .glass-strong { background: rgba(251, 250, 248, 0.97); }
+  .tile, .glass { background: rgba(30, 33, 40, 0.92); }
+  .tile-strong, .glass-strong { background: rgba(14, 15, 18, 0.96); }
 }
 
 /* Reduced motion: neutralize transforms/pins the JS engine may leave */
@@ -57,7 +70,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* Focus visibility */
-:focus-visible { outline: 2px solid theme('colors.accent.DEFAULT'); outline-offset: 3px; }
+:focus-visible { outline: 2px solid theme('colors.sys.red'); outline-offset: 3px; }
 
 /* Chapter reveal defaults (JS elevates; CSS gives a graceful static base) */
 .reveal-init { opacity: 0; transform: translateY(24px); }

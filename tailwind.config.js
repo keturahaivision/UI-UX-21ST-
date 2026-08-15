@@ -18,6 +18,13 @@ module.exports = {
           red: '#C4202B',     // accent
           'red-ink': '#A11923',
         },
+        // Systems Layer — dark engineering environment (Direction 01, live site)
+        sys: {
+          ground: '#0E0F12', panel: '#15171B', panel2: '#1B1E23', raise: '#212530',
+          line: '#2A2E36', 'line-soft': '#20242A',
+          red: '#E23D2C', 'red-deep': '#B32619',
+          ink: '#EAECEF', muted: '#9BA1AA', faint: '#6B7079',
+        },
       },
       fontFamily: {
         display: ['var(--font-display)', 'Space Grotesk', 'sans-serif'],
