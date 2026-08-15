@@ -29,19 +29,26 @@ export default function NeonMasterplanHero({ frames }) {
     // ---- neon conversion (Sobel edge-detect + neon colorise + glow) ----
     function buildNeon(img) {
       const W = 960, H = 540;
+      // Downscale then smooth-upscale so fine plot texture drops out and only the
+      // major plan lines (roads, boundaries, blocks) survive → clean single lines.
+      const sw = 440, sh = 248;
+      const small = document.createElement('canvas'); small.width = sw; small.height = sh;
+      const sc = small.getContext('2d');
+      const ir = img.width / img.height, cr = sw / sh;
+      let dw = sw, dh = sh, dx = 0, dy = 0;
+      if (ir > cr) { dh = sh; dw = sh * ir; dx = (sw - dw) / 2; } else { dw = sw; dh = sw / ir; dy = (sh - dh) / 2; }
+      sc.drawImage(img, dx, dy, dw, dh);
       const base = document.createElement('canvas'); base.width = W; base.height = H;
       const b = base.getContext('2d');
-      // cover-draw
-      const ir = img.width / img.height, cr = W / H;
-      let dw = W, dh = H, dx = 0, dy = 0;
-      if (ir > cr) { dh = H; dw = H * ir; dx = (W - dw) / 2; } else { dw = W; dh = W / ir; dy = (H - dh) / 2; }
-      b.drawImage(img, dx, dy, dw, dh);
+      b.imageSmoothingEnabled = true; b.imageSmoothingQuality = 'high';
+      b.drawImage(small, 0, 0, W, H);
       let src;
       try { src = b.getImageData(0, 0, W, H).data; } catch { return base; }
       const gray = new Float32Array(W * H);
       for (let i = 0; i < W * H; i++) gray[i] = (0.299 * src[i * 4] + 0.587 * src[i * 4 + 1] + 0.114 * src[i * 4 + 2]);
       const out = b.createImageData(W, H);
       const o = out.data;
+      const T = 66; // high edge threshold → only the major plan lines, no fills / shading
       for (let y = 1; y < H - 1; y++) {
         for (let x = 1; x < W - 1; x++) {
           const i = y * W + x;
@@ -50,29 +57,18 @@ export default function NeonMasterplanHero({ frames }) {
           const bl = gray[i + W - 1], bc = gray[i + W], br = gray[i + W + 1];
           const gx = (tr + 2 * mr + br) - (tl + 2 * ml + bl);
           const gy = (bl + 2 * bc + br) - (tl + 2 * tc + tr);
-          let mag = Math.sqrt(gx * gx + gy * gy) / 1442 * 255; // normalise
-          mag = Math.min(255, mag * 2.4);
-          const t = mag / 255;
+          let mag = Math.sqrt(gx * gx + gy * gy) / 1442 * 255;
+          mag = Math.min(255, mag * 2.6);
+          let a = 0;
+          if (mag > T) a = 235;
+          else if (mag > T * 0.55) a = ((mag - T * 0.55) / (T * 0.45)) * 150; // soft AA edge only
           const j = i * 4;
-          // neon ramp: dark -> cyan -> white, hottest edges bloom red
-          o[j] = Math.min(255, t * 90 + Math.pow(t, 3) * 255);        // R (red on hot edges)
-          o[j + 1] = Math.min(255, t * 232);                          // G (cyan)
-          o[j + 2] = Math.min(255, t * 255 + 20);                     // B
-          o[j + 3] = Math.min(255, t * 300);                          // A
+          o[j] = 0x4d; o[j + 1] = 0xe3; o[j + 2] = 0xff; o[j + 3] = a; // single cyan line, transparent ground
         }
       }
       const edge = document.createElement('canvas'); edge.width = W; edge.height = H;
-      const e = edge.getContext('2d'); e.putImageData(out, 0, 0);
-      // composite with glow: dark ground + blurred bloom + sharp edges
-      const res = document.createElement('canvas'); res.width = W; res.height = H;
-      const r = res.getContext('2d');
-      r.fillStyle = '#05070A'; r.fillRect(0, 0, W, H);
-      r.globalCompositeOperation = 'lighter';
-      r.filter = 'blur(6px)'; r.globalAlpha = 0.85; r.drawImage(edge, 0, 0);
-      r.filter = 'blur(2px)'; r.globalAlpha = 0.9; r.drawImage(edge, 0, 0);
-      r.filter = 'none'; r.globalAlpha = 1; r.drawImage(edge, 0, 0);
-      r.globalCompositeOperation = 'source-over';
-      return res;
+      edge.getContext('2d').putImageData(out, 0, 0);
+      return edge; // transparent thin-line wireframe
     }
 
     function resize() {
@@ -82,10 +78,17 @@ export default function NeonMasterplanHero({ frames }) {
     }
 
     // ---- render loop ----
-    function drawCover(cv, W, H, scale, ox, oy) {
-      const ir = cv.width / cv.height, cr = W / H;
-      let dw, dh; if (ir > cr) { dh = H * scale; dw = dh * ir; } else { dw = W * scale; dh = dw / ir; }
-      ctx.drawImage(cv, (W - dw) / 2 + ox, (H - dh) / 2 + oy, dw, dh);
+    // 2:1 isometric projection of the flat plan — single-line, no shading.
+    function drawIso(cv, W, H, alpha, zoom, dy) {
+      const EW = cv.width, EH = cv.height;
+      const s = Math.min(W / (0.866 * (EW + EH)), H / (0.5 * (EW + EH))) * 1.5 * zoom;
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.shadowColor = 'rgba(77,227,255,0.5)'; ctx.shadowBlur = 3; // faint neon halo on the lines only
+      ctx.translate(W / 2, H * 0.52 + dy);
+      ctx.transform(0.866 * s, 0.5 * s, -0.866 * s, 0.5 * s, 0, 0);
+      ctx.drawImage(cv, -EW / 2, -EH / 2, EW, EH);
+      ctx.restore();
     }
     function frame(time) {
       if (disposed) return;
@@ -98,23 +101,18 @@ export default function NeonMasterplanHero({ frames }) {
         const f = p * (n - 1);
         let i = Math.floor(f); const frac = f - i;
         i = Math.max(0, Math.min(n - 1, i));
-        const evolve = (i + frac);
-        // current frame (slow zoom/drift as it "evolves")
-        const z1 = 1.05 + (frac) * 0.12;
-        const drift = Math.sin(time / 4000) * 8;
-        if (neon[i]) { ctx.globalAlpha = 1; drawCover(neon[i], W, H, z1, drift, 0); }
-        if (neon[i + 1] && frac > 0) { ctx.globalAlpha = frac; drawCover(neon[i + 1], W, H, 1.05 + frac * 0.12, -drift, 0); }
-        ctx.globalAlpha = 1;
-        // engineered overlay: moving scanline + hairline grid + vignette
-        const gy = ((time / 26) % (H + 80)) - 40;
-        const grad = ctx.createLinearGradient(0, gy - 40, 0, gy + 40);
-        grad.addColorStop(0, 'rgba(60,232,255,0)'); grad.addColorStop(0.5, 'rgba(60,232,255,0.10)'); grad.addColorStop(1, 'rgba(60,232,255,0)');
-        ctx.fillStyle = grad; ctx.fillRect(0, gy - 40, W, 80);
-        ctx.strokeStyle = 'rgba(120,200,255,0.05)'; ctx.lineWidth = 1;
-        for (let x = 0; x < W; x += 60) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
-        for (let y = 0; y < H; y += 60) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
-        const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.8);
-        vg.addColorStop(0, 'rgba(5,7,10,0)'); vg.addColorStop(1, 'rgba(5,7,10,0.85)');
+        const bob = Math.sin(time / 3600) * 6;
+        // cross-evolve between two isometric plans; they rise/settle as they swap
+        if (neon[i]) drawIso(neon[i], W, H, 1, 1 + frac * 0.05, bob - frac * 26);
+        if (neon[i + 1] && frac > 0) drawIso(neon[i + 1], W, H, frac, 0.97 + frac * 0.05, bob + (1 - frac) * 26);
+        ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+        // one moving scan-line (engineering feel — no fills on the plan itself)
+        const gy = ((time / 24) % (H + 60)) - 30;
+        const grad = ctx.createLinearGradient(0, gy - 26, 0, gy + 26);
+        grad.addColorStop(0, 'rgba(77,227,255,0)'); grad.addColorStop(0.5, 'rgba(77,227,255,0.07)'); grad.addColorStop(1, 'rgba(77,227,255,0)');
+        ctx.fillStyle = grad; ctx.fillRect(0, gy - 26, W, 52);
+        const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.34, W / 2, H / 2, H * 0.85);
+        vg.addColorStop(0, 'rgba(5,7,10,0)'); vg.addColorStop(1, 'rgba(5,7,10,0.78)');
         ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
         const idx = Math.round(f);
         if (idx !== active) setActive(idx);
