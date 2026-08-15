@@ -47,19 +47,19 @@ export default function Gallery({ images = [] }) {
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
         {images.map((img, i) => (
           <button key={i} onClick={(e) => { triggerRef.current = e.currentTarget; setIdx(i); }}
-            className="group relative aspect-[4/3] overflow-hidden rounded-[0.9rem] border border-sys-line bg-white/[0.03]" aria-label={`Open image ${i + 1} of ${images.length}`}>
+            className="group relative aspect-[4/3] overflow-hidden rounded-[0.9rem] border border-white/10 bg-white/[0.03]" aria-label={`Open image ${i + 1} of ${images.length}`}>
             <img src={asset(img.src)} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-settle group-hover:scale-105" />
           </button>
         ))}
       </div>
       {open && (
-        <div ref={dialogRef} className="fixed inset-0 z-[110] flex items-center justify-center bg-ink-900/95 p-4"
+        <div ref={dialogRef} className="fixed inset-0 z-[110] flex items-center justify-center bg-brand-coal/95 p-4"
           role="dialog" aria-modal="true" aria-label={`Image ${idx + 1} of ${images.length}`} onClick={close}>
-          <button className="absolute right-5 top-5 u-label text-paper-50" onClick={close} aria-label="Close gallery">CLOSE ✕</button>
-          <button className="absolute left-4 u-label text-paper-50 md:left-8" onClick={(e) => { e.stopPropagation(); move(-1); }} aria-label="Previous image">←</button>
+          <button className="absolute right-5 top-5 u-label text-white" onClick={close} aria-label="Close gallery">CLOSE ✕</button>
+          <button className="absolute left-4 u-label text-white md:left-8" onClick={(e) => { e.stopPropagation(); move(-1); }} aria-label="Previous image">←</button>
           <img src={asset(images[idx].src)} alt={images[idx].alt} className="max-h-[85vh] max-w-[90vw] object-contain" onClick={(e) => e.stopPropagation()} />
-          <button className="absolute right-4 u-label text-paper-50 md:right-8" onClick={(e) => { e.stopPropagation(); move(1); }} aria-label="Next image">→</button>
-          <span className="absolute bottom-5 font-mono text-label-sm text-paper-50/70">{idx + 1} / {images.length}</span>
+          <button className="absolute right-4 u-label text-white md:right-8" onClick={(e) => { e.stopPropagation(); move(1); }} aria-label="Next image">→</button>
+          <span className="absolute bottom-5 font-mono text-label-sm text-white/60">{idx + 1} / {images.length}</span>
         </div>
       )}
     </>

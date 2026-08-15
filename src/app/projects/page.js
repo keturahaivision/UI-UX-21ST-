@@ -17,7 +17,7 @@ export default function ProjectsPage() {
         intro={`${data.stats.total_projects} projects across ${data.stats.countries_served} countries — filter by discipline or location.`} />
       <ProjectsMap />
       <section className="u-container pb-32">
-        <Suspense fallback={<p className="font-mono text-[11px] uppercase tracking-[0.16em] text-sys-faint">Loading projects…</p>}>
+        <Suspense fallback={<p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/45">Loading projects…</p>}>
           <ProjectGrid />
         </Suspense>
       </section>

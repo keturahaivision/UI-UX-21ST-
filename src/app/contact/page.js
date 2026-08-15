@@ -10,8 +10,8 @@ export const metadata = pageMeta({
 function Detail({ label, children }) {
   return (
     <div>
-      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-sys-faint">{label}</p>
-      <div className="mt-3 text-[15px] text-sys-ink/80">{children}</div>
+      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/45">{label}</p>
+      <div className="mt-3 text-[15px] text-white/80">{children}</div>
     </div>
   );
 }

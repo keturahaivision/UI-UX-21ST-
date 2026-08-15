@@ -13,9 +13,9 @@ export default function ProjectCard({ project, className = '', wide = false }) {
             className="h-full w-full object-cover transition-transform duration-[600ms] ease-settle group-hover:scale-[1.04]" />
         ) : <div className="h-full w-full bg-black/5" />}
       </div>
-      <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-sys-red">{p.disciplines[0] || 'Project'}</p>
-      <h3 className="mt-1.5 font-display text-xl font-medium leading-tight text-sys-ink">{p.name}</h3>
-      {p.location && <p className="mt-0.5 text-sm text-sys-faint">{p.location}</p>}
+      <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-brand-red">{p.disciplines[0] || 'Project'}</p>
+      <h3 className="mt-1.5 font-raleway text-xl font-medium leading-tight text-white">{p.name}</h3>
+      {p.location && <p className="mt-0.5 text-sm text-white/45">{p.location}</p>}
     </Link>
   );
 }

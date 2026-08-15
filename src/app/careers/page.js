@@ -13,8 +13,8 @@ export default function CareersPage() {
         intro="DMF brings planners, engineers and architects into one room. When roles open, they are listed here — real positions only." />
       <section className="u-container pb-32">
         <div className="rounded-[1.25rem] tile p-12">
-          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-sys-red">No open roles listed right now</p>
-          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-sys-muted">We’re always glad to hear from strong master planners, roads &amp; infrastructure, traffic, structural and civil engineers. {SITE.email ? (<>Send your portfolio to <a href={`mailto:${SITE.email}`} className="font-semibold text-sys-ink underline underline-offset-4">{SITE.email}</a>.</>) : (<>Reach us via the <a href="/contact" className="font-semibold text-sys-ink underline underline-offset-4">contact form</a>.</>)}</p>
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-red">No open roles listed right now</p>
+          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70">We’re always glad to hear from strong master planners, roads &amp; infrastructure, traffic, structural and civil engineers. {SITE.email ? (<>Send your portfolio to <a href={`mailto:${SITE.email}`} className="font-semibold text-white underline underline-offset-4">{SITE.email}</a>.</>) : (<>Reach us via the <a href="/contact" className="font-semibold text-white underline underline-offset-4">contact form</a>.</>)}</p>
         </div>
       </section>
     </>

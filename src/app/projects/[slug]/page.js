@@ -18,9 +18,9 @@ export function generateMetadata({ params }) {
 function Fact({ label, value }) {
   if (!value) return null;
   return (
-    <div className="border-t border-sys-line py-4">
-      <dt className="text-[12px] font-semibold uppercase tracking-[0.16em] text-sys-faint">{label}</dt>
-      <dd className="mt-2 text-[15px] text-sys-ink">{value}</dd>
+    <div className="border-t border-white/10 py-4">
+      <dt className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/45">{label}</dt>
+      <dd className="mt-2 text-[15px] text-white">{value}</dd>
     </div>
   );
 }
@@ -43,7 +43,7 @@ export default function ProjectDetail({ params }) {
         <div className="u-container relative z-10 flex h-full flex-col justify-end pb-14">
           <Link href="/projects" className="mb-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/80 u-link-underline">← All projects</Link>
           <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-white">{p.disciplineDisplay}</p>
-          <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium text-white md:text-6xl">{p.name}</h1>
+          <h1 className="mt-4 max-w-4xl font-raleway text-4xl font-medium text-white md:text-6xl">{p.name}</h1>
         </div>
       </section>
 
@@ -51,10 +51,10 @@ export default function ProjectDetail({ params }) {
         <div>
           {p.scope && <p className="r-eyebrow">{p.scope}</p>}
           {p.description ? (
-            <p className="mt-6 max-w-prose text-lg leading-relaxed text-sys-muted">{p.description}</p>
+            <p className="mt-6 max-w-prose text-lg leading-relaxed text-white/70">{p.description}</p>
           ) : (
-            <p className="mt-6 max-w-prose text-[15px] text-sys-faint">
-              {p.disciplineDisplay} delivered by DMF Engineering{p.location ? ` in ${p.location}` : ''}. <span className="text-sys-faint">[Detailed write-up pending]</span>
+            <p className="mt-6 max-w-prose text-[15px] text-white/45">
+              {p.disciplineDisplay} delivered by DMF Engineering{p.location ? ` in ${p.location}` : ''}. <span className="text-white/45">[Detailed write-up pending]</span>
             </p>
           )}
         </div>
@@ -74,15 +74,15 @@ export default function ProjectDetail({ params }) {
         </section>
       )}
 
-      <nav className="border-t border-sys-line">
+      <nav className="border-t border-white/10">
         <div className="u-container grid grid-cols-2">
-          <Link href={`/projects/${prev.slug}`} className="group border-r border-sys-line py-10 pr-4">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-sys-faint">← Previous</span>
-            <p className="mt-2 font-display text-xl font-medium text-sys-ink group-hover:text-sys-red">{prev.name}</p>
+          <Link href={`/projects/${prev.slug}`} className="group border-r border-white/10 py-10 pr-4">
+            <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/45">← Previous</span>
+            <p className="mt-2 font-raleway text-xl font-medium text-white group-hover:text-brand-red">{prev.name}</p>
           </Link>
           <Link href={`/projects/${next.slug}`} className="group py-10 pl-4 text-right">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-sys-faint">Next →</span>
-            <p className="mt-2 font-display text-xl font-medium text-sys-ink group-hover:text-sys-red">{next.name}</p>
+            <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/45">Next →</span>
+            <p className="mt-2 font-raleway text-xl font-medium text-white group-hover:text-brand-red">{next.name}</p>
           </Link>
         </div>
       </nav>

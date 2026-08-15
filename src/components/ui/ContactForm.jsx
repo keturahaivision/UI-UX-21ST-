@@ -19,8 +19,8 @@ export default function ContactForm() {
     } catch { setStatus('error'); }
   }
 
-  const label = 'text-[12px] font-semibold uppercase tracking-[0.16em] text-sys-faint';
-  const field = 'w-full rounded-[0.7rem] tile px-4 py-3 text-[15px] text-sys-ink placeholder:text-sys-faint focus:border-sys-red focus:outline-none';
+  const label = 'text-[12px] font-semibold uppercase tracking-[0.16em] text-white/45';
+  const field = 'w-full rounded-[0.7rem] tile px-4 py-3 text-[15px] text-white placeholder:text-white/45 focus:border-brand-red focus:outline-none';
   return (
     <form onSubmit={onSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
@@ -34,13 +34,13 @@ export default function ContactForm() {
       <label className="block"><span className={label}>Message</span>
         <textarea name="message" required rows={5} className={`mt-2 ${field}`} placeholder="Tell us about your project" /></label>
       <button type="submit" disabled={status === 'sending'}
-        className="rounded-full bg-sys-red px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-sys-red-deep disabled:opacity-60">
+        className="rounded-full bg-brand-red px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-brand-red-deep disabled:opacity-60">
         {status === 'sending' ? 'Sending…' : 'Send message'}
       </button>
       <div role="status" aria-live="polite" className="min-h-[1.25rem]">
-        {status === 'sent' && <p className="text-sm text-sys-red">Thank you — we'll be in touch shortly.</p>}
-        {status === 'error' && <p className="text-sm text-sys-red">Something went wrong. Please try again, or call us on the number on the contact page.</p>}
-        {status === 'unconfigured' && <p className="text-sm text-sys-faint">Form endpoint not configured yet — set NEXT_PUBLIC_FORM_ENDPOINT in .env.</p>}
+        {status === 'sent' && <p className="text-sm text-brand-red">Thank you — we'll be in touch shortly.</p>}
+        {status === 'error' && <p className="text-sm text-brand-red">Something went wrong. Please try again, or call us on the number on the contact page.</p>}
+        {status === 'unconfigured' && <p className="text-sm text-white/45">Form endpoint not configured yet — set NEXT_PUBLIC_FORM_ENDPOINT in .env.</p>}
       </div>
     </form>
   );

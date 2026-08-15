@@ -21,7 +21,7 @@ export default function AboutPage() {
       <PageHeader label="Who we are" title="Building a brighter future, together" />
 
       <section className="u-container pb-16">
-        <p className="max-w-3xl text-xl leading-relaxed text-sys-muted">
+        <p className="max-w-3xl text-xl leading-relaxed text-white/70">
           DMF Engineering, founded by visionary David Ghosheh, has earned a strong reputation for delivering
           innovative and sustainable engineering solutions in the UAE, the Gulf region, and worldwide. Under David&apos;s
           leadership, the company has become synonymous with excellence — blending creativity, technical expertise and
@@ -33,11 +33,11 @@ export default function AboutPage() {
 
       {/* Stats rule */}
       <section className="u-container">
-        <div className="grid grid-cols-3 gap-6 border-y border-sys-line py-10">
+        <div className="grid grid-cols-3 gap-6 border-y border-white/10 py-10">
           {[[s.total_projects, 'Projects delivered'], [s.countries_served, 'Countries served'], [s.disciplines_count, 'Disciplines']].map(([n, l]) => (
             <div key={l}>
-              <div className="font-display text-5xl font-medium md:text-6xl">{String(n).padStart(2, '0')}</div>
-              <div className="mt-2 text-sm font-medium text-sys-faint">{l}</div>
+              <div className="font-raleway text-5xl font-medium md:text-6xl">{String(n).padStart(2, '0')}</div>
+              <div className="mt-2 text-sm font-medium text-white/45">{l}</div>
             </div>
           ))}
         </div>
@@ -45,11 +45,11 @@ export default function AboutPage() {
 
       {/* Mission / Vision / Values */}
       <section className="u-container py-20">
-        <div className="grid gap-px overflow-hidden rounded-[1.25rem] bg-sys-line md:grid-cols-3">
+        <div className="grid gap-px overflow-hidden rounded-[1.25rem] bg-white/10 md:grid-cols-3">
           {VALUES.map(([k, v]) => (
-            <div key={k} className="bg-sys-ground p-8">
+            <div key={k} className="bg-brand-coal p-8">
               <h2 className="r-eyebrow">{k}</h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-sys-muted">{v}</p>
+              <p className="mt-4 text-[15px] leading-relaxed text-white/70">{v}</p>
             </div>
           ))}
         </div>
