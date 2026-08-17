@@ -1,0 +1,40 @@
+{
+  "slug": "nujoom-island",
+  "name": "Nujoom Island",
+  "scope_tagline": "Traffic Impact Study",
+  "listing_category": "",
+  "description": "s is a commercial, residential and tourist development which will provide districts for more than 45,000 residents with 34 km of beach front land to the Sharjah coast. The study focuses on highlighting key issues, identifying possible solutions and providing a picture of the expected growth in traffic and the overall impact this will have on the area under consideration. The TIS is carried out in accordance with current procedures.",
+  "details": {
+    "Type of service": "Traffic Impact Study",
+    "Client": "Al Hanoo Holding",
+    "Size": "TBD",
+    "Location": "Sharjah, UAE",
+    "Completion date": "2008"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/1-Traffic-Nujoom-Island_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Nujoom-Island-22.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/1-Traffic-Nujoom-Island11.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Nujoom-Island_Cover.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/nujoom-island/",
+  "target_url": "/projects/nujoom-island",
+  "category_slugs": [
+    "traffic"
+  ],
+  "category_display": "Traffic",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Nujoom-Island_Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/1-Traffic-Nujoom-Island_Header.jpg"
+}

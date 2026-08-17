@@ -1,0 +1,148 @@
+{
+  "chapter_2_3_pairs": [
+    {
+      "rank": 1,
+      "project": "Nadd Al Hamar",
+      "slug": "nah",
+      "preferred_by_brief": true,
+      "plan": {
+        "slug": "nah",
+        "file": "Wb_NAH-Masterplan.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_NAH-Masterplan.jpg"
+      },
+      "built": {
+        "slug": "nah",
+        "file": "Wb_NAH-01.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_NAH-01.jpg"
+      },
+      "built_alt": {
+        "slug": "nah",
+        "file": "Wb_nah-06.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_nah-06.jpg"
+      },
+      "note": "Brief-preferred. Wb_NAH-Masterplan.jpg (colored plan on satellite) -> Wb_NAH-01.jpg (built aerial). Same site."
+    },
+    {
+      "rank": 2,
+      "project": "Euro University Bahrain",
+      "slug": "euro-university-bahrein",
+      "preferred_by_brief": false,
+      "plan": {
+        "slug": "euro-university-bahrein",
+        "file": "Wb_EURO-N-MP.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2019/11/Wb_EURO-N-MP.jpg"
+      },
+      "plan_alt": {
+        "slug": "euro-university-bahrein",
+        "file": "Wb_EURO-MP_10.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2019/11/Wb_EURO-MP_10.jpg"
+      },
+      "built": {
+        "slug": "euro-university-bahrein",
+        "file": "Wb_EURO-N-12.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2019/11/Wb_EURO-N-12.jpg"
+      },
+      "built_alt": {
+        "slug": "euro-university-bahrein",
+        "file": "Wb_EURO-N-10.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2019/11/Wb_EURO-N-10.jpg"
+      },
+      "note": "BEST for SVG line-draw: dedicated MP drawings. Flagship (hero slider)."
+    },
+    {
+      "rank": 3,
+      "project": "Al Salamah",
+      "slug": "al-salamah",
+      "preferred_by_brief": false,
+      "plan": {
+        "slug": "al-salamah",
+        "file": "Wb_SALAMAH-MP.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-MP.jpg"
+      },
+      "built": {
+        "slug": "al-salamah",
+        "file": "Wb_SALAMAH-1.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-1.jpg"
+      },
+      "built_alt": {
+        "slug": "al-salamah",
+        "file": "Wb_SALAMAH-2.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_SALAMAH-2.jpg"
+      },
+      "note": "Flagship. Wb_SALAMAH-MP.jpg -> Wb_SALAMAH-1.jpg."
+    },
+    {
+      "rank": 4,
+      "project": "Jebel Ali Development",
+      "slug": "jebel-ali-development",
+      "preferred_by_brief": false,
+      "plan": {
+        "slug": "jebel-ali-development",
+        "file": "JAD_MasterplanN2.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2020/01/JAD_MasterplanN2.jpg"
+      },
+      "plan_alt": {
+        "slug": "jebel-ali-development",
+        "file": "JAD-MP_10.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2020/01/JAD-MP_10.jpg"
+      },
+      "built": {
+        "slug": "jebel-ali-development",
+        "file": "06092020_jad61.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2020/01/06092020_jad61.jpg"
+      },
+      "built_alt": {
+        "slug": "jebel-ali-development",
+        "file": "06092020_jad41.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2020/01/06092020_jad41.jpg"
+      },
+      "note": "Flagship. JAD_MasterplanN2.jpg -> 06092020_jad61.jpg (built aerial)."
+    },
+    {
+      "rank": 5,
+      "project": "Bawabat Al Sharq",
+      "slug": "bawabat-al-sharq-phase-5",
+      "preferred_by_brief": true,
+      "plan": null,
+      "built": {
+        "slug": "bawabat-al-sharq-phase-5",
+        "file": "Wb_Bawabat-1.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-1.jpg"
+      },
+      "note": "Brief-preferred BUT gallery has NO clean masterplan drawing (only villa renders/photos). Would need SVG traced over an aerial render. Flag."
+    }
+  ],
+  "chapter_1_land_candidates": [
+    {
+      "rank": 1,
+      "project": "Porto Island (Hillside Library record)",
+      "slug": "hillside-library",
+      "img": {
+        "slug": "hillside-library",
+        "file": "Wb_porto-island-Aerial-02.jpg",
+        "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island-Aerial-02.jpg"
+      },
+      "note": "Porto Island reclamation aerials - raw reclaimed land emerging from water. Ideal 'Land' opening; same project has dramatic built island."
+    },
+    {
+      "rank": 2,
+      "project": "Heart of Jeddah",
+      "slug": "heart-of-jeddah",
+      "img": null,
+      "note": "Greyed empty terrain plot aerial (see montage #214)."
+    },
+    {
+      "rank": 3,
+      "project": "Al Qusais",
+      "slug": "al-qusais",
+      "img": null,
+      "note": "Raw sandy site montage #93/#94 - bare desert ground."
+    }
+  ],
+  "recommendation": {
+    "chapter_1_land": "Porto Island reclamation aerial (hillside-library) OR heart-of-jeddah empty plot",
+    "chapter_2_3_primary": "Nadd Al Hamar: Wb_NAH-Masterplan.jpg -> Wb_NAH-01.jpg (brief-preferred, clean same-site pair)",
+    "chapter_2_line_draw": "Euro University MP drawings (rank 2) are cleanest for the self-drawing SVG; trace path over them.",
+    "flag": "Bawabat (brief-preferred) lacks a true masterplan drawing in its gallery - Nadd Al Hamar is the stronger primary. No project has raw-terrain+plan+built of identical framing; Chapter 1 land uses a different project than Ch2-3 (disclosed)."
+  }
+}

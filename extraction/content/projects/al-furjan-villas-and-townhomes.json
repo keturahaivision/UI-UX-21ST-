@@ -1,0 +1,49 @@
+{
+  "slug": "al-furjan-villas-and-townhomes",
+  "name": "Al Furjan Villas and Townhomes",
+  "scope_tagline": "Roads & Infrastructure design and Supervision",
+  "listing_category": "",
+  "description": "DMF was tasked by mega developer Nakheel to provide full service infrastructure engineering design for this mixed use development in Jebel Ali, UAE. Developed by Nakheel, Al Furjan will contain 800 single family homes, 2,500 residences, and over 10,000 square meters of retail/food and beverage outlets. DMF provided full scope engineering for this development along with construction supervision.",
+  "details": {
+    "Type of service": "Roads & Infrastructure design and Supervision",
+    "Client": "Nakheel",
+    "Size": "30 Hectares",
+    "Location": "Dubai, UAE",
+    "Completion date": "2013-2015"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Al-Furjan_Cover.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_Al-Furjan04-croped.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_Al-Furjan03-croped.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_Al-Furjan02-croped.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_Al-Furjan01-croped.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/WbAl-Furjan_08.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/al-furjan-villas-and-townhomes/",
+  "target_url": "/projects/al-furjan-villas-and-townhomes",
+  "category_slugs": [
+    "roads",
+    "supervision"
+  ],
+  "category_display": "Roads & Infrastructure, Supervision",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/WbAl-Furjan_08.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Al-Furjan_Cover.jpg"
+}

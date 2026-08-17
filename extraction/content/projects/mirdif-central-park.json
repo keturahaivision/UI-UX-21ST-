@@ -1,0 +1,27 @@
+{
+  "slug": "mirdif-central-park",
+  "name": "Mirdif Central Park",
+  "scope_tagline": "Roads & Infrastructure Design",
+  "listing_category": "",
+  "description": "",
+  "details": {
+    "Type of service": "Roads & Infrastructure Design",
+    "Client": "HDR / DM",
+    "Size": "15 Hectares",
+    "Location": "Dubai, UAE"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Untitled-1.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/mirdif-central-park/",
+  "target_url": "/projects/mirdif-central-park",
+  "category_slugs": [
+    "roads"
+  ],
+  "category_display": "Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Untitled-1.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Untitled-1.jpg"
+}

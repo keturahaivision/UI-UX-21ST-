@@ -1,0 +1,41 @@
+{
+  "slug": "al-thanya-2nd",
+  "name": "Al Thanya 2nd",
+  "scope_tagline": "Roads & Infrastructure Design, Sign Off Sheet (SOS) and Traffic Engineering",
+  "listing_category": "",
+  "description": "Development project, Dubai, UAE. The development consists of Mixed-use, School and commercial plots.",
+  "details": {
+    "Type of service": "Roads & Infrastructure Design and Traffic Engineering",
+    "Client": "Office of Sheikh Ahmed Bin Rashid Al Maktoum",
+    "Size": "63 Hectares",
+    "Location": "Dubai, UAE",
+    "Completion date": "TBD"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_002.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_001.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Cover11.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/al-thanya-2nd/",
+  "target_url": "/projects/al-thanya-2nd",
+  "category_slugs": [
+    "roads",
+    "traffic"
+  ],
+  "category_display": "Roads & Infrastructure, Traffic",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Cover11.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Al-Thanya-2nd_Header.jpg"
+}

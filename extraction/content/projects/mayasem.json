@@ -1,0 +1,45 @@
+{
+  "slug": "mayasem",
+  "name": "Mayasem",
+  "scope_tagline": "Roads & Infrastructure Design & Traffic Study",
+  "listing_category": "",
+  "description": "development is a residential mixed-use project comprising residential, commercial offices, resort hotel, retail, and family community facilities. The objective of the roads and infrastructure is to examine the infrastructure needs for the planned development with the objective of providing sufficient capacity on the infrastructure network and evaluate the estimated demand of the development infrastructure. In order to support the development, it is essential to provide the appropriate roads and infrastructure for a comfortable, convenient and high-quality lifestyle.",
+  "details": {
+    "Type of service": "Roads & Infrastructure design, Traffic Study",
+    "Client": "LACASA / SHAMAYEL",
+    "Size": "160 Acres",
+    "Location": "Jeddah, Saudi Arabia",
+    "Completion date": "2012-2014"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Mayasem_Header1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_2-RI-Mayasem.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Mayasem-_JunctionConfig_20130625-3.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Mayasem-32mROW.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Mayasem-1_Rev1.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/mayasem/",
+  "target_url": "/projects/mayasem",
+  "category_slugs": [
+    "roads",
+    "traffic"
+  ],
+  "category_display": "Roads & Infrastructure, Traffic",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_2-RI-Mayasem.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Mayasem_Header1.jpg"
+}

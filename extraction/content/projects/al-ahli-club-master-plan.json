@@ -1,0 +1,55 @@
+{
+  "slug": "al-ahli-club-master-plan",
+  "name": "Al Ahli Club",
+  "scope_tagline": "Master Planning , Roads and Infrastructure Design",
+  "listing_category": "",
+  "description": "Master Plan DMF has been appointed by WASL to carry out the detailed master plan and roads and infrastructure engineering design for this 20 hectare development in Dubai. Included in the scope is to obtain all local authority approvals and final sign-off sheet (“SOS”) from Dubai Municipality. The master plan concept was to develop a mixed-use development that incorporates the existing stadium as part of a live work and sports development. As a destination, the boulevard retail, and the mixed-use mall creates a pedestrian-friendly community and a stadium used for residents and visitors alike.",
+  "details": {
+    "Type of service": "Detailed Master Plan, Roads and Infrastructure Design, Concept Architecture/Massing, 3D Model, Plot Guidelines, Landscape Design, Strategy Renderings",
+    "Client": "Wasl and Dubai Sports Corporation",
+    "Size": "20 Hectares"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Al-Ahli_Header1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-9.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-10.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-7.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-8.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-3.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-4.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/al-ahli-club-master-plan/",
+  "target_url": "/projects/al-ahli-club-master-plan",
+  "category_slugs": [
+    "masterplan",
+    "roads"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/0Al-Ahli-7.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Al-Ahli_Header1.jpg"
+}

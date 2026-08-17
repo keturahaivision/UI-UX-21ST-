@@ -1,0 +1,45 @@
+{
+  "slug": "mixed-use-development-alrowaiyah-third",
+  "name": "Mixed-use Development @Alrowaiyah Third",
+  "scope_tagline": "Master Planning, Roads & Infrastructure Design, Traffic Engineering and Site Supervision",
+  "listing_category": "",
+  "description": "",
+  "details": {
+    "Type of service": "Master Planning, Roads & Infrastructure Design, Traffic Engineering and Site Supervision",
+    "Client": "Confidential",
+    "Size": "53.4 Hectares",
+    "Location": "Dubai, UAE"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Landuse-option-4.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan-Option4.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/villa_02b.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/villa_03.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/villa_01.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/mixed-use-development-alrowaiyah-third/",
+  "target_url": "/projects/mixed-use-development-alrowaiyah-third",
+  "category_slugs": [
+    "masterplan",
+    "roads",
+    "traffic"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/villa_01.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Landuse-option-4.jpg"
+}

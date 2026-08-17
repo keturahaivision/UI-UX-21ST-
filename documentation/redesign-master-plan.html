@@ -1,0 +1,601 @@
+<title>DMF Redesign Master Plan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* ---- Committed dark "engineering environment" palette; painted explicitly so it holds on any host ground ---- */
+  :root{
+    --ground:#0E0F12; --panel:#15171B; --panel2:#1B1E23; --raise:#212530;
+    --line:#2A2E36; --line-soft:#20242A;
+    --ink:#EAECEF; --muted:#9BA1AA; --faint:#6B7079;
+    --accent:#E23D2C; --accent-deep:#B32619; --accent-tint:rgba(226,61,44,.12);
+    --ok:#54B487; --warn:#E0A83C;
+    --mono:ui-monospace,"SF Mono","SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,system-ui,sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--accent);color:#fff}
+  a{color:var(--ink);text-decoration:none}
+  h1,h2,h3,h4{margin:0;text-wrap:balance;letter-spacing:-.02em;font-weight:750;line-height:1.05}
+  p{margin:0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .muted{color:var(--muted)}
+  .faint{color:var(--faint)}
+  .rule{height:1px;background:var(--line);border:0;margin:0}
+
+  /* grid backdrop for bands */
+  .grid-bg{background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:44px 44px}
+
+  /* ---- Masthead ---- */
+  header.mast{border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  header.mast .grid-bg{position:absolute;inset:0;opacity:.5;mask-image:radial-gradient(120% 90% at 30% 0%,#000 30%,transparent 75%)}
+  .mast-inner{position:relative;padding:64px 0 52px}
+  .tagbar{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;margin-bottom:34px}
+  .tag{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+  .status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--warn)}
+  .status .dot{width:7px;height:7px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 4px rgba(224,168,60,.14)}
+  h1.title{font-size:clamp(2.6rem,7vw,5.1rem);line-height:.98;letter-spacing:-.035em;font-weight:800}
+  h1.title .red{color:var(--accent)}
+  .lede{max-width:640px;margin-top:22px;font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--muted);line-height:1.5}
+  .metaline{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px 34px;font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.04em}
+  .metaline b{color:var(--ink);font-weight:600}
+
+  /* ---- Section scaffold ---- */
+  section{padding:62px 0;border-bottom:1px solid var(--line-soft)}
+  .sec-head{display:flex;gap:18px;align-items:baseline;margin-bottom:30px}
+  .sec-num{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.1em;padding-top:6px;min-width:34px}
+  .sec-head h2{font-size:clamp(1.5rem,3.6vw,2.15rem);font-weight:780}
+  .sec-head .sub{margin-top:8px;color:var(--muted);max-width:60ch;font-size:15px}
+  .lead{font-size:1.06rem;color:var(--ink);max-width:70ch}
+  .body-copy{color:var(--muted);max-width:72ch}
+  .body-copy strong{color:var(--ink);font-weight:650}
+  .stack{display:flex;flex-direction:column;gap:16px}
+
+  /* ---- KPI row ---- */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .kpi{background:var(--panel);padding:20px 18px}
+  .kpi .n{font-size:2rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .kpi .n .u{color:var(--accent)}
+  .kpi .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:6px}
+
+  /* ---- Verdict grid (KEEP/IMPROVE/...) ---- */
+  .verdicts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .vcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px;position:relative}
+  .vcard h4{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:9px}
+  .vcard h4::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--accent)}
+  .vcard.keep h4::before{background:var(--ok)}
+  .vcard.improve h4::before{background:var(--warn)}
+  .vcard.replace h4::before{background:var(--accent)}
+  .vcard.remove h4::before{background:var(--faint)}
+  .vcard.create h4::before{background:#5B8BD0}
+  .vcard ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+  .vcard li{font-size:13.5px;color:var(--muted);padding-left:16px;position:relative;line-height:1.45}
+  .vcard li::before{content:"—";position:absolute;left:0;color:var(--faint)}
+  .vcard li b{color:var(--ink);font-weight:600}
+
+  /* ---- Tables ---- */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+  th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line-soft)}
+  thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;background:var(--panel2)}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:var(--panel)}
+  td.firm{font-weight:650;color:var(--ink)}
+  .score{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:center}
+  td.avg{font-weight:750;color:var(--accent);text-align:center;font-variant-numeric:tabular-nums}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line)}
+  .pill.v{color:var(--ok);border-color:rgba(84,180,135,.4)}
+  .pill.c{color:var(--warn);border-color:rgba(224,168,60,.4)}
+
+  /* ---- Principle rows ---- */
+  .principle{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .principle+.principle{margin-top:12px}
+  .principle>div{padding:16px 18px}
+  .principle .from{background:var(--panel2);border-right:1px solid var(--line)}
+  .principle .to{background:var(--panel)}
+  .principle .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+  .principle .from .k{color:var(--muted)}
+  .principle .to .k{color:var(--accent)}
+  .principle p{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .principle .to p{color:var(--ink)}
+
+  /* ---- Direction cards ---- */
+  .dirs{display:flex;flex-direction:column;gap:16px}
+  .dir{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .dir.rec{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset,0 20px 60px -30px rgba(226,61,44,.5)}
+  .dir-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:20px 20px 0}
+  .dir h3{font-size:1.35rem;font-weight:780}
+  .dir .tagn{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .dir .rec-badge{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent);padding:5px 10px;border-radius:999px;font-weight:600;white-space:nowrap}
+  .dir p{padding:12px 20px 0;color:var(--muted);font-size:14px;max-width:none}
+  .swatches{display:flex;gap:6px;padding:16px 20px 20px}
+  .sw{width:30px;height:30px;border-radius:7px;border:1px solid rgba(255,255,255,.08)}
+  .dir .verdict{padding:0 20px 20px;font-size:13px;color:var(--faint);font-family:var(--mono);letter-spacing:.02em}
+  .dir .verdict b{color:var(--ink)}
+
+  /* ---- Spec sheet (design system) ---- */
+  .spec{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .spec-row{display:grid;grid-template-columns:150px 1fr;gap:0;border-bottom:1px solid var(--line-soft)}
+  .spec-row:last-child{border-bottom:0}
+  .spec-row .lab{background:var(--panel2);padding:13px 15px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .spec-row .val{padding:13px 15px;font-size:14px;color:var(--muted)}
+  .spec-row .val b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:5px 9px}
+  .chip .dot{width:13px;height:13px;border-radius:3px;border:1px solid rgba(255,255,255,.14)}
+
+  /* ---- Wireframe ---- */
+  .wire{display:flex;flex-direction:column;gap:8px}
+  .wblock{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--panel);padding:15px 18px;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+  .wblock .wn{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:600;padding-top:2px}
+  .wblock h4{font-size:1.02rem;font-weight:700;margin-bottom:4px}
+  .wblock p{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .wblock .note{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:7px;letter-spacing:.02em}
+
+  /* ---- Steps / roadmap ---- */
+  .phases{display:flex;flex-direction:column;gap:10px}
+  .phase{display:grid;grid-template-columns:120px 1fr;gap:18px;border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px 18px}
+  .phase .ph{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  .phase .ph .sm{display:block;color:var(--faint);margin-top:5px;letter-spacing:.06em}
+  .phase h4{font-size:1rem;font-weight:700;margin-bottom:5px}
+  .phase p{font-size:13.5px;color:var(--muted)}
+
+  /* ---- generic feature grid ---- */
+  .fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .fcard{border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px 17px}
+  .fcard .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .fcard h4{font-size:1.02rem;font-weight:700;margin-bottom:6px}
+  .fcard p{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .fcard ul{margin:8px 0 0;padding-left:16px;color:var(--muted);font-size:13px}
+  .fcard li{margin:3px 0}
+
+  /* ---- flow diagram ---- */
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px}
+  .flow .node{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+  .flow .arr{color:var(--accent);font-size:13px}
+
+  /* ---- callout ---- */
+  .callout{border:1px solid var(--accent);background:var(--accent-tint);border-radius:12px;padding:18px 20px}
+  .callout .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-weight:600}
+  .callout p{color:var(--ink);font-size:14.5px}
+  .callout.warn{border-color:var(--warn);background:rgba(224,168,60,.08)}
+  .callout.warn .k{color:var(--warn)}
+
+  /* ---- decisions ---- */
+  .decision{border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:16px 18px;display:grid;grid-template-columns:30px 1fr;gap:14px}
+  .decision .dn{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:600}
+  .decision h4{font-size:1rem;font-weight:700;margin-bottom:4px}
+  .decision p{font-size:13.5px;color:var(--muted)}
+
+  /* ---- gate ---- */
+  .gate{background:linear-gradient(180deg,var(--panel) 0%,var(--ground) 100%);border:1px solid var(--accent);border-radius:16px;padding:34px 28px;text-align:center}
+  .gate h2{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;letter-spacing:-.03em}
+  .gate p{margin:14px auto 0;max-width:60ch;color:var(--muted)}
+  .gate .stamp{margin-top:20px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--warn);border:1px solid var(--warn);border-radius:999px;padding:9px 16px}
+  .gate .stamp .dot{width:8px;height:8px;border-radius:50%;background:var(--warn)}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.1em}
+
+  @media(max-width:760px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .verdicts,.fgrid{grid-template-columns:1fr}
+    .principle{grid-template-columns:1fr}
+    .principle .from{border-right:0;border-bottom:1px solid var(--line)}
+    .spec-row{grid-template-columns:1fr}
+    .spec-row .lab{border-bottom:1px solid var(--line-soft)}
+    .phase{grid-template-columns:1fr;gap:8px}
+    .sec-head{flex-direction:column;gap:6px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="mast">
+  <div class="grid-bg"></div>
+  <div class="wrap mast-inner">
+    <div class="tagbar">
+      <span class="tag">DMF Engineering</span>
+      <span class="tag">Dubai · UAE · GCC</span>
+      <span class="status"><span class="dot"></span>Awaiting approval</span>
+    </div>
+    <h1 class="title">Engineering the systems<br>that make development <span class="red">possible.</span></h1>
+    <p class="lede">A research-led redesign strategy for the DMF Engineering website — reinterpreting the best of premium infrastructure UX for a Dubai architecture &amp; engineering consultancy. Not a restyle. A repositioning.</p>
+    <div class="metaline">
+      <span>DOC · <b>DMF Website Redesign Master Plan</b></span>
+      <span>PREPARED FOR · <b>DMF Engineering</b></span>
+      <span>BENCHMARK · <b>alfarisgroup.com</b> (principles only)</span>
+      <span>STATUS · <b>Strategy — pre-implementation</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- 00 EXECUTIVE CONCEPT -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">A</span><div><h2>Executive concept</h2><p class="sub">The one-paragraph version.</p></div></div>
+    <div class="stack">
+      <p class="lead">Reposition DMF from a conventional “architectural &amp; engineering firm” into <strong>the intelligence layer beneath major development</strong> — the practice that plans the land, moves the traffic, lays the infrastructure and engineers the structures that make a place work. The new site behaves like an <strong>engineering environment</strong>: a dark, precise, cinematic interface where real DMF projects and engineering data are the hero, a persistent “systems” spine (Plan → Move → Build → Sustain) organises the journey, and controlled scroll-driven motion turns technical capability into a story. It borrows Al&nbsp;Faris’s <em>principles</em> — scale, credibility-through-proof, sector clarity, cinematic confidence — without borrowing its identity, and deliberately avoids looking like a heavy-equipment brand.</p>
+      <div class="callout">
+        <div class="k">The standard every page is measured against</div>
+        <p>“These are the people who understand what has to happen <em>beneath</em> the development for the development to work.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 CURRENT SITE AUDIT -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><div><h2>Where DMF stands today</h2><p class="sub">Audit of the current live site (dmf-engineering.vercel.app) across UX, UI, IA, content, tech, mobile, performance and SEO — sorted into five verdicts.</p></div></div>
+
+    <div class="kpis" style="margin-bottom:26px">
+      <div class="kpi"><div class="n">50</div><div class="l">Projects extracted</div></div>
+      <div class="kpi"><div class="n">07</div><div class="l">Disciplines</div></div>
+      <div class="kpi"><div class="n">04</div><div class="l">Countries · UAE·KSA·QA·AF</div></div>
+      <div class="kpi"><div class="n">~349</div><div class="l">Project images</div></div>
+    </div>
+
+    <div class="verdicts">
+      <div class="vcard keep">
+        <h4>Keep</h4>
+        <ul>
+          <li><b>The content spine.</b> 50 real projects, 7 disciplines, clients, a provenance registry, and an <b>asset resolver</b> for portable image hosting — all hard-won and reusable.</li>
+          <li><b>The Next.js + Tailwind + GSAP + Lenis stack.</b> Modern, fast, already deployed on Vercel.</li>
+          <li><b>Accessibility &amp; SEO groundwork.</b> JSON-LD, sitemap, focus states, reduced-motion, skip-link, per-page metadata.</li>
+          <li><b>The “beneath the development” positioning idea.</b> The strongest thing DMF owns verbally.</li>
+        </ul>
+      </div>
+      <div class="vcard improve">
+        <h4>Improve</h4>
+        <ul>
+          <li><b>Hero.</b> Static editorial hero is premium but calm; it doesn’t yet establish <b>scale</b> or motion the way a category-leading infra site does.</li>
+          <li><b>Projects.</b> A clean grid, but projects are the crown jewels and deserve a storytelling system, not just cards.</li>
+          <li><b>Expertise.</b> Disciplines are listed; their <b>relationship as a system</b> isn’t shown.</li>
+          <li><b>Regional map.</b> Indicative SVG footprint — functional, but not yet an interactive proof point.</li>
+        </ul>
+      </div>
+      <div class="vcard replace">
+        <h4>Replace</h4>
+        <ul>
+          <li><b>Homepage rhythm.</b> Re-sequence around a cinematic hero → systems → projects → scale narrative.</li>
+          <li><b>Motion language.</b> Move from tasteful fades to an intentional, engineered scroll system that <b>communicates</b>, not decorates.</li>
+          <li><b>Image treatment.</b> Standardise crops, ratios and a “drawn-to-built” visual motif.</li>
+        </ul>
+      </div>
+      <div class="vcard remove">
+        <h4>Remove</h4>
+        <ul>
+          <li><b>Prototype routes</b> (<span class="mono">/redesign</span>, <span class="mono">/concepts</span>) from the production surface once a direction is locked.</li>
+          <li><b>Any unverified claim</b> — invented emails, founding years, headcounts, award language (see §11).</li>
+          <li><b>Dead dark-theme components</b> left over from earlier iterations.</li>
+        </ul>
+      </div>
+      <div class="vcard create">
+        <h4>Create</h4>
+        <ul>
+          <li><b>Cinematic hero video system</b> with poster + reduced-motion fallback.</li>
+          <li><b>Interactive “engineering systems” diagram</b> as a navigation metaphor.</li>
+          <li><b>Project explorer</b> — scroll-driven, metadata-rich case studies.</li>
+          <li><b>Partnerships credibility graph</b> (partner → project → DMF role → disciplines).</li>
+          <li><b>Insights</b> engine and a real <b>content/asset intake</b> from DMF.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 AL FARIS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><div><h2>What makes Al Faris work — and how DMF reinterprets it</h2><p class="sub">Studied as a UX strategist, not copied. Al Faris is a dark, industrial, red-accented heavy-equipment brand (near-black grounds, vivid red, neo-grotesque sans, fleet imagery). We extract the <em>why</em>, then translate it to an A&amp;E / infrastructure consultancy.</p></div></div>
+
+    <div class="callout warn" style="margin-bottom:22px">
+      <div class="k">Hard guardrail</div>
+      <p>DMF is <b>not</b> a crane company. We borrow Al&nbsp;Faris’s principles of scale, credibility and cinematic confidence — never its branding, colours-as-identity, typography, imagery or layout. The visual language must read <b>infrastructure · masterplanning · engineering systems</b>, not heavy equipment.</p>
+    </div>
+
+    <div class="principle">
+      <div class="from"><div class="k">Al Faris principle</div><p>Establishes <b>scale</b> instantly — huge fleet numbers, tonnage, project counts front-and-centre.</p></div>
+      <div class="to"><div class="k">DMF reinterpretation</div><p>Lead with <b>engineered data</b>: 50 projects, 7 disciplines, UAE+GCC reach — animated as a technical readout, not a boast banner.</p></div>
+    </div>
+    <div class="principle">
+      <div class="from"><div class="k">Al Faris principle</div><p>Cinematic dark canvas + a single hot accent = authority and focus.</p></div>
+      <div class="to"><div class="k">DMF reinterpretation</div><p>A dark “engineering environment” with one disciplined DMF accent — but tuned to <b>DMF’s own red</b>, not Al&nbsp;Faris’s, on a graphite (not black) ground.</p></div>
+    </div>
+    <div class="principle">
+      <div class="from"><div class="k">Al Faris principle</div><p>Clear <b>service &amp; sector architecture</b> — the visitor always knows what’s offered and for whom.</p></div>
+      <div class="to"><div class="k">DMF reinterpretation</div><p>Organise around the <b>development lifecycle</b> (Plan → Move → Build → Sustain), so DMF reads as the specialist who thinks in systems.</p></div>
+    </div>
+    <div class="principle">
+      <div class="from"><div class="k">Al Faris principle</div><p>Credibility through <b>proof</b> — projects, clients, real jobs, real equipment.</p></div>
+      <div class="to"><div class="k">DMF reinterpretation</div><p>Turn each project into a legible “how it works / what it unlocks” story with scope, disciplines and location — evidence over adjectives.</p></div>
+    </div>
+    <div class="principle">
+      <div class="from"><div class="k">Al Faris principle</div><p>Section transitions create a feeling of a <b>large, capable organisation</b>.</p></div>
+      <div class="to"><div class="k">DMF reinterpretation</div><p>Scroll-driven reveals and a persistent systems spine make DMF feel like Dubai’s <b>infrastructure intelligence layer</b> — modern, not corporate-heavy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COMPETITOR BENCHMARK -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><div><h2>Competitor benchmark &amp; the open ground</h2><p class="sub">Eight UAE/GCC + global peers scored 1–5 across six axes. The pattern reveals a lane no one owns.</p></div></div>
+    <div class="tablewrap" style="margin-bottom:22px">
+      <table>
+        <thead><tr><th>Firm</th><th>Type</th><th class="score">Brand</th><th class="score">UX</th><th class="score">Proj</th><th class="score">Story</th><th class="score">Motion</th><th class="score">Infra</th><th class="score">Avg</th></tr></thead>
+        <tbody>
+          <tr><td class="firm">Cracknell</td><td class="muted">Boutique landscape/masterplan</td><td class="score">5</td><td class="score">4</td><td class="score">5</td><td class="score">3</td><td class="score">4</td><td class="score">3</td><td class="avg">4.0</td></tr>
+          <tr><td class="firm">Khatib &amp; Alami</td><td class="muted">Global eng. &amp; architecture</td><td class="score">4</td><td class="score">4</td><td class="score">4</td><td class="score">4</td><td class="score">3</td><td class="score">4</td><td class="avg">3.8</td></tr>
+          <tr><td class="firm">Dar (Sidara)</td><td class="muted">Global multidisciplinary</td><td class="score">4</td><td class="score">4</td><td class="score">4</td><td class="score">4</td><td class="score">2</td><td class="score">4</td><td class="avg">3.7</td></tr>
+          <tr><td class="firm">Parsons</td><td class="muted">Global infrastructure</td><td class="score">3</td><td class="score">3</td><td class="score">4</td><td class="score">4</td><td class="score">2</td><td class="score">5</td><td class="avg">3.5</td></tr>
+          <tr><td class="firm">SSH</td><td class="muted">Regional A&amp;E</td><td class="score">4</td><td class="score">4</td><td class="score">4</td><td class="score">2</td><td class="score">3</td><td class="score">2</td><td class="avg">3.2</td></tr>
+          <tr><td class="firm">AE7</td><td class="muted">Regional multidisciplinary</td><td class="score">4</td><td class="score">3</td><td class="score">4</td><td class="score">3</td><td class="score">3</td><td class="score">2</td><td class="avg">3.2</td></tr>
+          <tr><td class="firm">Godwin Austen Johnson</td><td class="muted">Boutique architecture</td><td class="score">4</td><td class="score">4</td><td class="score">4</td><td class="score">3</td><td class="score">3</td><td class="score">1</td><td class="avg">3.2</td></tr>
+          <tr><td class="firm">National Engineering Bureau</td><td class="muted">Regional A&amp;E</td><td class="score">2</td><td class="score">3</td><td class="score">2</td><td class="score">2</td><td class="score">1</td><td class="score">2</td><td class="avg">2.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="fgrid">
+      <div class="fcard">
+        <div class="k">The shared convention to avoid</div>
+        <h4>Everyone looks the same</h4>
+        <p>Glossy building photography on white, a generalist “expertise × sectors” mega-menu, static big-number banners, architecture-first identity, and copy that floats toward “shaping the world.” Swap the logos and you can’t tell them apart. <b>Motion is the lowest-scoring axis across the entire field.</b></p>
+      </div>
+      <div class="fcard">
+        <div class="k">DMF’s open ground</div>
+        <h4>Infrastructure that moves like a design studio</h4>
+        <p>Parsons owns infrastructure but not craft. Cracknell owns craft but not infrastructure. <b>No one owns both.</b> DMF can be the first infra consultancy that looks and moves like a boutique studio — leading with the ground plane, sections, alignments and networks: the layer <em>before</em> the render.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 REFERENCE BOARD -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><div><h2>Reference board</h2><p class="sub">Premium references beyond the direct competitor set — what to borrow, what to leave.</p></div></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Reference</th><th>Borrow</th><th>Leave</th><th>Why it works</th></tr></thead>
+        <tbody>
+          <tr><td class="firm">Cracknell</td><td>Editorial rhythm, scroll reveals, single-accent system</td><td>Landscape-only scope</td><td class="muted">Proves a Dubai practice can look world-class</td></tr>
+          <tr><td class="firm">Parsons — Infra</td><td>Proof/data density, named projects, engineered specifics</td><td>Corporate-static, emotionally flat</td><td class="muted">Clients respond to concrete capability</td></tr>
+          <tr><td class="firm">Al Faris</td><td>Dark cinematic scale, sector clarity, credibility rhythm</td><td>Heavy-equipment identity, exact palette</td><td class="muted">Dark + confident reads as authority</td></tr>
+          <tr><td class="firm">Bjarke Ingels / OMA-type studios</td><td>Diagram-as-argument, systems thinking made visual</td><td>Starchitect abstraction</td><td class="muted">Diagrams turn complexity into clarity</td></tr>
+          <tr><td class="firm">Award infra/data sites (Awwwards/FWA class)</td><td>Scroll-controlled sequences, blueprint/CAD motifs, map interactions</td><td>Effect-for-effect’s-sake, heavy WebGL</td><td class="muted">Motion with meaning signals modernity</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 05 CREATIVE DIRECTIONS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><div><h2>Three creative directions</h2><p class="sub">One recommended. All three are DMF-specific, none look like a template or a crane company.</p></div></div>
+    <div class="dirs">
+      <div class="dir rec">
+        <div class="dir-top">
+          <div><div class="tagn">Direction 01 · Recommended</div><h3>The Systems Layer</h3></div>
+          <span class="rec-badge">Recommend</span>
+        </div>
+        <p>A dark, precise <b>engineering environment</b>. Graphite ground, one disciplined DMF-red accent, mono technical labels over a strong neo-grotesque display. A cinematic infrastructure hero, a persistent systems spine, blueprint/CAD line motifs, and scroll-driven diagrams that build a masterplan from the ground up. Reinterprets Al&nbsp;Faris’s dark authority for infrastructure — and lands squarely in the “dark + motion + systems” whitespace no competitor owns.</p>
+        <div class="swatches">
+          <span class="sw" style="background:#0E0F12"></span>
+          <span class="sw" style="background:#1B1E23"></span>
+          <span class="sw" style="background:#2A2E36"></span>
+          <span class="sw" style="background:#E23D2C"></span>
+          <span class="sw" style="background:#EAECEF"></span>
+          <span class="sw" style="background:#9BA1AA"></span>
+        </div>
+        <div class="verdict"><b>Best for:</b> premium credibility + the modern-infra lane · <b>Risk:</b> needs disciplined motion to avoid heaviness</div>
+      </div>
+
+      <div class="dir">
+        <div class="dir-top">
+          <div><div class="tagn">Direction 02</div><h3>Blueprint / Drawn-to-Built</h3></div>
+        </div>
+        <p>A lighter, technical world: near-white “drawing sheet” ground, fine graph-paper grid, ink/blueprint-blue linework, CAD-style annotations. Engineering drawings animate into finished photography (drawn → built). Editorial and distinctive; the most literal expression of “the layer before the render.”</p>
+        <div class="swatches">
+          <span class="sw" style="background:#F4F5F3"></span>
+          <span class="sw" style="background:#E4E7E4"></span>
+          <span class="sw" style="background:#12233B"></span>
+          <span class="sw" style="background:#1E63C4"></span>
+          <span class="sw" style="background:#D23A2A"></span>
+          <span class="sw" style="background:#2B2F33"></span>
+        </div>
+        <div class="verdict"><b>Best for:</b> differentiation &amp; craft · <b>Risk:</b> less of the dark “premium punch” you responded to</div>
+      </div>
+
+      <div class="dir">
+        <div class="dir-top">
+          <div><div class="tagn">Direction 03</div><h3>Earth &amp; Substrate</h3></div>
+        </div>
+        <p>Owns “the roots of development” literally — a warm palette of soil, substrate and alignment-line accents, boutique-editorial layout. The most differentiated from the whole competitor set, furthest from Al&nbsp;Faris. Confident and human, less overtly technical.</p>
+        <div class="swatches">
+          <span class="sw" style="background:#151210"></span>
+          <span class="sw" style="background:#2A241E"></span>
+          <span class="sw" style="background:#B98A55"></span>
+          <span class="sw" style="background:#C6482E"></span>
+          <span class="sw" style="background:#EDE7DD"></span>
+          <span class="sw" style="background:#8A8175"></span>
+        </div>
+        <div class="verdict"><b>Best for:</b> brand distinctiveness · <b>Risk:</b> reads less “engineering”, more “studio”</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 UX STRATEGY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><div><h2>UX strategy &amp; journeys</h2><p class="sub">How the three audiences move through the site.</p></div></div>
+    <div class="fgrid">
+      <div class="fcard"><div class="k">Journey · Developer / client</div><h4>“Can they engineer my development?”</h4><p>Hero establishes scope → systems spine shows the full lifecycle → project explorer proves delivery at scale → “Have a development to engineer?” CTA.</p></div>
+      <div class="fcard"><div class="k">Journey · Partner / consultant</div><h4>“Who does DMF work with?”</h4><p>Partnerships credibility graph → related projects → disciplines → contact. Ecosystem legible in one screen.</p></div>
+      <div class="fcard"><div class="k">Journey · Talent</div><h4>“Do I want to work here?”</h4><p>Systems thinking + project ambition + Dubai/GCC context → Careers → real roles only.</p></div>
+      <div class="fcard"><div class="k">Persistent mechanism</div><h4>The systems spine</h4><p><b>Plan → Move → Build → Sustain</b> as a quiet, always-present wayfinding motif tying every page to the lifecycle DMF operates in.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SITEMAP -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">07</span><div><h2>Proposed sitemap</h2><p class="sub">Focused, not generalist. Keeps the strong existing IA; sharpens the labels.</p></div></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Route</th><th>Purpose</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td class="firm mono">/</td><td>Cinematic home — hero, systems, projects, scale</td><td><span class="pill c">Rebuild</span></td></tr>
+          <tr><td class="firm mono">/expertise</td><td>Interactive systems map of the 7 disciplines</td><td><span class="pill c">Rebuild</span></td></tr>
+          <tr><td class="firm mono">/projects</td><td>Project explorer + filter + regional map</td><td><span class="pill c">Rebuild</span></td></tr>
+          <tr><td class="firm mono">/projects/[slug]</td><td>Cinematic case study, metadata, gallery</td><td><span class="pill c">Rebuild</span></td></tr>
+          <tr><td class="firm mono">/about</td><td>Firm, founder, positioning, Dubai context</td><td><span class="pill v">Evolve</span></td></tr>
+          <tr><td class="firm mono">/partnerships</td><td>Credibility graph (partner → project → role)</td><td><span class="pill c">Rebuild</span></td></tr>
+          <tr><td class="firm mono">/insights</td><td>Technical thinking — dated, authored, real</td><td><span class="pill v">Evolve</span></td></tr>
+          <tr><td class="firm mono">/careers</td><td>Real roles only; culture of systems thinking</td><td><span class="pill v">Evolve</span></td></tr>
+          <tr><td class="firm mono">/contact</td><td>“Have a development to engineer?”</td><td><span class="pill v">Evolve</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 08 HOMEPAGE WIREFRAME -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">08</span><div><h2>Homepage wireframe</h2><p class="sub">Section-by-section sequence. A starting hypothesis, refined from the brief.</p></div></div>
+    <div class="wire">
+      <div class="wblock"><div class="wn">01</div><div><h4>Immersive hero</h4><p>Cinematic infrastructure video behind a transparent interface. Headline: “Engineering the systems that make development possible.” Floating engineered stat readout.</p><div class="note">VIDEO · poster fallback · muted autoplay · reduced-motion still</div></div></div>
+      <div class="wblock"><div class="wn">02</div><div><h4>Positioning</h4><p>The standard line, stated plainly: the systems beneath the development. Sets DMF apart from every “shaping the world” competitor.</p></div></div>
+      <div class="wblock"><div class="wn">03</div><div><h4>Engineering disciplines — systems map</h4><p>Interactive diagram: Plan → Land use → Movement → Roads → Infrastructure → Structures → Landscape → Delivery. Hover reveals discipline + linked projects.</p></div></div>
+      <div class="wblock"><div class="wn">04</div><div><h4>Projects — cinematic explorer</h4><p>Scroll expands a project image; name, location, discipline and scope slide in as engineered metadata. “The developments DMF helped make possible.”</p></div></div>
+      <div class="wblock"><div class="wn">05</div><div><h4>Numbers / scale</h4><p>Animated engineering statistics — projects, disciplines, regional reach — as a technical readout.</p></div></div>
+      <div class="wblock"><div class="wn">06</div><div><h4>How we work</h4><p>Understand → Plan → Engineer → Deliver, mapped to the systems spine.</p></div></div>
+      <div class="wblock"><div class="wn">07</div><div><h4>Dubai / GCC context</h4><p>DMF operates in one of the world’s most ambitious development environments — shown, not stated.</p></div></div>
+      <div class="wblock"><div class="wn">08</div><div><h4>Partnerships</h4><p>Credibility ecosystem preview; verified relationships only.</p></div></div>
+      <div class="wblock"><div class="wn">09</div><div><h4>Insights</h4><p>Latest technical thinking (once content exists).</p></div></div>
+      <div class="wblock"><div class="wn">10</div><div><h4>Contact</h4><p>“Have a development to engineer?” — single strong conversion.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 DESIGN SYSTEM -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">09</span><div><h2>UI direction &amp; design system</h2><p class="sub">Direction 01 spec. Every page derives from these tokens. (This document is rendered in the proposed language.)</p></div></div>
+    <div class="spec">
+      <div class="spec-row"><div class="lab">Ground</div><div class="val"><div class="chips"><span class="chip"><span class="dot" style="background:#0E0F12"></span>#0E0F12 graphite</span><span class="chip"><span class="dot" style="background:#1B1E23"></span>#1B1E23 panel</span><span class="chip"><span class="dot" style="background:#2A2E36"></span>#2A2E36 line</span></div><div style="margin-top:8px">Graphite, not pure black — softer, more premium than the benchmark.</div></div></div>
+      <div class="spec-row"><div class="lab">Accent</div><div class="val"><div class="chips"><span class="chip"><span class="dot" style="background:#E23D2C"></span>#E23D2C DMF red</span><span class="chip"><span class="dot" style="background:#B32619"></span>#B32619 deep</span></div><div style="margin-top:8px"><b>Exact accent is a decision (see §12)</b> — tuned to DMF’s own red, deliberately distinct from Al&nbsp;Faris. One accent only; used with restraint.</div></div></div>
+      <div class="spec-row"><div class="lab">Text</div><div class="val"><b>#EAECEF</b> primary · <b>#9BA1AA</b> muted · <b>#6B7079</b> faint — all ≥ AA on graphite.</div></div>
+      <div class="spec-row"><div class="lab">Display type</div><div class="val">Tight neo-grotesque, heavy weight, negative tracking. <b>To be licensed/self-hosted</b> (e.g. a grotesque in the Suisse/Neue-Haas family) — no serif; not Al&nbsp;Faris’s Univers.</div></div>
+      <div class="spec-row"><div class="lab">Utility type</div><div class="val">Monospace for labels, metadata and data readouts — the “engineered” texture that carries the technical identity.</div></div>
+      <div class="spec-row"><div class="lab">Body type</div><div class="val">Clean humanist/grotesque sans; ~65-char measure; strict type scale.</div></div>
+      <div class="spec-row"><div class="lab">Grid &amp; space</div><div class="val">12-col, generous gutters, 8px spacing base, blueprint hairline grid used as texture in bands.</div></div>
+      <div class="spec-row"><div class="lab">Components</div><div class="val">Metadata panels (mono label + value), spec-sheet cards, discipline chips, filter pills, project explorer, systems diagram, regional map.</div></div>
+      <div class="spec-row"><div class="lab">Glass</div><div class="val">Used <b>sparingly &amp; architecturally</b> — transparent nav, one or two floating data panels over video. Never a gimmick.</div></div>
+      <div class="spec-row"><div class="lab">Imagery</div><div class="val">Real DMF projects. Consistent crops/ratios; a drawn-to-built motif; graphite duotone option for cohesion.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 MOTION + VIDEO + PROJECT + EXPERTISE + MOBILE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">10</span><div><h2>Experience systems</h2><p class="sub">Motion, video, projects, expertise and mobile — each engineered, each with a graceful fallback.</p></div></div>
+    <div class="fgrid">
+      <div class="fcard"><div class="k">G · Motion</div><h4>Engineered, not playful</h4><p>One easing family, defined durations, reveal-on-scroll, number counters, blur-to-sharp, pinned systems diagram. <b>Every animation communicates something.</b> The site must look excellent with motion disabled.</p></div>
+      <div class="fcard"><div class="k">H · Video</div><h4>Cinematic but safe</h4><p>Desktop hero video + mobile-lite alt + poster image + lazy load + muted autoplay + reduced-motion still. No blocking load; graceful fallback if video fails. Real footage preferred; placeholders clearly marked.</p></div>
+      <div class="fcard"><div class="k">I · Projects</div><h4>The core experience</h4><p>Scroll expands image → name → location/discipline → technical metadata → detail. Filter by discipline &amp; country; regional map cross-links. Each project = evidence.</p></div>
+      <div class="fcard"><div class="k">Expertise</div><h4>A systems diagram, not a list</h4><div class="flow"><span class="node">Plan</span><span class="arr">→</span><span class="node">Move</span><span class="arr">→</span><span class="node">Build</span><span class="arr">→</span><span class="node">Sustain</span></div><p style="margin-top:10px">Show the <b>relationship</b> between the 7 disciplines, not just their names.</p></div>
+      <div class="fcard"><div class="k">J · Mobile</div><h4>Designed, not collapsed</h4><p>Simplified nav, vertical storytelling, touch-first controls, reduced animation, mobile video, legible transparent panels, thumb-friendly CTAs. Performance-first.</p></div>
+      <div class="fcard"><div class="k">Partnerships</div><h4>Credibility graph</h4><p>partner → project → DMF role → disciplines. Only verified relationships shown; the ecosystem around DMF made legible.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 CONTENT + ASSETS + TECH -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">11</span><div><h2>Technical, content &amp; assets</h2><p class="sub">What powers it — and the honest list of what only DMF can confirm.</p></div></div>
+
+    <div class="fgrid" style="margin-bottom:22px">
+      <div class="fcard"><div class="k">K · Architecture</div><h4>Evolve the current stack</h4><p>Next.js (App Router) · Tailwind · GSAP + ScrollTrigger · Lenis. Add Framer Motion only where it beats GSAP; consider light SVG/Canvas for diagrams. <b>No 3D/WebGL unless it earns its weight.</b></p></div>
+      <div class="fcard"><div class="k">L · Performance</div><h4>Fast is a feature</h4><p>Static generation, image pipeline (AVIF/WebP), lazy media, code-split motion, poster-first video, budgets on JS &amp; LCP. Target strong Core Web Vitals on mobile.</p></div>
+      <div class="fcard"><div class="k">M · SEO</div><h4>Technical + content</h4><p>Per-page metadata, JSON-LD (Org + CreativeWork), sitemap/robots, semantic headings, real project pages as indexable proof. Keep the groundwork already in place.</p></div>
+      <div class="fcard"><div class="k">O · Assets required from DMF</div><h4>To reach category-leading</h4><ul><li>Hero + project video / drone footage</li><li>High-res project photography &amp; plans/drawings</li><li>Logo master + brand red reference</li><li>Client/partner logos with permission</li><li>Founder / team imagery</li></ul></div>
+    </div>
+
+    <div class="callout warn">
+      <div class="k">N · Content — do not fabricate (verify with DMF)</div>
+      <p style="margin-bottom:10px">Research established a clear line between what’s verified and what isn’t. These items must be owner-confirmed before they appear as fact:</p>
+      <div class="tablewrap" style="border-color:rgba(224,168,60,.35)">
+        <table>
+          <thead><tr><th>Item</th><th>Status</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Founder — David Ghosheh</td><td><span class="pill v">Verified</span></td><td class="muted">Official About page</td></tr>
+            <tr><td>Office &amp; phone (Deira, Dubai)</td><td><span class="pill v">Verified</span></td><td class="muted">Confirm currency</td></tr>
+            <tr><td>50 projects / 7 disciplines</td><td><span class="pill v">Verified</span></td><td class="muted">Extracted from dmfeng.com</td></tr>
+            <tr><td>Founding year</td><td><span class="pill c">Confirm</span></td><td class="muted">Not stated anywhere official</td></tr>
+            <tr><td>Headcount / team size</td><td><span class="pill c">Confirm</span></td><td class="muted">LinkedIn band only (51–200)</td></tr>
+            <tr><td>David’s formal title</td><td><span class="pill c">Confirm</span></td><td class="muted">Only “founder” is official</td></tr>
+            <tr><td>Public email</td><td><span class="pill c">Confirm</span></td><td class="muted">Not on contact page</td></tr>
+            <tr><td>Awards / certifications / licences</td><td><span class="pill c">Confirm</span></td><td class="muted">None found officially</td></tr>
+            <tr><td>DMF’s role on named projects</td><td><span class="pill c">Confirm</span></td><td class="muted">Asserted only on DMF’s own pages</td></tr>
+            <tr><td>Euro University Bahrain</td><td><span class="pill c">Conflict</span></td><td class="muted">Public sources credit another firm — clarify or omit</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 ROADMAP -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">12</span><div><h2>Implementation roadmap</h2><p class="sub">Phased, after approval. Existing work is preserved and branched, never destroyed.</p></div></div>
+    <div class="phases">
+      <div class="phase"><div class="ph">Phase 0<span class="sm">Foundation</span></div><div><h4>Backup, branch, design system</h4><p>Snapshot the live site, open a redesign branch, build the token layer, type, and reusable primitives. Lock the accent + type licences.</p></div></div>
+      <div class="phase"><div class="ph">Phase 1<span class="sm">Shell</span></div><div><h4>Chrome + hero + motion engine</h4><p>Transparent nav, cinematic hero + video system, scroll engine, systems spine. Ship a real homepage skeleton.</p></div></div>
+      <div class="phase"><div class="ph">Phase 2<span class="sm">Core</span></div><div><h4>Projects + expertise</h4><p>Project explorer, case-study template, discipline systems map, regional map. The credibility core.</p></div></div>
+      <div class="phase"><div class="ph">Phase 3<span class="sm">Depth</span></div><div><h4>About · Partnerships · Insights · Careers · Contact</h4><p>Credibility graph, content intake, conversion. Fill verified content; mark gaps.</p></div></div>
+      <div class="phase"><div class="ph">Phase 4<span class="sm">Harden</span></div><div><h4>Mobile, performance, a11y, SEO, QA</h4><p>Mobile pass, Core Web Vitals, accessibility, SEO, video fallback, all-route + slow-connection testing.</p></div></div>
+      <div class="phase"><div class="ph">Phase 5<span class="sm">Ship</span></div><div><h4>Vercel preview → visual QA → production</h4><p>Preview deploy, final review against the success criteria, then promote.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 DECISIONS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">13</span><div><h2>Decisions I need from you</h2><p class="sub">The few forks that change the build. Everything else I’ll carry with sensible defaults.</p></div></div>
+    <div class="stack">
+      <div class="decision"><div class="dn">1</div><div><h4>Creative direction</h4><p>Approve <b>Direction 01 — The Systems Layer</b> (recommended), or pick 02 / 03, or a blend.</p></div></div>
+      <div class="decision"><div class="dn">2</div><div><h4>Accent colour</h4><p>Keep a <b>DMF red</b> (tuned, distinct from Al&nbsp;Faris) — or nominate DMF’s exact brand hex if you have it.</p></div></div>
+      <div class="decision"><div class="dn">3</div><div><h4>Hero video</h4><p>Do real DMF project / drone assets exist? If not, approve clearly-marked placeholders for the concept.</p></div></div>
+      <div class="decision"><div class="dn">4</div><div><h4>Content confirmations</h4><p>The §11 “confirm” list — founding year, title, email, awards, project roles, Euro University. Send what you can; I’ll omit the rest, never invent.</p></div></div>
+      <div class="decision"><div class="dn">5</div><div><h4>Scope &amp; sequence</h4><p>Full site in one pass, or ship the homepage + projects first as a flagship, then the rest?</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GATE -->
+<section style="border-bottom:0">
+  <div class="wrap">
+    <div class="gate">
+      <h2>Research complete. Awaiting your approval.</h2>
+      <p>I have completed the research and the proposed redesign. I am waiting for your additional points, assets, corrections and approval before implementation. Nothing on the live site changes until you say go.</p>
+      <span class="stamp"><span class="dot"></span>Do not implement until approved</span>
+    </div>
+  </div>
+</section>
+
+<footer>DMF ENGINEERING · WEBSITE REDESIGN MASTER PLAN · STRATEGY PHASE · PREPARED FOR OWNER REVIEW</footer>

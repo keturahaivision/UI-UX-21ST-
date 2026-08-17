@@ -1,0 +1,64 @@
+{
+  "slug": "omarzay-residential-apartments",
+  "name": "Omarzay Residential Apartments",
+  "scope_tagline": "Architectural Design",
+  "listing_category": "",
+  "description": "DMF Engineering has been appointed to undertake the architectural design for the Omarzay residential apartments as part of the “Kabul New City” overall master planning development process.",
+  "details": {
+    "Type of service": "Architectural Design",
+    "Client": "Omarzay",
+    "Size": "TBD",
+    "Location": "Kabul, Afghanistan",
+    "Completion date": "N/A"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_01.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_08.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_07.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_06.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_05.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_04.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_03.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_02.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Cover.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/omarzay-residential-apartments/",
+  "target_url": "/projects/omarzay-residential-apartments",
+  "category_slugs": [
+    "architectural-design"
+  ],
+  "category_display": "Architectural Design",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/09/Omarzay_Res_Header.jpg"
+}

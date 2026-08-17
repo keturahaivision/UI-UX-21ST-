@@ -1,0 +1,118 @@
+{
+  "source": "https://dmfeng.com/",
+  "cms": "WordPress (block theme) + legacy WPBakery content + non-REST 'sh_projects' CPT",
+  "nav": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "Projects",
+      "url": "/projects/"
+    },
+    {
+      "label": "Services",
+      "url": "/services/"
+    },
+    {
+      "label": "About Us",
+      "url": "/about/"
+    },
+    {
+      "label": "Contact Us",
+      "url": "/contact/"
+    }
+  ],
+  "footer": {
+    "quote": "At DMF, innovation, expertise, and dedication converge to redefine excellence in architectural and engineering solutions.",
+    "attribution": "DMF Engineering",
+    "copyright": "©2025 DMF Engineering, All Rights Reserved.",
+    "social": [
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/company/dmfdubai/"
+      },
+      {
+        "network": "Instagram",
+        "url": "#",
+        "note": "placeholder link on source"
+      }
+    ]
+  },
+  "contact": {
+    "office": "OFFICE IN DUBAI",
+    "address": "Baniyas Road, Green Tower, 5th floor, Office 504, Deira Area, PO BOX 123211, Dubai, United Arab Emirates",
+    "phone": "+971 4-227-2525",
+    "email": null,
+    "form_fields_inferred": [
+      "Name",
+      "Email",
+      "Subject/Phone",
+      "Message"
+    ],
+    "form_behavior": "jQuery AJAX POST to form action; inline .msgs response"
+  },
+  "counts": {
+    "pages": 8,
+    "posts_services": 10,
+    "projects": 51,
+    "media_total_on_site": 749,
+    "assets_downloaded": 484
+  },
+  "project_category_taxonomy_display": {
+    "Roads & Infrastructure": 34,
+    "Master Plan": 21,
+    "Supervision": 7,
+    "Architectural": 5,
+    "Traffic": 4,
+    "Landscape": 3,
+    "Architectural Design": 3,
+    "Electrical HV & LV Design": 2,
+    "Horizontal and Vertical Alignment": 2,
+    "EIA": 2,
+    "Contract documentation": 1,
+    "Grading Design": 1,
+    "Buildings": 1,
+    "Structural": 1,
+    "Cluster Identification Signage": 1,
+    "Environmental": 1,
+    "MEP": 1
+  },
+  "project_category_slugs": {
+    "roads": 45,
+    "masterplan": 24,
+    "supervision": 15,
+    "traffic": 11,
+    "structural": 7,
+    "architectural": 5,
+    "landscape": 4,
+    "horizontal-and-vertical-alignment": 3,
+    "marking-signage": 3,
+    "pavement-design": 3,
+    "architectural-design": 3,
+    "electrical-hv-lv-design": 2,
+    "roads-drainage-design": 2,
+    "sewerage-network-design-irrigation-main-line-and-pumping-station": 2,
+    "street-fire-fighting-network-design": 2,
+    "street-lighting-design": 2,
+    "telecommunication-network-design": 2,
+    "eia": 2,
+    "contract-documentation": 1,
+    "potable-water-network-design": 1,
+    "grading-design": 1,
+    "buildings": 1,
+    "cluster-identification-signage": 1,
+    "tis": 1,
+    "environmental": 1,
+    "traffic-impact-study": 1,
+    "mep": 1
+  },
+  "projects_by_country": {
+    "UAE": 36,
+    "Unknown": 6,
+    "Saudi Arabia": 5,
+    "Afghanistan": 2,
+    "Qatar": 1,
+    "Bahrain": 1
+  }
+}

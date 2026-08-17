@@ -1,0 +1,53 @@
+{
+  "slug": "heart-of-jeddah",
+  "name": "Heart of Jeddah",
+  "scope_tagline": "Roads and Infrastructure Design, MEP Design, Lake, Tunnel and Footbridges, Structural Design",
+  "listing_category": "",
+  "description": "DMF was tasked to provide all roads and infrastructure design for this award-winning 85 hectare mixed use, live, work, play community. DMF obtained all required NOC’s from local municipalities and organizations. Working as part of a 20 firm team of global consultants, DMF was the coordinator of the master plan infrastructure design, lake engineering, and coordinator with local municipality offices for needed NOC approvals. DMF also provided the engineering for the fountain by WET Design, designers of the Burj Khalifa Fountain and Bellagio Las Vegas Fountain. DMF continues to work closely with the team members for this ongoing development in the historic district of Jeddah, KSA.",
+  "details": {
+    "Type of service": "Roads and Infrastructure Design, MEP Design, Lake, Tunnel and Footbridges, Structural Design",
+    "Client": "Kaizen / JDURC",
+    "Size": "85 Hectares",
+    "Location": "Jeddah, Saudi Arabia",
+    "Completion date": "2025"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/HOJ-1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-2.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-3.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-3Grading.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-3Heirachy.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-Parcel-B.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/heart-of-jeddah/",
+  "target_url": "/projects/heart-of-jeddah",
+  "category_slugs": [
+    "roads",
+    "structural"
+  ],
+  "category_display": "Roads & Infrastructure, Structural",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ-3.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/05/Wb_HOJ_Header.jpg"
+}

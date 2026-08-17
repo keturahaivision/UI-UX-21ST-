@@ -1,0 +1,80 @@
+{
+  "slug": "al-qusais",
+  "name": "Al Qusais Residential Development",
+  "scope_tagline": "Master Planning, Roads & Infrastructure Design, Traffic Engineering and Site Supervision",
+  "listing_category": "",
+  "description": "DMF was appointed by DREC to develop a Master Plan, Roads & Infrastructure Engineering design and site supervision for Al Qusais Development.",
+  "details": {
+    "Type of service": "Master Planning, Roads & Infrastructure Design, Traffic Engineering and Site Supervision",
+    "Client": "Dubai Real Estate Corporation / Wasl",
+    "Size": "23.5 Hectar",
+    "Location": "Dubai, UAE",
+    "Completion date": "2020"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Qusais-Header1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_14.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_10.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_5.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_6.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_12.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_8.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_7.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_11.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_Site002.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_15.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_3.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_9.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/al-qusais/",
+  "target_url": "/projects/al-qusais",
+  "category_slugs": [
+    "masterplan",
+    "roads",
+    "structural",
+    "supervision",
+    "traffic"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2020/08/Wb_Al-Qusais_9.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2020/08/Qusais-Header1.jpg"
+}

@@ -1,0 +1,65 @@
+{
+  "slug": "ordos-museus",
+  "name": "Bawabat Al Sharq",
+  "scope_tagline": "Master Planning, Roads and Infrastructure",
+  "listing_category": "",
+  "description": "DMF has been appointed to carry out the detailed master plan for this suburban community in Abu Dhabi. The engagement required the redevelopment of the master plan to incorporate current and future needs, develop a refreshed community focus that engages the community at a social level. The team has also been tasked to provide marketing support for CityScape Abu Dhabi with video flythroughs, renderings and model support.",
+  "details": {
+    "Type of service": "Master Planning, Roads and Infrastructure",
+    "Client": "Baniyas Investment Company",
+    "Size": "181 Hectares",
+    "Location": "Abu Dhabi, UAE",
+    "Completion date": "N/A"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_header_f.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-19.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_Cover.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-MP5644.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-MP5633.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-MP333.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-MP7.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-MP.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2020/09/Wb_Bawabat-MP56223.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Project-Signboard_at-site_0012.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/ordos-museus/",
+  "target_url": "/projects/ordos-museus",
+  "category_slugs": [
+    "masterplan",
+    "roads"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_Cover.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_Bawabat_header_f.jpg"
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "nah",
+  "name": "Nadd Al Hamar",
+  "scope_tagline": "Master Planning , Roads and Infrastructure Design and Civil , Structural and MEP,Site Supervision",
+  "listing_category": "",
+  "description": "Village is a mixed-use development with predominantly residential uses interspersed with retail facilities, some commercial offices and community facilities. The development will include a variety of apartment building types. Residential accommodation for middle income, predominantly families, is mainly provided in the form of multi-family apartments, or in units above retail facilities on the ground floor. The project as a whole is conceived as an integrated development, focusing on providing residential accommodation for between 23,000 and 26,000 people.",
+  "details": {
+    "Type of service": "Master Planning, Roads & Infrastructure Construction Supervision",
+    "Client": "Wasl",
+    "Size": "56 Hectares",
+    "Location": "Dubai, UAE",
+    "Completion date": "2020"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_NAH-Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_NAH-01.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_NAH-Masterplan.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_nah-06.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_nah-05.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/01_NAH_IMG.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/04_NAH_IMG.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/02_NAH_IMG.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/03_NAH_IMG.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/05_NAH_IMG.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_nah-0211.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/nah/",
+  "target_url": "/projects/nah",
+  "category_slugs": [
+    "masterplan",
+    "roads",
+    "supervision"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_nah-0211.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_NAH-Header.jpg"
+}

@@ -1,0 +1,23 @@
+{
+  "total_projects": 51,
+  "total_gallery_images": 412,
+  "countries_served": 5,
+  "countries": {
+    "UAE": 36,
+    "Saudi Arabia": 5,
+    "Afghanistan": 2,
+    "Qatar": 1,
+    "Bahrain": 1
+  },
+  "disciplines": {
+    "Roads & Infrastructure": 45,
+    "Master Plan": 24,
+    "Supervision": 15,
+    "Traffic": 11,
+    "Architectural": 8,
+    "Structural": 7,
+    "Landscape": 4
+  },
+  "disciplines_count": 7,
+  "note": "Computed from extraction/content/projects-all.json. 6 projects have no stated location and are excluded from country counts."
+}

@@ -1,0 +1,62 @@
+{
+  "slug": "hillside-library",
+  "name": "Porto Island",
+  "scope_tagline": "Detailed Master Plan, Roads and Infrastructure Design, Bulk Earthwork Supervision",
+  "listing_category": "",
+  "description": "DMF was tasked to provide the master plan for the reclaimed peninsula in the Arabian Sea. Working closely with the local authorities, design architects and client, DMF provided all necessary engineering and infrastructure design to obtain all necessary approvals from local authorities.",
+  "details": {
+    "Type of service": "Detailed Master Plan, Roads and Infrastructure Design, Bulk Earthwork Supervision",
+    "Client": "Dubai Real Estate Corporation / Wasl",
+    "Size": "10.5 Hectares",
+    "Location": "Dubai, UAE",
+    "Completion date": "2013-2015"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_Header.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island-Aerial-02.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_06.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_05.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_04.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_03.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_02.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_01.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island-Aerial-01.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/hillside-library/",
+  "target_url": "/projects/hillside-library",
+  "category_slugs": [
+    "masterplan",
+    "roads",
+    "supervision"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island-Aerial-01.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2015/07/Wb_porto-island_Header.jpg"
+}

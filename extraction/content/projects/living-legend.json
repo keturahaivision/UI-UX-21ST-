@@ -1,0 +1,53 @@
+{
+  "slug": "living-legend",
+  "name": "Living Legend",
+  "scope_tagline": "Master Plan, Roads, Infrastructure, TIS",
+  "listing_category": "",
+  "description": "DMF Engineering is implementing amendments to the Masterplan for Phase I, which includes designing the roads and infrastructure. The proposed internal roads and services will connect internally to the existing network. The scope involves relocating 100,000 sq.ft from existing plots allocated for villas to several townhouses, while the remaining 300,000 sq.ft will be accommodated in other areas.",
+  "details": {
+    "Type of service": "Master Plan, Roads, Infrastructure, TIS",
+    "Client": "Amer Al Ghurair",
+    "Size": "400,000 sq.ft.",
+    "Location": "Dubai, UAE"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/living-legend_PHASE-1.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/living-legend_PHASE-2.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/living-legend_PHASE-C.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rev3_With-3-Phase.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rve3_Phase-A.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rve3_Phase-B-1.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rev3_Phase-CD.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/living-legend/",
+  "target_url": "/projects/living-legend",
+  "category_slugs": [
+    "masterplan",
+    "roads",
+    "tis"
+  ],
+  "category_display": "Master Plan, Roads & Infrastructure",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Master-Plan_Rev3_Phase-CD.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/living-legend_PHASE-1.png"
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "ras-alkhor-ii-development-wasl",
+  "name": "Ras Alkhor II Development - Wasl",
+  "scope_tagline": "Masterplan, Roads, Infrastructure, Landscape, Environmental, Traffic Impact Study",
+  "listing_category": "",
+  "description": "Ras Alkhor II Development – Wasl M/s WASL appointed DMF Engineering to conduct an extensive study of the area, aiming to create three new Master Plan options. These options would assist WASL in defining a fitting vision for the area, as well as provide roads and infrastructure design services, including obtaining NOCs from the relevant local authorities, aligned with the preferred Master Plan option. The Ras Al Khor II Development is an extension of the existing Ras Al Khor 1 Community Development (Wasl Green Park), located in Ras Al Khor Industrial Third, Dubai, UAE.",
+  "details": {
+    "Type of service": "Masterplan, Roads, Infrastructure, Landscape, Environmental, Traffic Impact Study",
+    "Client": "Dubai Real Estate Corporation (DREC) / Wasl Asset Management Group",
+    "Size": "350,086sq.m",
+    "Location": "Dubai, UAE"
+  },
+  "gallery": [
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Street_View_02.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Park_View_3.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Ariel_View_01.jpg",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/01_6-Photo.png",
+      "alt": ""
+    },
+    {
+      "url": "https://dmfeng.com/wp-content/uploads/2024/10/Ariel_View_03.jpg",
+      "alt": ""
+    }
+  ],
+  "source_url": "https://dmfeng.com/sh_projects/ras-alkhor-ii-development-wasl/",
+  "target_url": "/projects/ras-alkhor-ii-development-wasl",
+  "category_slugs": [
+    "environmental",
+    "landscape",
+    "masterplan",
+    "roads",
+    "traffic-impact-study"
+  ],
+  "category_display": "Environmental, Landscape",
+  "thumbnail": "https://dmfeng.com/wp-content/uploads/2024/10/Ariel_View_03.jpg",
+  "hero_image": "https://dmfeng.com/wp-content/uploads/2024/10/Street_View_02.png"
+}

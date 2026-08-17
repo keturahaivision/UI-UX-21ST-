@@ -1,0 +1,31 @@
+{
+  "id": 45,
+  "type": "page",
+  "slug": "contact",
+  "title": "Contact Us",
+  "link": "https://dmfeng.com/contact/",
+  "meta_description": "[vc_row][vc_column][/vc_column][/vc_row]",
+  "yoast_desc": null,
+  "headings": [
+    {
+      "level": 2,
+      "text": "CONTACT DETAILS :"
+    },
+    {
+      "level": 3,
+      "text": "OFFICE IN DUBAI"
+    },
+    {
+      "level": 3,
+      "text": "FIND US ON :"
+    },
+    {
+      "level": 2,
+      "text": "Get in Touch"
+    }
+  ],
+  "body_text": "[vc_row][vc_column] CONTACT DETAILS : OFFICE IN DUBAI Baniyas Road, Green Tower, 5th floor, Office 504, Deira Area, PO BOX 123211, Dubai, United Arab Emirates +971 4-227-2525 FIND US ON : Linked In instagram Get in Touch SEND jQuery(document).ready(function($) { $('#contactForm').live('submit', function(e){ e.preventDefault(); var thisform = this; var fields = $(this).serialize(); var url= $(this).attr('action'); //alert(url); $.ajax({ url: url, type: 'POST', data: fields, success:function(res){ //salert(res); $('.msgs', thisform).html(res); } }); }); }); [/vc_column][/vc_row]",
+  "body_html": "<div class=\"wpb-content-wrapper\"><p>[vc_row][vc_column]<!-- SECTION: contact infos -->\n<div class=\"section-contact-infos\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t\t\t\t<!-- col -->\n\t\t\t<div class=\"col-sm-6 contact-infos-title-wrapper\">\n\t\t\t\t<div class=\"contact-infos-col\">\n\t\t\t\t\t<h2 class=\"title1\">CONTACT DETAILS :</h2>\n\t\t\t\t</div>\t\t\t\t\t\n\t\t\t</div>\n\t\t\t<!-- /col -->\n\t\t\t\t\t\t<!-- col -->\n\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t<div class=\"contact-infos-col\">\n\t\t\t\t\t<h3 class=\"title4\">OFFICE IN DUBAI</h3>\n\t\t\t\t\t<p>Baniyas Road, Green Tower, 5th floor, Office 504, Deira Area, PO BOX 123211, Dubai, United Arab Emirates</p>\n\t\t\t\t\t<p>+971 4-227-2525</p>\n\t\t\t\t\t<p></p>\n\t\t\t\t</div>\t\t\t\t\t\n\t\t\t</div>\n\t\t\t<!-- /col -->\n\t\t\t\t\t\t<!-- col -->\n\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t<div class=\"contact-infos-col\">\n\t\t\t\t\t<h3 class=\"title4\">FIND US ON :</h3>\n\t\t\t\t\t<ul class=\"clean-list\">\n\t\t\t\t\t\t<li><a href=\"https://www.linkedin.com/company/dmfdubai/\">Linked In</a></li>\n\t\t\t\t\t\t<li><a href=\"#\">instagram</a></li>\n\t\t\t\t\t\t<li><a href=\"\"></a></li>\n\t\t\t\t\t</ul>\t\n\t\t\t\t</div>\t\t\t\t\t\t\t\t\t\n\t\t\t</div>\n\t\t\t<!-- /col -->\n\t\t\t\t\t</div>\n\t</div>\n</div>\n<!-- /SECTION: contact infos -->\n\t \n<!-- contact form -->\n<div class=\"container section-contact-form\">\n\t<div class=\"row\">\t\t\n\t\t<div class=\"col-sm-4\">\n\t\t\t<!-- Section Title -->\n\t\t\t\t\t\t<h2 class=\"title2 title-border title-section\">Get in Touch</h2>\n\t\t\t\t\t\t<!-- /Section Title -->\n\t\t</div>\t\n\t\t<!-- Right Column -->\n\t\t<div class=\"col-sm-8\">\n\t\t\t<!-- Contact Form -->\n\t\t\t<form action=\"https://dmfeng.com/wp-admin/admin-ajax.php?action=_sh_ajax_callback&#038;subaction=sh_contact_form_submit\" method=\"post\" id=\"contactForm\" class=\"form\" data-wow-duration=\"1s\" role=\"form\"> \n\t\t\t\t<!-- Form Field -->        \n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<input class=\"form-control\" id=\"name\" name=\"contact_name\" placeholder=\"Name\" type=\"text\" required/>\n\t\t\t\t</div>   \n\t\t\t\t<!-- /Form Field -->   \n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t<!-- item -->            \n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t <input class=\"form-control\" id=\"email\" name=\"contact_email\" placeholder=\"Email\" type=\"email\" required />\n\t\t\t\t\t\t</div>    \n\t\t\t\t\t\t<!-- /item -->\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t<!-- item -->            \n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<input class=\"form-control\" id=\"subject\" type=\"text\" name=\"contact_subject\" placeholder=\"Subject\" required>\n\t\t\t\t\t\t</div>    \n\t\t\t\t\t\t<!-- /item -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>  \t\t\t\t\t\t          \n\t\t\t\t<!-- Form Field -->                 \n\t\t\t\t<div class=\"form-group\"> \n\t\t\t\t\t <textarea class=\"form-control\" id=\"message\" name=\"contact_message\" placeholder=\"Message\" required></textarea>\n\t\t\t\t</div>    \n\t\t\t\t<!-- /Form Field -->           \n\t\t\t\t<!-- Form Field -->  \n\t\t\t\t<div class=\"form-group form-send\">\n\t\t\t\t\t<button type=\"submit\" id=\"contact_form_submit\" name=\"contact_submit\" class=\"btn btn-form btn2\">\n\t\t\t\t\t\t<span class=\"fa fa fa-paper-plane\"> &nbsp;</span>\n\t\t\t\t\t\tSEND\t\t\t\t\t</button>\n\t\t\t\t</div>  \n\t\t\t\t\n\t\t\t\t<div class=\"msgs\"><!-- Validation Message here --></div> \n\t\t\t\t<!-- /Form Field -->                  \n\t\t\t</form>\t\n\t\t\t<script>\n\t\t\t   jQuery(document).ready(function($) {\n\t\t\t\t$('#contactForm').live('submit', function(e){\n\t\t\t\t\n\t\t\t\t e.preventDefault();\n\t\t\t\t var thisform = this;\n\t\t\t\t var fields = $(this).serialize();\n\t\t\t\t var url= $(this).attr('action');\n\t\t\t\t //alert(url);\n\t\t\t\t $.ajax({\n\t\t\t\t  url: url,\n\t\t\t\t  type: 'POST',\n\t\t\t\t  data: fields,\n\t\t\t\t  success:function(res){\n\t\t\t\t   //salert(res);\n\t\t\t\t   $('.msgs', thisform).html(res);\n\t\t\t\t  }\n\t\t\t\t });\n\t\t\t\t});\n\t\t\t\t\n\t\t\t   \n\t\t\t   });\n\t\t\t</script>\n\t\t</div>\n\t\t<!-- /Right Column -->\n\t</div>\n</div>\n[/vc_column][/vc_row]</p>\n</div>",
+  "categories": [],
+  "featured_media": 0
+}
