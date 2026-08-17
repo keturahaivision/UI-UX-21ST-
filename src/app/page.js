@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import NeonMasterplanHero from '@/components/home/NeonMasterplanHero';
-import InteractiveMap from '@/components/home/InteractiveMap';
+import ProjectMap from '@/components/home/ProjectMap';
 import Reveal from '@/components/motion/Reveal';
 import StatCounter from '@/components/ui/StatCounter';
 import { pageMeta } from '@/lib/seo';
@@ -100,7 +100,7 @@ export default function HomePage() {
             </div>
             <Reveal delay={120}><Link href="/projects" className="hidden font-raleway text-[12px] font-semibold uppercase tracking-[0.14em] text-brand-red md:inline-block">Open the portfolio →</Link></Reveal>
           </div>
-          <Reveal delay={120}><InteractiveMap /></Reveal>
+          <Reveal delay={120}><ProjectMap height={520} /></Reveal>
         </div>
       </section>
 
