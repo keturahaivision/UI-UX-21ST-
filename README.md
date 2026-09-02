@@ -20,6 +20,9 @@ table of POINTS / EASTING / NORTHING.
 | `tools/pdf_table_to_xlsx.py` | builds that from a PDF of the table |
 | `lisp/GV_PLACE.lsp` | a standalone script that places a callout at each of the 174 points |
 | `tools/make_place_script.py` | regenerates that script from any coordinate CSV |
+| `lisp/GV_PLACE.scr` | an AutoCAD **script** that does the same with no AutoLISP at all |
+| `tools/make_insert_script.py` | regenerates that from any coordinate CSV |
+| `data/table_points.csv` | the 173 published table coordinates, with the GV5 row corrected |
 | `docs/drawing-review.md` | what the automated pass found in the existing manual table |
 
 ---
@@ -155,6 +158,17 @@ and put through the transform, so they land correctly even in a drawing that
 sits in a local system. It reports any point with no gate valve nearby — which
 catches a wrong transform or a bad column before you have 174 callouts in the
 wrong place.
+
+**`lisp/GV_PLACE.scr`** is an AutoCAD script — plain command input, no AutoLISP,
+no `APPLOAD`, no trusted folder to configure. Run it with `SCRIPT`. Two
+constraints shape it: a space in a script file is read as Enter, so the block
+must be renamed to `COORXY` first; and attribute values are answered in the
+order the block prompts for them, so insert one block by hand to confirm that
+order before running 173 of them.
+
+```bash
+python3 tools/make_insert_script.py data/table_points.csv -o lisp/GV_PLACE.scr
+```
 
 **`lisp/GV_PLACE.lsp`** is the no-moving-parts version: the coordinates are
 written into the script itself, so it reads no file and stores no settings.
