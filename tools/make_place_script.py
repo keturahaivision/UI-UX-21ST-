@@ -59,22 +59,33 @@ TEMPLATE = '''\
     (setq out (cons nx out) nx (entnext nx)))
   (reverse out))
 
-(defun gvp:place (name ex ny / p ns es obj a d tag)
-  "Insert the callout at (ex ny) and write the coordinates into its attributes."
+(defun gvp:place (name ex ny / p ns es obj a d tag filled)
+  "Insert the callout at (ex ny) and write the coordinates into its attributes.
+
+   Attributes are matched by tag, never by position, so it does not matter how
+   many the block has or what order it defines them in."
   (setq p  (list (+ ex *GV-OFFE*) (+ ny *GV-OFFN*) 0.0)
         ns (strcat "N=" (rtos ny 2 *GV-PREC*))
-        es (strcat "E=" (rtos ex 2 *GV-PREC*)))
+        es (strcat "E=" (rtos ex 2 *GV-PREC*))
+        filled 0)
   ;; _non defeats running osnap, which would otherwise pull the block onto
   ;; whatever happens to lie near the point
   (command "._-INSERT" *GV-BLOCK* "_non" p *GV-SCALE* *GV-SCALE* *GV-ROT*)
   (setq obj (entlast))
-  (foreach a (gvp:attribs obj)
-    (setq d (entget a) tag (strcase (cdr (assoc 2 d))))
-    (cond
-      ((wcmatch tag "Y*,N*") (entmod (subst (cons 1 ns) (assoc 1 d) d)))
-      ((wcmatch tag "X*,E*") (entmod (subst (cons 1 es) (assoc 1 d) d)))))
-  (entupd obj)
-  (if *GV-LABEL*
+  (if (/= "INSERT" (cdr (assoc 0 (entget obj))))
+    (progn (princ "\\n  the insert did not complete -- stopping.") (setq obj nil)))
+  (if obj
+    (progn
+      (foreach a (gvp:attribs obj)
+        (setq d (entget a) tag (strcase (cdr (assoc 2 d))))
+        (cond
+          ((wcmatch tag "Y*,N*")
+           (entmod (subst (cons 1 ns) (assoc 1 d) d)) (setq filled (1+ filled)))
+          ((wcmatch tag "X*,E*")
+           (entmod (subst (cons 1 es) (assoc 1 d) d)) (setq filled (1+ filled)))))
+      (entupd obj)
+      (setq *GV-FILLED* (+ *GV-FILLED* filled))))
+  (if (and obj *GV-LABEL*)
     (progn
       (if (not (tblsearch "LAYER" *GV-LAYER*))
         (entmakex (list '(0 . "LAYER") '(100 . "AcDbSymbolTableRecord")
@@ -87,6 +98,7 @@ TEMPLATE = '''\
   obj)
 
 (defun c:GVPLACEPOINTS ( / olde oldd oldc oldo n item)
+  (setq *GV-FILLED* 0)
   (if (not (tblsearch "BLOCK" *GV-BLOCK*))
     (progn
       (princ (strcat "\\nBlock \\"" *GV-BLOCK* "\\" is not in this drawing."))
@@ -97,7 +109,7 @@ TEMPLATE = '''\
       (setvar "ATTREQ" 0) (setvar "ATTDIA" 0)
       (setvar "CMDECHO" 0) (setvar "OSMODE" 0)
       (command "._UNDO" "_BEGIN")
-      (setq n 0)
+      (setq n 0 *GV-FILLED* 0)
       (foreach item *GV-POINTS*
         (gvp:place (car item) (cadr item) (caddr item))
         (setq n (1+ n)))
@@ -105,6 +117,10 @@ TEMPLATE = '''\
       (setvar "ATTREQ" olde) (setvar "ATTDIA" oldd)
       (setvar "CMDECHO" oldc) (setvar "OSMODE" oldo)
       (princ (strcat "\\nPlaced " (itoa n) " callout(s) using \\"" *GV-BLOCK* "\\"."))
+      (princ (strcat "\\nFilled " (itoa *GV-FILLED*) " attribute(s) -- "
+                     (if (> *GV-FILLED* 0)
+                       (strcat (rtos (/ (float *GV-FILLED*) (float n)) 2 1) " per callout.")
+                       "NONE. The block has no N/E attributes the tool recognises.")))
       (princ "\\nOne UNDO reverses the whole run.")))
   (princ))
 
