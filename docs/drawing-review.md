@@ -21,6 +21,27 @@ The drawing itself is right — there is a `GV5` label in model space at the
 first position. Only the table row is mislabelled. Every comparison below
 treats that first row as `GV5`.
 
+**Fixing it.** The table lives in paper space on layer `Coordinate Table`, and
+the row in question is the TEXT at handle `52281` (between the `GV4` and the
+real `GV6` rows). `GVAUDIT` finds it on its own, by matching each row's
+coordinates back to a valve:
+
+```
+173 table row(s) read from layer "Coordinate Table".
+172 agree with the drawing.
+1 need attention:
+  row labelled GV6 -- mislabelled; its coordinates are GV5 (3 mm)
+```
+
+`GVFIXTABLE` then rewrites that one cell to `GV5` after you confirm. It changes
+point-name cells only, never coordinates, and only where the row matches exactly
+one valve — so it corrects this row and touches nothing else.
+
+No corrected DWG is included here on purpose. The drawing is AC1027 (AutoCAD
+2013) with Civil 3D AEC objects, and the only DWG writer available outside
+AutoCAD emits r2000, which would drop those objects. The fix belongs in the
+real drawing, applied by the command above.
+
 ## 2. One gate valve has no `GV` label and is not in the table
 
 There are **174** gate-valve blocks in model space but only **173** `GV<n>`

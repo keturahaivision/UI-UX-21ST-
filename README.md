@@ -40,6 +40,8 @@ GV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABE
 | **GVCSV** | Writes the current list to a CSV file |
 | **GVSETUP** | Review and change the settings (below). Stored in the drawing, so they travel with the DWG |
 | **GVLABEL** | Place an `N=` / `E=` coordinate callout at any picked point |
+| **GVAUDIT** | Check the drawing's **GATE VALVE COORDINATES** table against the valve positions and report any row whose label disagrees. Reports only — changes nothing |
+| **GVFIXTABLE** | The same check, then corrects the mislabelled row names after you confirm |
 
 ### Typical run
 
@@ -72,6 +74,9 @@ Run GVTABLE to draw the table, or GVCSV to export.
 | `PREFIX` | `GV` | Point-name prefix |
 | `PREC` | `3` | Decimal places |
 | `MAXDIST` | `25.0` | How far a `GV<n>` label may sit from its valve |
+| `TBLLAYER` | `Coordinate Table` | Layer holding the coordinate table text |
+| `TOL` | `0.150` | How close a table row must be to a valve to count as that valve |
+| `ROWTOL` | `1.0` | Y tolerance when grouping table cells into a row |
 | `TXTHT` | `1.5` | Text height for labels and callouts |
 | `LBLDX` / `LBLDY` | `0.340` / `-3.906` | Where a new label is placed relative to the valve |
 | `OFFE` `OFFN` `ROT` `SCL` | `0 0 0 1` | WCS → survey-grid transform (see below) |
@@ -80,6 +85,31 @@ Patterns are AutoCAD `wcmatch` patterns and may be comma-separated, so
 `*CI_PW_GV*` also catches the bound-xref form
 `25_114D_P_NOC_WAT_Rev06$0$…$0$CI_PW_GVN_PROP`. Dynamic blocks are resolved
 through their effective name, so anonymous `*U12` names still match.
+
+### Auditing the coordinate table
+
+`GVAUDIT` reads the **GATE VALVE COORDINATES** table, works out which valve each
+row's Easting/Northing actually belongs to, and reports any row whose label
+disagrees. On the supplied drawing:
+
+```
+Command: GVAUDIT
+173 table row(s) read from layer "Coordinate Table".
+172 agree with the drawing.
+1 need attention:
+  row labelled GV6 -- mislabelled; its coordinates are GV5 (3 mm)
+
+Run GVFIXTABLE to correct the mislabelled rows.
+```
+
+`GVFIXTABLE` lists the same changes and applies them once you confirm. It only
+ever rewrites the **point-name** cell, never a coordinate, and only when the row
+matches exactly one valve within `TOL`. A row that matches nothing, or matches
+two valves, is reported and left alone — so running it against the wrong
+drawing corrects nothing rather than guessing.
+
+The table is usually in paper space while the valves are in model space; both
+commands search every layout for the table and model space for the valves.
 
 ### Drawings that are not on the survey grid
 
@@ -123,7 +153,17 @@ python3 tools/gv_extract.py drawing.json
 python3 tools/gv_extract.py part.dxf --offset-e 508213.73975 --offset-n 2741920.16532
 ```
 
-Useful options: `--block` / `--layer` to match a different valve symbol,
+`--audit-table` runs the same table check as `GVAUDIT`, which is a way to see
+what `GVFIXTABLE` would change before opening AutoCAD:
+
+```bash
+python3 tools/gv_extract.py drawing.json --audit-table
+# coordinate table: 173 row(s) on layer 'Coordinate Table', 172 agree with the drawing
+#   row labelled GV6 (handle 52281) -- mislabelled; its coordinates are GV5 (3 mm)
+```
+
+Useful options: `--table-layer` / `--tol` / `--row-tol` for the audit,
+`--block` / `--layer` to match a different valve symbol,
 `--label-layer` to restrict where labels are read from (worth setting when the
 drawing has a coordinate *table* in model space whose `GV…` cells could be
 mistaken for labels), `--max-dist`, `--precision`, `--no-renumber`.

@@ -38,6 +38,9 @@
     (cons "CALLAYER" "Proposed Spare Duct Coordinates")       ; layer for N=/E= callouts
     (cons "PREFIX"   "GV")                                   ; point-name prefix
     (cons "PREC"     "3")                                    ; decimal places
+    (cons "TBLLAYER" "Coordinate Table")                     ; layer holding the table text
+    (cons "TOL"      "0.150")                                ; row <-> valve match tolerance
+    (cons "ROWTOL"   "1.0")                                  ; Y tolerance grouping a table row
     (cons "MAXDIST"  "25.0")                                 ; label search radius
     (cons "TXTHT"    "1.5")                                  ; label text height
     (cons "LBLDX"    "0.340")                                ; label offset from valve
@@ -304,6 +307,95 @@
 (defun gv:name (n) (strcat (gv:get "PREFIX") (itoa n)))
 
 ;; --------------------------------------------------------------------------
+;;  Auditing the coordinate table against the drawing
+;; --------------------------------------------------------------------------
+
+(defun gv:numeric (s) (distof s 2))
+
+(defun gv:table-texts ( / ss i e d p out)
+  "Every TEXT on the coordinate-table layer, in any space, as (string x y ename).
+   The table often lives in paper space while the valves are in model space, so
+   this deliberately does not filter by layout."
+  (setq out nil)
+  (if (setq ss (ssget "_X" (list '(0 . "TEXT") (cons 8 (gv:get "TBLLAYER")))))
+    (progn
+      (setq i 0)
+      (while (< i (sslength ss))
+        (setq e (ssname ss i) d (entget e) p (cdr (assoc 10 d)))
+        (setq out (cons (list (cdr (assoc 1 d)) (car p) (cadr p) e) out))
+        (setq i (1+ i)))))
+  out)
+
+(defun gv:table-rows ( / txts rowtol tx c num cands serial out)
+  "Table rows as (ename label-number Easting Northing).
+
+   A row is a GV label plus the two nearest numeric cells to its right on the
+   same line -- which is how the table is built, rather than as a TABLE object."
+  (setq txts (gv:table-texts) rowtol (gv:num "ROWTOL") out nil)
+  (foreach tx txts
+    (setq num (gv:label-number (car tx)))
+    (if num
+      (progn
+        (setq cands nil serial 0)
+        (foreach c txts
+          (if (and (> (cadr c) (cadr tx))
+                   (<= (abs (- (caddr c) (caddr tx))) rowtol)
+                   (gv:numeric (car c)))
+            (progn
+              (setq serial (1+ serial))
+              (setq cands (cons (list (cadr c) serial (gv:numeric (car c))) cands)))))
+        (setq cands (vl-sort cands
+                      (function (lambda (a b)
+                        (if (equal (car a) (car b) 1e-12)
+                          (< (cadr a) (cadr b))
+                          (< (car a) (car b)))))))
+        (if (>= (length cands) 2)
+          (setq out (cons (list (cadddr tx) num
+                                (caddr (nth 0 cands))
+                                (caddr (nth 1 cands)))
+                          out))))))
+  out)
+
+(defun gv:audit ( / pts rows row hits best bestd d p tol okc bad)
+  "Compare every table row against the valve positions.
+
+   A row is only called mislabelled when its coordinates match exactly one
+   valve, within TOL, and that valve carries a different number. Rows that
+   match nothing, or match more than one valve, are reported but never
+   changed -- the tool corrects names it can prove, and nothing else.
+   Returns (rows-that-agree list-of-problems)."
+  (gv:build nil)
+  (setq pts *gv:points* rows (gv:table-rows) tol (gv:num "TOL") okc 0 bad nil)
+  (foreach row rows
+    (setq hits 0 best nil bestd 1e12)
+    (foreach p pts
+      (setq d (distance (list (cadr p) (caddr p) 0.0)
+                        (list (caddr row) (cadddr row) 0.0)))
+      (if (<= d tol)
+        (progn
+          (setq hits (1+ hits))
+          (if (< d bestd) (setq bestd d best p)))))
+    (cond
+      ((= hits 0)
+       (setq bad (cons (list (car row) (cadr row) nil 0.0
+                             "no valve within tolerance") bad)))
+      ((> hits 1)
+       (setq bad (cons (list (car row) (cadr row) nil 0.0
+                             "more than one valve within tolerance") bad)))
+      ((/= (car best) (cadr row))
+       (setq bad (cons (list (car row) (cadr row) (car best) bestd
+                             "mislabelled") bad)))
+      (T (setq okc (1+ okc)))))
+  (list okc (reverse bad)))
+
+(defun gv:report (bad / item)
+  (foreach item bad
+    (princ (strcat "\n  row labelled " (gv:name (cadr item)) " -- " (nth 4 item)))
+    (if (caddr item)
+      (princ (strcat "; its coordinates are " (gv:name (caddr item))
+                     " (" (rtos (* 1000.0 (nth 3 item)) 2 0) " mm)")))))
+
+;; --------------------------------------------------------------------------
 ;;  Drawing output
 ;; --------------------------------------------------------------------------
 
@@ -366,6 +458,9 @@
     (cons "CALLAYER" "Layer for N=/E= callouts")
     (cons "PREFIX"   "Point name prefix")
     (cons "PREC"     "Decimal places")
+    (cons "TBLLAYER" "Layer holding the coordinate table text")
+    (cons "TOL"      "Table row / valve match tolerance")
+    (cons "ROWTOL"   "Y tolerance grouping a table row")
     (cons "MAXDIST"  "Label search radius")
     (cons "TXTHT"    "Text height")
     (cons "LBLDX"    "Label offset X from valve")
@@ -507,5 +602,51 @@
       (princ (strcat "\nE=" (gv:rtos (car grid)) "  N=" (gv:rtos (cadr grid))))))
   (princ))
 
-(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL")
+(defun c:GVAUDIT ( / res okc bad)
+  (gv:cfg-load)
+  (setq res (gv:audit) okc (car res) bad (cadr res))
+  (princ (strcat "\n" (itoa (+ okc (length bad))) " table row(s) read from layer \""
+                 (gv:get "TBLLAYER") "\"."))
+  (princ (strcat "\n" (itoa okc) " agree with the drawing."))
+  (if (null bad)
+    (princ "\nNothing to correct.")
+    (progn
+      (princ (strcat "\n" (itoa (length bad)) " need attention:"))
+      (gv:report bad)
+      (princ "\n\nRun GVFIXTABLE to correct the mislabelled rows.")))
+  (princ))
+
+(defun c:GVFIXTABLE ( / res bad fixes item ans d)
+  (gv:cfg-load)
+  (setq res (gv:audit) bad (cadr res) fixes nil)
+  (foreach item bad
+    (if (caddr item) (setq fixes (cons item fixes))))
+  (setq fixes (reverse fixes))
+  (if (null fixes)
+    (progn
+      (princ "\nNo mislabelled rows found.")
+      (if bad
+        (progn
+          (princ (strcat "\n" (itoa (length bad))
+                         " row(s) could not be checked and were left alone:"))
+          (gv:report bad))))
+    (progn
+      (princ (strcat "\n" (itoa (length fixes)) " row(s) to correct:"))
+      (foreach item fixes
+        (princ (strcat "\n  " (gv:name (cadr item)) "  ->  " (gv:name (caddr item))
+                       "   (coordinates match that valve to "
+                       (rtos (* 1000.0 (nth 3 item)) 2 0) " mm)")))
+      (initget "Yes No")
+      (setq ans (getkword "\nApply these corrections? [Yes/No] <No>: "))
+      (if (= ans "Yes")
+        (progn
+          (foreach item fixes
+            (setq d (entget (car item)))
+            (entmod (subst (cons 1 (gv:name (caddr item))) (assoc 1 d) d))
+            (entupd (car item)))
+          (princ (strcat "\nCorrected " (itoa (length fixes)) " row(s).")))
+        (princ "\nNo changes made."))))
+  (princ))
+
+(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE")
 (princ)

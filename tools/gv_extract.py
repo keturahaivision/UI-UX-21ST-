@@ -52,6 +52,17 @@ class Insert:
 
 
 @dataclass
+class TableText:
+    """A text cell of the drawing's coordinate table (any layout)."""
+
+    text: str
+    x: float
+    y: float
+    layer: str
+    handle: str = ""
+
+
+@dataclass
 class Label:
     number: int
     x: float
@@ -124,7 +135,16 @@ def read_dxf(path: str) -> tuple[list[Insert], list[Label]]:
     except Exception:
         doc, _auditor = recover.readfile(path)
 
-    inserts, labels = [], []
+    inserts, labels, cells = [], [], []
+
+    # the coordinate table often sits in paper space while the valves are in
+    # model space, so cells are gathered from every layout
+    for layout in doc.layouts:
+        for e in layout.query("TEXT"):
+            cells.append(TableText(text=str(e.dxf.text), x=float(e.dxf.insert.x),
+                                   y=float(e.dxf.insert.y), layer=str(e.dxf.layer),
+                                   handle=str(e.dxf.handle)))
+
     for space in [doc.modelspace()]:
         for e in space.query("INSERT"):
             inserts.append(Insert(
@@ -143,7 +163,7 @@ def read_dxf(path: str) -> tuple[list[Insert], list[Label]]:
                 layer=str(e.dxf.layer),
                 rotation=math.radians(float(getattr(e.dxf, "rotation", 0.0) or 0.0)),
             ))
-    return inserts, labels
+    return inserts, labels, cells
 
 
 def strip_mtext(s: str) -> str:
@@ -194,8 +214,17 @@ def read_libredwg_json(path: str) -> tuple[list[Insert], list[Label]]:
             return True
         return ref(obj.get("ownerhandle")) in model_space_handles
 
-    inserts, labels = [], []
+    inserts, labels, cells = [], [], []
     for o in objs:
+        # table cells are collected from every space -- see the DXF reader
+        if o.get("entity") == "TEXT" and isinstance(o.get("text_value"), str):
+            p = o.get("ins_pt")
+            if p:
+                h = o.get("handle")
+                cells.append(TableText(
+                    text=o["text_value"], x=float(p[0]), y=float(p[1]),
+                    layer=layer_names.get(ref(o.get("layer")), ""),
+                    handle=str(h[-1] if isinstance(h, list) else h)))
         if not in_model_space(o):
             continue
         kind = o.get("entity")
@@ -222,7 +251,7 @@ def read_libredwg_json(path: str) -> tuple[list[Insert], list[Label]]:
                 layer=layer_names.get(ref(o.get("layer")), ""),
                 rotation=float(o.get("rotation") or 0.0),
             ))
-    return inserts, labels
+    return inserts, labels, cells
 
 
 # --------------------------------------------------------------------------- pairing
@@ -323,6 +352,62 @@ def build_points(inserts, labels, transform: Transform, max_dist: float,
     return points, notes
 
 
+# --------------------------------------------------------------------------- audit
+
+def _as_number(text: str):
+    try:
+        return float(text.strip().replace(",", ""))
+    except (ValueError, AttributeError):
+        return None
+
+
+def table_rows(cells: list[TableText], table_layer: str, row_tol: float):
+    """Rows of the coordinate table as (handle, label number, easting, northing).
+
+    A row is a GV label plus the two nearest numeric cells to its right on the
+    same line -- the table is drawn as loose TEXT, not as a TABLE object.
+    """
+    cells = [c for c in cells if fnmatch.fnmatch(c.layer.lower(), table_layer.lower())]
+    rows = []
+    for cell in cells:
+        m = LABEL_RE.match(strip_mtext(cell.text))
+        if not m:
+            continue
+        right = sorted((c.x, _as_number(c.text)) for c in cells
+                       if c.x > cell.x and abs(c.y - cell.y) <= row_tol
+                       and _as_number(c.text) is not None)
+        if len(right) >= 2:
+            rows.append((cell.handle, int(m.group(1)), right[0][1], right[1][1]))
+    return rows
+
+
+def audit_table(points: list[Point], cells: list[TableText], table_layer: str,
+                row_tol: float, tol: float):
+    """Check each table row against the valve positions.
+
+    A row counts as mislabelled only when its coordinates match exactly one
+    valve within `tol` and that valve carries a different number. Rows matching
+    nothing, or more than one valve, are reported but never rewritten.
+    Returns (rows_that_agree, problems).
+    """
+    rows = table_rows(cells, table_layer, row_tol)
+    agree, problems = 0, []
+    for handle, label, e, n in rows:
+        hits = [(math.hypot(p.easting - e, p.northing - n), p) for p in points
+                if math.hypot(p.easting - e, p.northing - n) <= tol]
+        if not hits:
+            problems.append((handle, label, None, 0.0, "no valve within tolerance"))
+        elif len(hits) > 1:
+            problems.append((handle, label, None, 0.0, "more than one valve within tolerance"))
+        else:
+            dist, p = hits[0]
+            if p.number != label:
+                problems.append((handle, label, p.number, dist, "mislabelled"))
+            else:
+                agree += 1
+    return len(rows), agree, problems
+
+
 # --------------------------------------------------------------------------- output
 
 def write_csv(points: list[Point], path: str, precision: int) -> None:
@@ -359,12 +444,20 @@ def main(argv=None) -> int:
     ap.add_argument("--rotation", type=float, default=0.0, help="degrees, counter-clockwise")
     ap.add_argument("--scale", type=float, default=1.0)
     ap.add_argument("--json-out", help="also write the points as JSON")
+    ap.add_argument("--audit-table", action="store_true",
+                    help="check the drawing's coordinate table against the valve positions")
+    ap.add_argument("--table-layer", default="Coordinate Table",
+                    help="layer holding the coordinate table text")
+    ap.add_argument("--tol", type=float, default=0.15,
+                    help="how close a table row must be to a valve to count as that valve")
+    ap.add_argument("--row-tol", type=float, default=1.0,
+                    help="Y tolerance when grouping table cells into a row")
     args = ap.parse_args(argv)
 
     if args.drawing.lower().endswith(".json"):
-        inserts, labels = read_libredwg_json(args.drawing)
+        inserts, labels, cells = read_libredwg_json(args.drawing)
     else:
-        inserts, labels = read_dxf(args.drawing)
+        inserts, labels, cells = read_dxf(args.drawing)
 
     blocks = args.blocks or DEFAULT_BLOCK_PATTERNS
     layers = args.layers or DEFAULT_BLOCK_LAYERS
@@ -395,6 +488,19 @@ def main(argv=None) -> int:
     print(f"wrote {len(points)} points to {args.output}", file=sys.stderr)
     for note in notes:
         print(f"  note: {note}", file=sys.stderr)
+
+    if args.audit_table:
+        total, agree, problems = audit_table(points, cells, args.table_layer,
+                                             args.row_tol, args.tol)
+        print(f"\ncoordinate table: {total} row(s) on layer {args.table_layer!r}, "
+              f"{agree} agree with the drawing")
+        if not problems:
+            print("  nothing to correct")
+        for handle, label, correct, dist, why in problems:
+            line = f"  row labelled GV{label} (handle {handle}) -- {why}"
+            if correct is not None:
+                line += f"; its coordinates are GV{correct} ({dist * 1000:.0f} mm)"
+            print(line)
     return 0
 
 
