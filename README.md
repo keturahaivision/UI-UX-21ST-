@@ -18,6 +18,8 @@ table of POINTS / EASTING / NORTHING.
 | `tools/make_xlsx.py` | rebuilds that workbook from the CSV |
 | `data/gate_valve_callouts.xlsx` | the plotted table as a callout schedule, checked against the drawing |
 | `tools/pdf_table_to_xlsx.py` | builds that from a PDF of the table |
+| `lisp/GV_PLACE.lsp` | a standalone script that places a callout at each of the 174 points |
+| `tools/make_place_script.py` | regenerates that script from any coordinate CSV |
 | `docs/drawing-review.md` | what the automated pass found in the existing manual table |
 
 ---
@@ -141,6 +143,29 @@ callouts, it does not look for existing ones, so you would otherwise end up with
 two boxes per valve. Removing them first is worth doing regardless: hand-copied
 callouts go stale — in the supplied drawing several carry a neighbour's
 coordinates, GV4's box reading GV5's values.
+
+### Placing callouts from a coordinate list
+
+Two ways in, depending on where the coordinates live.
+
+**`GVPLACE`** reads a CSV and places a callout at every row. Columns are found
+by name, so order does not matter and extra columns are ignored; a headerless
+file is read as name, easting, northing. Coordinates are treated as survey grid
+and put through the transform, so they land correctly even in a drawing that
+sits in a local system. It reports any point with no gate valve nearby — which
+catches a wrong transform or a bad column before you have 174 callouts in the
+wrong place.
+
+**`lisp/GV_PLACE.lsp`** is the no-moving-parts version: the coordinates are
+written into the script itself, so it reads no file and stores no settings.
+Load it and type `GVPLACEPOINTS`. Regenerate it for any list with:
+
+```bash
+python3 tools/make_place_script.py data/gate_valve_coordinates.csv -o lisp/GV_PLACE.lsp
+```
+
+Both insert the `COOR XY` block and fill its `Y`/`X` attributes with
+`N=` / `E=`, and both wrap the run in a single UNDO.
 
 ### When something hasn't worked
 

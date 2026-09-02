@@ -161,6 +161,20 @@
 ;;  WCS -> survey grid
 ;; --------------------------------------------------------------------------
 
+(defun gv:from-grid (g / u v a c s scl)
+  "Survey grid (E N) back to a drawing WCS point -- the inverse of gv:to-grid.
+   Imported coordinates are grid values, so they need this before anything can
+   be placed at them."
+  (setq a   (* pi (/ (gv:num "ROT") 180.0))
+        scl (gv:num "SCL"))
+  (if (<= scl 0.0) (setq scl 1.0))
+  (setq c (cos a) s (sin a)
+        u (/ (- (car  g) (gv:num "OFFE")) scl)
+        v (/ (- (cadr g) (gv:num "OFFN")) scl))
+  (list (+ (* u c) (* v s))
+        (- (* v c) (* u s))
+        0.0))
+
 (defun gv:to-grid (p / dx dy a c s scl)
   "Apply the configured similarity transform to a WCS point.
    Returns (Easting Northing)."
@@ -1152,5 +1166,109 @@
           (princ "\nOne UNDO reverses the whole run.")))))
   (princ))
 
-(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE  GVANNO  GVMARK  GVMARKCLR  GVCHECK")
+(defun gv:csv-split (line / out cur i ch inq)
+  "Split one CSV line, honouring double-quoted fields."
+  (setq out nil cur "" i 1 inq nil)
+  (while (<= i (strlen line))
+    (setq ch (substr line i 1))
+    (cond
+      ((= ch "\"") (setq inq (not inq)))
+      ((and (= ch ",") (not inq)) (setq out (cons cur out) cur ""))
+      (T (setq cur (strcat cur ch))))
+    (setq i (1+ i)))
+  (reverse (cons cur out)))
+
+(defun gv:trim (s) (vl-string-trim " \t\r\n" s))
+
+(defun gv:col (hdr pats / i idx h)
+  "Index of the first header cell matching pats, or nil."
+  (setq i 0 idx nil)
+  (foreach h hdr
+    (if (and (null idx) (wcmatch (strcase (gv:trim h)) pats)) (setq idx i))
+    (setq i (1+ i)))
+  idx)
+
+(defun gv:read-csv (path / fh line cells rows hdr ip ie inn first)
+  "Read a coordinate CSV into (name easting northing) rows.
+
+   A header row is used when present -- columns are found by name, so the
+   column order does not matter and extra columns are ignored. Without one the
+   first three fields are taken as name, easting, northing."
+  (setq rows nil hdr nil first T ip 0 ie 1 inn 2)
+  (if (setq fh (open path "r"))
+    (progn
+      (while (setq line (read-line fh))
+        (setq cells (mapcar 'gv:trim (gv:csv-split line)))
+        (cond
+          ((< (length cells) 3) nil)
+          ((and first (null (gv:numeric (nth 1 cells))))
+           ;; header row
+           (setq hdr cells first nil)
+           (setq ip  (cond ((gv:col hdr "POINT*,NAME*,ID*,GV*")) (0))
+                 ie  (cond ((gv:col hdr "EAST*,E,X")) (1))
+                 inn (cond ((gv:col hdr "NORTH*,N,Y")) (2))))
+          (T
+           (setq first nil)
+           (if (and (gv:numeric (nth ie cells)) (gv:numeric (nth inn cells)))
+             (setq rows (cons (list (nth ip cells)
+                                    (gv:numeric (nth ie cells))
+                                    (gv:numeric (nth inn cells)))
+                              rows))))))
+      (close fh)))
+  (reverse rows))
+
+(defun gv:valve-near (p tol / v best d)
+  "True when a gate valve sits within tol of p -- a check on imported data."
+  (setq best nil)
+  (foreach v (gv:collect-valves nil)
+    (setq d (gv:dist2d (list (car v) (cadr v)) p))
+    (if (or (null best) (< d best)) (setq best d)))
+  (and best (<= best tol)))
+
+(defun c:GVPLACE ( / path rows tpl row name grid p n lbl ans away valves)
+  "Place a coordinate callout at every point in a CSV exported from Excel."
+  (gv:cfg-load)
+  (setq path (getfiled "Select the coordinate CSV" "" "csv" 16))
+  (if (not path)
+    (princ "\nCancelled.")
+    (progn
+      (setq rows (gv:read-csv path))
+      (if (null rows)
+        (princ "\nNo usable rows -- expected columns for point name, easting and northing.")
+        (progn
+          (princ (strcat "\n" (itoa (length rows)) " coordinate(s) read from " path "."))
+          (setq tpl (gv:template))
+          (if (not tpl) (setq tpl (gv:ask-template)))
+          (if tpl
+            (princ (strcat "\nUsing callout block \"" (car tpl) "\" at scale "
+                           (rtos (caddr tpl) 2 4) "."))
+            (princ "\nNo callout block available -- the box will be drawn instead."))
+          (initget "Yes No")
+          (setq lbl (getkword "\nAlso place the point name as text? [Yes/No] <No>: "))
+          (setq n 0 away 0 valves (gv:collect-valves nil))
+          (foreach row rows
+            (setq name (car row)
+                  grid (list (cadr row) (caddr row))
+                  p    (gv:from-grid grid))
+            (if tpl
+              (gv:insert-callout p grid tpl)
+              (gv:callout p grid (list (+ (car p) (gv:num "CALDIST"))
+                                       (+ (cadr p) (gv:num "CALDIST")))))
+            (if (= lbl "Yes")
+              (gv:make-text (list (+ (car p) (gv:num "LBLDX"))
+                                  (+ (cadr p) (gv:num "LBLDY")))
+                            name (gv:get "LBLLAYER") (gv:num "TXTHT") 0.0))
+            (if (and valves (not (gv:valve-near p (gv:num "MAXDIST"))))
+              (setq away (1+ away)))
+            (setq n (1+ n)))
+          (princ (strcat "\nPlaced " (itoa n)
+                         (if tpl " callout block(s)." " coordinate box(es).")))
+          (if (> away 0)
+            (princ (strcat "\n" (itoa away) " of them have no gate valve within "
+                           (rtos (gv:num "MAXDIST") 2 1)
+                           " units -- check the coordinates, or the grid transform.")))
+          (princ "\nOne UNDO reverses the whole run.")))))
+  (princ))
+
+(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE  GVANNO  GVPLACE  GVMARK  GVMARKCLR  GVCHECK")
 (princ)
