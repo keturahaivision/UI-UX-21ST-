@@ -41,6 +41,9 @@
     (cons "TBLLAYER" "Coordinate Table")                     ; layer holding the table text
     (cons "TOL"      "0.150")                                ; row <-> valve match tolerance
     (cons "ROWTOL"   "1.0")                                  ; Y tolerance grouping a table row
+    (cons "MRKLAYER" "GV-REVIEW")                            ; layer for review markers
+    (cons "MRKSIZE"  "2.5")                                  ; marker ring radius
+    (cons "MRKCOLOR" "1")                                    ; marker layer colour (1 = red)
     (cons "MAXDIST"  "25.0")                                 ; label search radius
     (cons "TXTHT"    "1.5")                                  ; label text height
     (cons "LBLDX"    "0.340")                                ; label offset from valve
@@ -426,6 +429,71 @@
   (gv:make-text (list (car p) (cadr p))
                 (strcat "E=" (gv:rtos (car grid))) (gv:get "CALLAYER") h rot))
 
+(defun gv:ensure-marker-layer ( / nm)
+  "The review layer is created in a loud colour so markup reads as markup, and
+   stays separate so GVMARKCLR can strip it before the drawing is issued."
+  (setq nm (gv:get "MRKLAYER"))
+  (if (and nm (/= nm "") (not (tblsearch "LAYER" nm)))
+    (entmakex (list '(0 . "LAYER") '(100 . "AcDbSymbolTableRecord")
+                    '(100 . "AcDbLayerTableRecord") (cons 2 nm)
+                    '(70 . 0) (cons 62 (gv:int "MRKCOLOR")) (cons 6 "Continuous"))))
+  nm)
+
+(defun gv:point-wcs (item / e)
+  "Where a list entry's valve actually sits in the drawing.
+
+   Not the same as its Easting/Northing whenever a grid transform is set, and
+   the marker has to be drawn where the symbol is."
+  (setq e (cadddr item))
+  (if (and e (entget e)) (cdr (assoc 10 (entget e)))))
+
+(defun gv:mark (item reason / p r lay h ang p2 p3 p4 note)
+  "Ring the valve, run a leader out of it and write the point name (and the
+   reason, when there is one) at the end."
+  (setq p   (gv:point-wcs item)
+        r   (gv:num "MRKSIZE")
+        lay (gv:ensure-marker-layer)
+        h   (gv:num "TXTHT"))
+  (if p
+    (progn
+      (setq p (list (car p) (cadr p) 0.0))
+      (entmakex (list '(0 . "CIRCLE") '(100 . "AcDbEntity") (cons 8 lay)
+                      '(100 . "AcDbCircle") (cons 10 p) (cons 40 r)))
+      (setq ang (/ pi 4.0))
+      (setq p2 (polar p ang r))
+      (setq p3 (polar p2 ang (* 3.0 r)))
+      (setq p4 (polar p3 0.0 (* 2.0 r)))
+      (entmakex (list '(0 . "LINE") '(100 . "AcDbEntity") (cons 8 lay)
+                      '(100 . "AcDbLine") (cons 10 p2) (cons 11 p3)))
+      (entmakex (list '(0 . "LINE") '(100 . "AcDbEntity") (cons 8 lay)
+                      '(100 . "AcDbLine") (cons 10 p3) (cons 11 p4)))
+      (setq note (gv:name (car item)))
+      (if (and reason (/= reason ""))
+        (setq note (strcat note " - " reason)))
+      (gv:make-text (list (+ (car p3) (* 0.25 r)) (+ (cadr p3) (* 0.4 h)))
+                    note lay h 0.0)
+      T)))
+
+(defun gv:find-point (num / item res)
+  (setq res nil)
+  (foreach item *gv:points*
+    (if (and (not res) (= (car item) num)) (setq res item)))
+  res)
+
+(defun gv:flagged ( / res bad item out)
+  "Points worth a reviewer's eye, as (number reason):
+   valves carrying no GV label, and valves whose coordinate-table row is wrong."
+  (setq res (gv:audit) bad (cadr res) out nil)
+  (foreach item *gv:points*
+    (if (not (nth 4 item))
+      (setq out (cons (list (car item) "no GV label in drawing") out))))
+  (foreach item bad
+    (if (caddr item)
+      (setq out (cons (list (caddr item)
+                            (strcat "table row reads " (gv:name (cadr item))))
+                      out))))
+  (reverse out))
+
 (defun gv:draw-table (pts pt / doc sp tbl rows r item)
   (setq doc (vla-get-ActiveDocument (vlax-get-acad-object))
         sp  (vla-get-ModelSpace doc)
@@ -461,6 +529,9 @@
     (cons "TBLLAYER" "Layer holding the coordinate table text")
     (cons "TOL"      "Table row / valve match tolerance")
     (cons "ROWTOL"   "Y tolerance grouping a table row")
+    (cons "MRKLAYER" "Layer for review markers")
+    (cons "MRKSIZE"  "Review marker ring radius")
+    (cons "MRKCOLOR" "Review marker layer colour")
     (cons "MAXDIST"  "Label search radius")
     (cons "TXTHT"    "Text height")
     (cons "LBLDX"    "Label offset X from valve")
@@ -648,5 +719,51 @@
         (princ "\nNo changes made."))))
   (princ))
 
-(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE")
+(defun c:GVMARK ( / mode flags item found n ss)
+  (gv:cfg-load)
+  (initget "All Flagged Select")
+  (setq mode (getkword "\nMark which points? [All/Flagged/Select] <Flagged>: "))
+  (if (not mode) (setq mode "Flagged"))
+  (setq n 0)
+  (cond
+    ((= mode "Flagged")
+     (setq flags (gv:flagged))
+     (if (null flags)
+       (princ "\nNothing flagged -- every valve has a label and the table agrees.")
+       (foreach item flags
+         (setq found (gv:find-point (car item)))
+         (if (and found (gv:mark found (cadr item))) (setq n (1+ n))))))
+    ((= mode "All")
+     (gv:build nil)
+     (foreach item *gv:points*
+       (if (gv:mark item (if (nth 4 item) "" "no GV label in drawing"))
+         (setq n (1+ n)))))
+    ((= mode "Select")
+     (princ "\nSelect the valves to mark: ")
+     (setq ss (ssget '((0 . "INSERT"))))
+     (if ss
+       (progn
+         (gv:build ss)
+         (foreach item *gv:points*
+           (if (gv:mark item (if (nth 4 item) "" "no GV label in drawing"))
+             (setq n (1+ n))))))))
+  (if (> n 0)
+    (princ (strcat "\nMarked " (itoa n) " point(s) on layer \""
+                   (gv:get "MRKLAYER") "\".  GVMARKCLR removes them.")))
+  (princ))
+
+(defun c:GVMARKCLR ( / ss i n)
+  (gv:cfg-load)
+  (setq ss (ssget "_X" (list (cons 8 (gv:get "MRKLAYER")))))
+  (if (not ss)
+    (princ (strcat "\nNo markers on layer \"" (gv:get "MRKLAYER") "\"."))
+    (progn
+      (setq n (sslength ss) i 0)
+      (while (< i n)
+        (entdel (ssname ss i))
+        (setq i (1+ i)))
+      (princ (strcat "\nErased " (itoa n) " marker object(s)."))))
+  (princ))
+
+(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE  GVMARK  GVMARKCLR")
 (princ)

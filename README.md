@@ -44,6 +44,8 @@ GV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABE
 | **GVLABEL** | Place an `N=` / `E=` coordinate callout at any picked point |
 | **GVAUDIT** | Check the drawing's **GATE VALVE COORDINATES** table against the valve positions and report any row whose label disagrees. Reports only — changes nothing |
 | **GVFIXTABLE** | The same check, then corrects the mislabelled row names after you confirm |
+| **GVMARK** | Ring the points on the drawing and label them with a leader — all of them, or just the ones needing attention |
+| **GVMARKCLR** | Erase every marker again, before the drawing is issued |
 
 ### Typical run
 
@@ -76,6 +78,9 @@ Run GVTABLE to draw the table, or GVCSV to export.
 | `PREFIX` | `GV` | Point-name prefix |
 | `PREC` | `3` | Decimal places |
 | `MAXDIST` | `25.0` | How far a `GV<n>` label may sit from its valve |
+| `MRKLAYER` | `GV-REVIEW` | Layer the review markers go on |
+| `MRKSIZE` | `2.5` | Marker ring radius, in drawing units |
+| `MRKCOLOR` | `1` | Colour of the marker layer (1 = red) |
 | `TBLLAYER` | `Coordinate Table` | Layer holding the coordinate table text |
 | `TOL` | `0.150` | How close a table row must be to a valve to count as that valve |
 | `ROWTOL` | `1.0` | Y tolerance when grouping table cells into a row |
@@ -112,6 +117,28 @@ drawing corrects nothing rather than guessing.
 
 The table is usually in paper space while the valves are in model space; both
 commands search every layout for the table and model space for the valves.
+
+### Marking points on the drawing
+
+`GVMARK` draws a review marker at each point — a ring round the valve, a leader,
+and the point name at the end of it:
+
+```
+Command: GVMARK
+Mark which points? [All/Flagged/Select] <Flagged>:
+```
+
+- **Flagged** (the default) marks only what needs a decision: valves carrying no
+  `GV` label, and valves whose coordinate-table row is wrong. On the supplied
+  drawing that is two markers — `GV174 - no GV label in drawing` and
+  `GV5 - table row reads GV6`.
+- **All** marks every point with its name.
+- **Select** marks the valves you pick.
+
+Everything lands on layer `GV-REVIEW` in red, created automatically. It is
+markup, not drawing content, so keep it on its own layer and strip it with
+`GVMARKCLR` before issuing — that erases everything on the marker layer and
+nothing else.
 
 ### Drawings that are not on the survey grid
 
