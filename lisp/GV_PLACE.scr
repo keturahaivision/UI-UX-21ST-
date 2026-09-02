@@ -1,6 +1,7 @@
 ; GV_PLACE.scr - place 174 coordinate callouts
 ; generated 2026-09-02 from all_gv_points.csv
 ; block COORXY, scale 1.608006, attribute order N,E,N,E
+; no insertion offset — the drawing must be on the survey grid
 ;
 ; In AutoCAD:  SCRIPT  ->  pick this file.  One U undoes the whole run.
 ;

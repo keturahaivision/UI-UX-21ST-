@@ -38,6 +38,12 @@ def main(argv=None) -> int:
     ap.add_argument("--scale", type=float, default=1.608006)
     ap.add_argument("--rotation", type=float, default=0.0)
     ap.add_argument("--precision", type=int, default=3)
+    ap.add_argument("--offset-e", type=float, default=0.0,
+                    help="added to every easting before insertion — set this when the "
+                         "target drawing sits in a local coordinate system rather than "
+                         "on the survey grid")
+    ap.add_argument("--offset-n", type=float, default=0.0,
+                    help="added to every northing before insertion")
     ap.add_argument("--attr-order", default="N,E,N,E",
                     help="the block's attribute prompt order, N for northing and "
                          "E for easting (default: N,E,N,E for Y1,X1,Y2,X2)")
@@ -80,6 +86,9 @@ def main(argv=None) -> int:
         f"; {args.output.rsplit('/', 1)[-1]} - place {len(rows)} coordinate callouts",
         f"; generated {_dt.date.today().isoformat()} from {args.csv.rsplit('/', 1)[-1]}",
         f"; block {args.block}, scale {args.scale:.6f}, attribute order {','.join(order)}",
+        (f"; insertion offset E{args.offset_e:+.5f} N{args.offset_n:+.5f}"
+         if (args.offset_e or args.offset_n)
+         else "; no insertion offset — the drawing must be on the survey grid"),
         ";",
         "; In AutoCAD:  SCRIPT  ->  pick this file.  One U undoes the whole run.",
         ";",
@@ -93,12 +102,15 @@ def main(argv=None) -> int:
         "BE",
     ]
     for name, e, n in rows:
+        # the text always states the survey coordinate; only where the block is
+        # placed shifts, so a local-system drawing still gets correct callouts
         ns, es = f"N={n:.{p}f}", f"E={e:.{p}f}"
+        ix, iy = e + args.offset_e, n + args.offset_n
         out += [
             f"; {name}",
             "-INSERT",
             args.block,
-            f"{e:.{p}f},{n:.{p}f}",
+            f"{ix:.{p}f},{iy:.{p}f}",
             f"{args.scale:.6f}",
             f"{args.scale:.6f}",
             f"{args.rotation:.4f}",
