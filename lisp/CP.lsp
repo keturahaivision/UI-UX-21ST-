@@ -2,8 +2,9 @@
 ;;;  CP.lsp -- coordinate callouts
 ;;; ==========================================================================
 ;;;  Built on the same insert-and-fill mechanism as GV_PLACE.lsp, which is
-;;;  known to work. No drawing dictionaries, no error trapping wrappers --
-;;;  only things already proven in this drawing.
+;;;  known to work. No drawing dictionaries, no vl-catch-all-apply -- only
+;;;  things already proven in this drawing, plus one plain *error* handler
+;;;  so that a failure says what it was instead of stopping in silence.
 ;;;
 ;;;  Commands
 ;;;    CPTOP   says the file started loading      (diagnostic)
@@ -18,6 +19,28 @@
 
 (defun c:CPTOP () (princ "\nCP.lsp: top of file reached.") (princ))
 
+;; ---- so a failure reports itself -----------------------------------------
+;; Bound locally by CP and CPCAL, so it is in force only while they run and
+;; AutoCAD puts the normal handler back afterwards. It prints the message at
+;; the command line, where it can be read without opening the text window,
+;; then puts back anything the command had changed.
+
+(defun cp:err (msg)
+  (if (and msg
+           (not (member msg '("Function cancelled" "quit / exit abort"))))
+    (progn
+      (princ "\n*** CP stopped: ")
+      (princ msg)
+      (princ "\n*** Send me that line exactly as it reads.")))
+  (while (> (getvar "CMDACTIVE") 0) (command))
+  (if *CP-OPEN*
+    (progn (command "._UNDO" "_END") (setq *CP-OPEN* nil)))
+  (if olde (setvar "ATTREQ"  olde))
+  (if oldd (setvar "ATTDIA"  oldd))
+  (if oldc (setvar "CMDECHO" oldc))
+  (if oldo (setvar "OSMODE"  oldo))
+  (princ))
+
 ;; ---- settings, plain globals ---------------------------------------------
 
 (setq *CP-BLOCK* "COOR XY")   ; callout block name
@@ -31,6 +54,7 @@
 (setq *CP-OFFE*  0.0)         ; drawing offset from the survey grid
 (setq *CP-OFFN*  0.0)
 (setq *CP-NEXT*  "P1")        ; next tag suggested
+(setq *CP-OPEN*  nil)         ; T while an UNDO group is open
 
 ;; ---- reading numbers out of whatever the user types -----------------------
 
@@ -178,7 +202,8 @@
         (setq nm (vla-get-EffectiveName obj)))))
   nm)
 
-(defun c:CPCAL ( / e d p atts a ad txt val nsam esam nn ee)
+(defun c:CPCAL ( / *error* e d p atts a ad txt val nsam esam nn ee)
+  (setq *error* cp:err)
   (princ "\nSelect one coordinate callout you already have: ")
   (setq e (car (entsel)))
   (if (or (not e) (/= "INSERT" (cdr (assoc 0 (entget e)))))
@@ -367,7 +392,8 @@
 
 ;; ---- CP -------------------------------------------------------------------
 
-(defun c:CP ( / mode n olde oldd oldc oldo)
+(defun c:CP ( / *error* mode n olde oldd oldc oldo)
+  (setq *error* cp:err)
   ;; a missing block name is not a dead end -- ask which one to copy
   (if (not (tblsearch "BLOCK" *CP-BLOCK*))
     (progn
@@ -388,11 +414,12 @@
                oldc (getvar "CMDECHO") oldo (getvar "OSMODE"))
          (setvar "ATTREQ" 0) (setvar "ATTDIA" 0) (setvar "CMDECHO" 0)
          (command "._UNDO" "_BEGIN")
-         (setq n 0)
+         (setq *CP-OPEN* T n 0)
          (cond ((= mode "Type") (setq n (cp:dotype)))
                ((= mode "Pick") (setq n (cp:dopick)))
                ((= mode "List") (setvar "OSMODE" 0) (setq n (cp:dolist))))
          (command "._UNDO" "_END")
+         (setq *CP-OPEN* nil)
          (setvar "ATTREQ" olde) (setvar "ATTDIA" oldd)
          (setvar "CMDECHO" oldc) (setvar "OSMODE" oldo)
          (princ (strcat "\n\n" (itoa n) " callout(s) placed. One UNDO reverses them."))))))

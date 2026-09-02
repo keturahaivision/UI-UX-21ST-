@@ -119,6 +119,16 @@ IF THINGS GO WRONG
                                 Calibrate on a callout in THIS drawing and
                                 the offset is worked out for you.
 
+  "*** CP stopped: ..."          something failed. The line after it is the
+                                reason, printed at the command line so you do
+                                not have to open the text window. Send me that
+                                line and I can fix it directly.
+
+  Nothing happens at all         type CPSTAT. It prints the block CP is set to
+                                and says whether that block is in the drawing.
+                                If it says NOT in this drawing, run CPCAL and
+                                click one of your callouts.
+
 
 --------------------------------------------------------------------------------
 COMMANDS
@@ -126,3 +136,4 @@ COMMANDS
   CP        everything
   CPCAL     calibrate directly
   CPSET     settings directly
+  CPSTAT    show what CP is currently set to
