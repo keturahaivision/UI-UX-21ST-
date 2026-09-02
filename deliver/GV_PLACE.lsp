@@ -205,14 +205,14 @@
 
 ;; ---- the work -------------------------------------------------------------
 
-(defun gvp:attribs (e / out nx)
+(defun GVp:attribs (e / out nx)
   "The ATTRIB entities belonging to an INSERT."
   (setq out nil nx (entnext e))
   (while (and nx (= "ATTRIB" (cdr (assoc 0 (entget nx)))))
     (setq out (cons nx out) nx (entnext nx)))
   (reverse out))
 
-(defun gvp:place (name ex ny / p ns es obj a d tag filled)
+(defun GVp:place (name ex ny / p ns es obj a d tag filled)
   "Insert the callout at (ex ny) and write the coordinates into its attributes.
 
    Attributes are matched by tag, never by position, so it does not matter how
@@ -229,7 +229,7 @@
     (progn (princ "\n  the insert did not complete -- stopping.") (setq obj nil)))
   (if obj
     (progn
-      (foreach a (gvp:attribs obj)
+      (foreach a (GVp:attribs obj)
         (setq d (entget a) tag (strcase (cdr (assoc 2 d))))
         (cond
           ((wcmatch tag "Y*,N*")
@@ -264,7 +264,7 @@
       (command "._UNDO" "_BEGIN")
       (setq n 0 *GV-FILLED* 0)
       (foreach item *GV-POINTS*
-        (gvp:place (car item) (cadr item) (caddr item))
+        (GVp:place (car item) (cadr item) (caddr item))
         (setq n (1+ n)))
       (command "._UNDO" "_END")
       (setvar "ATTREQ" olde) (setvar "ATTDIA" oldd)

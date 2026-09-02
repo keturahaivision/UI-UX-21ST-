@@ -1,15 +1,31 @@
 ================================================================================
-  GV COORDINATE CALLOUTS - 174 points
+  COORDINATE CALLOUTS - 218 points
 ================================================================================
 
 WHAT THIS DOES
-  Inserts your "COOR XY" block at all 174 gate valve coordinates and fills in
-  each one's N= and E= attributes. One command, one undo.
+  Inserts your "COOR XY" block at each coordinate and fills in its N= and E=
+  attributes. 174 gate valves, plus 44 other valve points. One command each,
+  one undo each.
 
 FILES
-  GV_PLACE.lsp        the tool. This is the only file you run.
-  all_gv_points.csv   the 174 coordinates it uses (GV1 to GV174).
+  GV_PLACE.lsp        174 gate valve points.        Command: GVPLACEPOINTS
+  OTHER_PLACE.lsp     44 other valve points.        Command: OTHERPLACEPOINTS
+  all_gv_points.csv   the 174 coordinates  (GV1 to GV174)
+  other_points.csv    the 44 coordinates   (BV, MBV, FM, PRV, WO, AV)
   README.txt          this file.
+
+  The two .lsp files are independent - load one, or both, in any order.
+  They share no names, so neither interferes with the other.
+
+  OTHER_PLACE.lsp covers:
+      BV1  - BV30    butterfly valve                30 points
+      MBV1 - MBV8    motorized butterfly valve       8 points
+      FM1  - FM2     flow meter                      2 points
+      PRV1 - PRV2    pressure reducing valve         2 points
+      WO1            washout                         1 point
+      AV             air valve                       1 point
+                                                    ---------
+                                                     44 points
 
 
 --------------------------------------------------------------------------------
@@ -65,12 +81,20 @@ STEP 5   Load the tool
 --------------------------------------------------------------------------------
 STEP 6   Run it
 --------------------------------------------------------------------------------
-  Command: GVPLACEPOINTS
+  Command: GVPLACEPOINTS        (after loading GV_PLACE.lsp)
+  Command: OTHERPLACEPOINTS     (after loading OTHER_PLACE.lsp)
 
-  You should see:
+  You should see, for the gate valves:
       Placed 174 callout(s) using "COOR XY".
       Filled 696 attribute(s) -- 4.0 per callout.
       One UNDO reverses the whole run.
+
+  ...and for the others:
+      Placed 44 callout(s) using "COOR XY".
+      Filled 176 attribute(s) -- 4.0 per callout.
+
+  Each command is its own single UNDO, so you can run one, look at it,
+  and undo just that one without losing the other.
 
   Then:  ZOOM  ->  E     to see them all.
 
