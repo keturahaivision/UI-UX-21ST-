@@ -16,6 +16,8 @@ table of POINTS / EASTING / NORTHING.
 | `data/gate_valve_coordinates.csv` | the 174 points generated from the supplied drawing |
 | `data/gate_valve_coordinates.xlsx` | the same list as a formatted Excel workbook |
 | `tools/make_xlsx.py` | rebuilds that workbook from the CSV |
+| `data/gate_valve_callouts.xlsx` | the plotted table as a callout schedule, checked against the drawing |
+| `tools/pdf_table_to_xlsx.py` | builds that from a PDF of the table |
 | `docs/drawing-review.md` | what the automated pass found in the existing manual table |
 
 ---
@@ -241,6 +243,24 @@ filter row, coordinates to 3 dp, the auto-numbered point highlighted — and the
 source, assumptions and points to check on a second. The counts on the Notes
 sheet are formulas over the data range, so they stay right if rows are filtered
 or added.
+
+### From a plotted PDF of the table
+
+When all you have is a PDF of the coordinate table rather than the DWG:
+
+```bash
+pdftotext -layout table.pdf table.txt
+python3 tools/pdf_table_to_xlsx.py table.txt -o data/gate_valve_callouts.xlsx \
+    --check data/gate_valve_coordinates.csv
+```
+
+Each row gets ready-made callout text in the drawing's format — `N=…, E=…` on
+one line, plus the two halves in their own columns so they drop straight into
+the `N=` / `E=` attributes of a callout block. `--check` compares every row
+against where its valve actually sits.
+
+On the supplied table: 173 rows, **166 match the drawing**, 6 sit 37–118 mm off,
+and one is the duplicate `GV6` that should read `GV5`.
 
 ---
 
