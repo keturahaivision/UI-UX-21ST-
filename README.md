@@ -43,12 +43,13 @@ GV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABE
 | **GVTABLE** | Draws the **GATE VALVE COORDINATES** table from the current list at a picked point |
 | **GVCSV** | Writes the current list to a CSV file |
 | **GVSETUP** | Review and change the settings (below). Stored in the drawing, so they travel with the DWG |
-| **GVANNO** | Put a boxed `N=` / `E=` callout on **every** GV point at once, positioning the boxes automatically |
+| **GVANNO** | Put a coordinate callout on **every** GV point at once — inserting your `COOR XY` block and filling its attributes |
 | **GVLABEL** | Place one boxed callout at a picked point |
 | **GVAUDIT** | Check the drawing's **GATE VALVE COORDINATES** table against the valve positions and report any row whose label disagrees. Reports only — changes nothing |
 | **GVFIXTABLE** | The same check, then corrects the mislabelled row names after you confirm |
 | **GVMARK** | Ring the points on the drawing and label them with a leader — all of them, or just the ones needing attention |
 | **GVMARKCLR** | Erase every marker again, before the drawing is issued |
+| **GVCHECK** | Report what the tool can actually see — run this first when something hasn't worked |
 
 ### Typical run
 
@@ -88,7 +89,10 @@ Run GVTABLE to draw the table, or GVCSV to export.
 | `TOL` | `0.150` | How close a table row must be to a valve to count as that valve |
 | `ROWTOL` | `1.0` | Y tolerance when grouping table cells into a row |
 | `TXTHT` | `1.5` | Text height for labels and callouts |
-| `CALDIST` | `12.0` | How far a coordinate box sits from its point |
+| `CALBLOCK` | `COOR XY` | Attributed callout block to insert |
+| `CALSCALE` | `1.608006` | Its insertion scale |
+| `CALROT` | `0.0` | Its rotation, in degrees |
+| `CALDIST` | `12.0` | How far a *drawn* coordinate box sits from its point (fallback only) |
 | `LBLDX` / `LBLDY` | `0.340` / `-3.906` | Where a new label is placed relative to the valve |
 | `OFFE` `OFFN` `ROT` `SCL` | `0 0 0 1` | WCS → survey-grid transform (see below) |
 
@@ -99,24 +103,35 @@ through their effective name, so anonymous `*U12` names still match.
 
 ### Coordinate callouts
 
-A callout is a box holding `N=` over `E=`, with a leader that leaves the side of
-the box facing the point, runs level, then turns and arrows onto the valve —
-the way these are drawn by hand.
+Callouts are placed as **attributed blocks**, not drawn geometry — the drawing's
+own `COOR XY` block, inserted at the valve with its `Y1`/`X1`/`Y2`/`X2`
+attributes filled in. That keeps them editable with `ATTEDIT`, readable by data
+extraction, and identical to what is already on the sheet.
+
+The block is found automatically: an instance already in the drawing wins,
+because it carries the rotation and scale that drawing actually uses. Failing
+that, `CALBLOCK` is inserted if its definition is present. If neither exists you
+are asked to pick one, and only if you decline does the tool fall back to
+drawing the box itself.
 
 `GVANNO` places one on every GV point in a single pass:
 
 ```
 Command: GVANNO
 Annotate which points? [All/Select] <All>:
-Placed 174 coordinate box(es) on layer "Proposed Spare Duct Coordinates".
+Using callout block "COOR XY" at scale 1.6080.
+Placed 174 callout block(s).
 One UNDO reverses the whole run.
 ```
 
-Boxes are positioned automatically: diagonals first, then the axes, then further
-out, taking the first position that clashes with neither an already-placed box
-nor any valve. Every point is kept clear before placing begins, so a box never
-lands on another valve. `CALDIST` sets how far out they sit — raise it in
-congested areas.
+The box and leader come from the block, so they land where the block puts them.
+`COOR XY` carries two callout positions (`X1`/`Y1` and `X2`/`Y2`), both filled
+with the same coordinates — the same convention as the drawing's existing
+callouts — so the clear one can be chosen per valve afterwards.
+
+Only when no block is available does the tool draw a box itself, and then it
+positions them automatically: diagonals first, then the axes, then further out,
+avoiding both other boxes and every valve. `CALDIST` tunes that fallback.
 
 `GVLABEL` and `GVPICK` place a single callout, asking you to pick where the box
 goes so you can dodge existing content.
@@ -126,6 +141,13 @@ callouts, it does not look for existing ones, so you would otherwise end up with
 two boxes per valve. Removing them first is worth doing regardless: hand-copied
 callouts go stale — in the supplied drawing several carry a neighbour's
 coordinates, GV4's box reading GV5's values.
+
+### When something hasn't worked
+
+`GVCHECK` prints what the tool can actually see — how many valve blocks and GV
+labels it finds with the current patterns, whether the callout block is in the
+drawing, which template it would use, and the grid transform in force. It
+changes nothing. Run it before reporting a problem.
 
 ### Auditing the coordinate table
 

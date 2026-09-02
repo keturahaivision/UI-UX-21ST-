@@ -435,9 +435,12 @@
   (if (< d 1e-9) (list 0.0 -1.0) (list (/ dx d) (/ dy d))))
 
 (defun gv:text-width (str h / tb)
-  "Plotted width of str, from the current text style; estimated if that fails."
-  (setq tb (textbox (list (cons 1 str) (cons 40 h))))
-  (if tb
+  "Plotted width of str, from the current text style; estimated if that fails.
+
+   textbox throws rather than returning nil on some text styles, so the call is
+   caught -- a wrong-by-a-few-percent box beats a command that dies."
+  (setq tb (vl-catch-all-apply 'textbox (list (list (cons 1 str) (cons 40 h)))))
+  (if (and tb (not (vl-catch-all-error-p tb)) (listp tb))
     (- (car (cadr tb)) (car (car tb)))
     (* 0.65 h (strlen str))))
 
@@ -457,6 +460,89 @@
                   (cons 11 (list (car a1)  (cadr a1)  0.0))
                   (cons 12 (list (car a2)  (cadr a2)  0.0))
                   (cons 13 (list (car a2)  (cadr a2)  0.0)))))
+
+(defun gv:attribs (e / out nx)
+  "The ATTRIB entities belonging to an INSERT, in block order."
+  (setq out nil nx (entnext e))
+  (while (and nx (= "ATTRIB" (cdr (assoc 0 (entget nx)))))
+    (setq out (cons nx out) nx (entnext nx)))
+  (reverse out))
+
+(defun gv:coord-block-p (e / tag hasx hasy a)
+  "True when this insert looks like a coordinate callout: it carries attributes
+   for both an easting and a northing. Tags are matched loosely because the
+   drawings use X1/Y1/X2/Y2 as well as plain E/N."
+  (setq hasx nil hasy nil)
+  (foreach a (gv:attribs e)
+    (setq tag (strcase (cdr (assoc 2 (entget a)))))
+    (if (wcmatch tag "X*,E*") (setq hasx T))
+    (if (wcmatch tag "Y*,N*") (setq hasy T)))
+  (and hasx hasy))
+
+(defun gv:find-template ( / ss i e d res)
+  "An existing coordinate callout in the drawing, to copy. Returns
+   (block-name rotation scale) so new ones match the drawing's own standard."
+  (setq res nil)
+  (if (setq ss (ssget "_X" '((0 . "INSERT") (66 . 1))))
+    (progn
+      (setq i 0)
+      (while (and (not res) (< i (sslength ss)))
+        (setq e (ssname ss i) d (entget e))
+        (if (gv:coord-block-p e)
+          (setq res (list (gv:effective-name e)
+                          (cond ((cdr (assoc 50 d))) (0.0))
+                          (cond ((cdr (assoc 41 d))) (1.0)))))
+        (setq i (1+ i)))))
+  res)
+
+(defun gv:ask-template ( / e)
+  "Let the user point at the callout block to copy."
+  (princ "\nSelect one existing coordinate callout block (or Enter to draw one instead): ")
+  (setq e (car (entsel)))
+  (if (and e (= "INSERT" (cdr (assoc 0 (entget e)))))
+    (if (gv:coord-block-p e)
+      (list (gv:effective-name e)
+            (cond ((cdr (assoc 50 (entget e)))) (0.0))
+            (cond ((cdr (assoc 41 (entget e)))) (1.0)))
+      (progn (princ "\nThat block carries no easting/northing attributes.") nil))))
+
+(defun gv:template ( / found nm)
+  "The callout block to place, as (name rotation-radians scale).
+
+   An instance already in the drawing wins, because it carries the rotation and
+   scale this drawing actually uses. Failing that, the configured block name is
+   used if its definition is present. nil means there is nothing to insert and
+   the box has to be drawn instead."
+  (cond
+    ((setq found (gv:find-template)) found)
+    ((and (setq nm (gv:get "CALBLOCK")) (/= nm "") (tblsearch "BLOCK" nm))
+     (list nm (* pi (/ (gv:num "CALROT") 180.0)) (gv:num "CALSCALE")))
+    (T nil)))
+
+(defun gv:insert-callout (p grid tpl / bname rot scl olde oldd oldc obj a d tag ns es)
+  "Insert the callout block at p and write the coordinates into its attributes.
+
+   The block is placed AT the point it annotates -- which is how the drawing's
+   own callouts are built, their attribute text repeating the insertion point --
+   so the box and leader come from the block and always match house style."
+  (setq bname (car tpl) rot (cadr tpl) scl (caddr tpl))
+  (if (or (null scl) (zerop scl)) (setq scl 1.0))
+  (setq ns (strcat "N=" (gv:rtos (cadr grid)))
+        es (strcat "E=" (gv:rtos (car  grid))))
+  (setq olde (getvar "ATTREQ") oldd (getvar "ATTDIA") oldc (getvar "CMDECHO"))
+  (setvar "ATTREQ" 0) (setvar "ATTDIA" 0) (setvar "CMDECHO" 0)
+  ;; _non defeats running osnap, which would otherwise drag the insert onto
+  ;; whatever happens to be near the valve
+  (command "._-INSERT" bname "_non" (list (car p) (cadr p) 0.0) scl scl rot)
+  (setvar "ATTREQ" olde) (setvar "ATTDIA" oldd) (setvar "CMDECHO" oldc)
+  (setq obj (entlast))
+  (foreach a (gv:attribs obj)
+    (setq d (entget a) tag (strcase (cdr (assoc 2 d))))
+    (cond
+      ((wcmatch tag "Y*,N*") (entmod (subst (cons 1 ns) (assoc 1 d) d)))
+      ((wcmatch tag "X*,E*") (entmod (subst (cons 1 es) (assoc 1 d) d)))))
+  (entupd obj)
+  obj)
 
 (defun gv:callout-size (grid h / pad gap sn se)
   "Width and height of the box that gv:callout would draw for these values."
@@ -650,6 +736,9 @@
     (cons "MAXDIST"  "Label search radius")
     (cons "TXTHT"    "Text height")
     (cons "CALDIST"  "Distance from a point to its coordinate box")
+    (cons "CALBLOCK" "Attributed callout block name")
+    (cons "CALSCALE" "Callout block insertion scale")
+    (cons "CALROT"   "Callout block rotation (degrees)")
     (cons "LBLDX"    "Label offset X from valve")
     (cons "LBLDY"    "Label offset Y from valve")
     (cons "OFFE"     "Grid transform: Easting offset")
@@ -664,7 +753,7 @@
   (princ "\nSettings saved in this drawing.")
   (princ))
 
-(defun c:GVPICK ( / e ed p grid num rot ans lab cpt)
+(defun c:GVPICK ( / e ed p grid num rot ans lab cpt tpl)
   (gv:cfg-load)
   (princ "\nSelect a gate valve (or press Enter to pick a point): ")
   (setq e (car (entsel)))
@@ -702,12 +791,18 @@
       (if (/= ans "No")
         (progn
           (if (not lab) (gv:place-label p num rot))
-          (setq cpt (getpoint p "\nPick where the coordinate box goes: "))
-          (if cpt
+          (setq tpl (gv:template))
+          (if tpl
             (progn
-              (gv:callout p grid cpt)
-              (princ (strcat "\nAnnotated " (gv:name num) ".")))
-            (princ "\nNo box placed."))))))
+              (gv:insert-callout p grid tpl)
+              (princ (strcat "\nAnnotated " (gv:name num) " with " (car tpl) ".")))
+            (progn
+              (setq cpt (getpoint p "\nPick where the coordinate box goes: "))
+              (if cpt
+                (progn
+                  (gv:callout p grid cpt)
+                  (princ (strcat "\nAnnotated " (gv:name num) ".")))
+                (princ "\nNo box placed."))))))))
   (princ))
 
 (defun gv:label-at (p / best bestd d lab)
@@ -781,15 +876,19 @@
             (princ "\nCould not open that file for writing."))))))
   (princ))
 
-(defun c:GVLABEL ( / p grid cpt)
+(defun c:GVLABEL ( / p grid cpt tpl)
   (gv:cfg-load)
   (setq p (getpoint "\nPick the point to annotate: "))
   (if p
     (progn
       (setq grid (gv:to-grid p))
       (princ (strcat "\nE=" (gv:rtos (car grid)) "  N=" (gv:rtos (cadr grid))))
-      (setq cpt (getpoint p "\nPick where the coordinate box goes: "))
-      (if cpt (gv:callout p grid cpt))))
+      (setq tpl (gv:template))
+      (if tpl
+        (gv:insert-callout p grid tpl)
+        (progn
+          (setq cpt (getpoint p "\nPick where the coordinate box goes: "))
+          (if cpt (gv:callout p grid cpt))))))
   (princ))
 
 (defun c:GVAUDIT ( / res okc bad)
@@ -884,6 +983,134 @@
       (princ (strcat "\nErased " (itoa n) " marker object(s)."))))
   (princ))
 
+(defun c:GVANNO ( / mode ss pts item p grid sz c placed n h keep tpl)
+  (gv:cfg-load)
+  (setq tpl (gv:template))
+  (if (not tpl) (setq tpl (gv:ask-template)))
+  (if tpl
+    (princ (strcat "\nUsing callout block \"" (car tpl) "\" at scale "
+                   (rtos (caddr tpl) 2 4) "."))
+    (princ "\nNo callout block available -- the box will be drawn instead."))
+  (initget "All Select")
+  (setq mode (getkword "\nAnnotate which points? [All/Select] <All>: "))
+  (if (not mode) (setq mode "All"))
+  (setq ss nil)
+  (if (= mode "Select")
+    (progn
+      (princ "\nSelect the valves to annotate: ")
+      (setq ss (ssget '((0 . "INSERT"))))))
+  (if (and (= mode "Select") (not ss))
+    (princ "\nNothing selected.")
+    (progn
+      (setq pts (gv:build ss) h (gv:num "TXTHT") placed nil n 0)
+      (if (null pts)
+        (princ "\nNo gate-valve symbols found -- run GVCHECK to see what it can see.")
+        (progn
+          (if (not tpl)
+            ;; drawn boxes have to dodge each other, so keep every point clear first
+            (progn
+              (setq keep (* 2.2 h))
+              (foreach item pts
+                (setq p (gv:point-wcs item))
+                (if p
+                  (setq placed (cons (list (- (car p) keep) (- (cadr p) keep)
+                                           (+ (car p) keep) (+ (cadr p) keep))
+                                     placed))))))
+          (foreach item pts
+            (setq p (gv:point-wcs item))
+            (if p
+              (progn
+                (setq grid (list (cadr item) (caddr item)))
+                (if tpl
+                  (gv:insert-callout p grid tpl)
+                  (progn
+                    (setq sz (gv:callout-size grid h))
+                    (setq c  (gv:auto-box p sz (gv:num "CALDIST") placed))
+                    (setq placed (cons (gv:rect c sz) placed))
+                    (gv:callout p grid c)))
+                (setq n (1+ n)))))
+          (princ (strcat "\nPlaced " (itoa n)
+                         (if tpl " callout block(s)." " coordinate box(es).")))
+          (princ "\nOne UNDO reverses the whole run.")))))
+  (princ))
+
+(defun c:GVCHECK ( / tpl valves labels nm)
+  "Report what the tool can actually see, for when something has not worked."
+  (gv:cfg-load)
+  (princ "\n--- GV point list check ---")
+  (princ (strcat "\nAutoCAD version      : " (getvar "ACADVER")))
+  (setq valves (gv:collect-valves nil)
+        labels (gv:collect-labels))
+  (princ (strcat "\nGate-valve blocks    : " (itoa (length valves))
+                 "   (patterns " (gv:get "BLOCKS") " / layers " (gv:get "LAYERS") ")"))
+  (princ (strcat "\nGV labels            : " (itoa (length labels))))
+  (setq nm (gv:get "CALBLOCK"))
+  (princ (strcat "\nCallout block \"" nm "\" : "
+                 (if (tblsearch "BLOCK" nm) "present in drawing" "NOT in this drawing")))
+  (setq tpl (gv:template))
+  (if tpl
+    (princ (strcat "\nCallout to be used   : " (car tpl)
+                   "  rotation " (rtos (* 180.0 (/ (cadr tpl) pi)) 2 2)
+                   " deg, scale " (rtos (caddr tpl) 2 4)))
+    (princ "\nCallout to be used   : none -- GVANNO would draw the box instead"))
+  (princ (strcat "\nTable layer \"" (gv:get "TBLLAYER") "\" : "
+                 (if (tblsearch "LAYER" (gv:get "TBLLAYER")) "exists" "not in this drawing")))
+  (princ (strcat "\nGrid transform       : E+" (rtos (gv:num "OFFE") 2 3)
+                 "  N+" (rtos (gv:num "OFFN") 2 3)
+                 "  rot " (rtos (gv:num "ROT") 2 3)
+                 "  scale " (rtos (gv:num "SCL") 2 4)))
+  (if (> (length valves) 0)
+    (princ (strcat "\nFirst valve at       : "
+                   (gv:rtos (car  (gv:to-grid (car valves)))) ", "
+                   (gv:rtos (cadr (gv:to-grid (car valves)))))))
+  (princ))
+
+(defun c:GVMARK ( / mode flags item found n ss)
+  (gv:cfg-load)
+  (initget "All Flagged Select")
+  (setq mode (getkword "\nMark which points? [All/Flagged/Select] <Flagged>: "))
+  (if (not mode) (setq mode "Flagged"))
+  (setq n 0)
+  (cond
+    ((= mode "Flagged")
+     (setq flags (gv:flagged))
+     (if (null flags)
+       (princ "\nNothing flagged -- every valve has a label and the table agrees.")
+       (foreach item flags
+         (setq found (gv:find-point (car item)))
+         (if (and found (gv:mark found (cadr item))) (setq n (1+ n))))))
+    ((= mode "All")
+     (gv:build nil)
+     (foreach item *gv:points*
+       (if (gv:mark item (if (nth 4 item) "" "no GV label in drawing"))
+         (setq n (1+ n)))))
+    ((= mode "Select")
+     (princ "\nSelect the valves to mark: ")
+     (setq ss (ssget '((0 . "INSERT"))))
+     (if ss
+       (progn
+         (gv:build ss)
+         (foreach item *gv:points*
+           (if (gv:mark item (if (nth 4 item) "" "no GV label in drawing"))
+             (setq n (1+ n))))))))
+  (if (> n 0)
+    (princ (strcat "\nMarked " (itoa n) " point(s) on layer \""
+                   (gv:get "MRKLAYER") "\".  GVMARKCLR removes them.")))
+  (princ))
+
+(defun c:GVMARKCLR ( / ss i n)
+  (gv:cfg-load)
+  (setq ss (ssget "_X" (list (cons 8 (gv:get "MRKLAYER")))))
+  (if (not ss)
+    (princ (strcat "\nNo markers on layer \"" (gv:get "MRKLAYER") "\"."))
+    (progn
+      (setq n (sslength ss) i 0)
+      (while (< i n)
+        (entdel (ssname ss i))
+        (setq i (1+ i)))
+      (princ (strcat "\nErased " (itoa n) " marker object(s)."))))
+  (princ))
+
 (defun c:GVANNO ( / mode ss pts item p grid sz c placed n h keep)
   (gv:cfg-load)
   (initget "All Select")
@@ -925,5 +1152,5 @@
           (princ "\nOne UNDO reverses the whole run.")))))
   (princ))
 
-(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE  GVANNO  GVMARK  GVMARKCLR")
+(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE  GVANNO  GVMARK  GVMARKCLR  GVCHECK")
 (princ)
