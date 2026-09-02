@@ -8,6 +8,7 @@
 ;;;  Commands
 ;;;    CPTOP   says the file started loading      (diagnostic)
 ;;;    CPEND   says the file finished loading     (diagnostic)
+;;;    CPSTAT  show what CP is currently set to  (diagnostic)
 ;;;    CPCAL   learn the callout block from one you already have
 ;;;    CP      place a callout: Type / Pick / List
 ;;;    CPSET   change settings by hand
@@ -181,7 +182,10 @@
   (princ "\nSelect one coordinate callout you already have: ")
   (setq e (car (entsel)))
   (if (or (not e) (/= "INSERT" (cdr (assoc 0 (entget e)))))
-    (princ "\nThat is not a block. Nothing changed.")
+    (if e
+      (princ (strcat "\nThat is a " (cdr (assoc 0 (entget e)))
+                     ", not a block. Click the callout box itself."))
+      (princ "\nNothing picked."))
     (progn
       (setq d (entget e) p (cdr (assoc 10 d)) atts (cp:attribs e))
       (if (null atts)
@@ -364,10 +368,14 @@
 ;; ---- CP -------------------------------------------------------------------
 
 (defun c:CP ( / mode n olde oldd oldc oldo)
+  ;; a missing block name is not a dead end -- ask which one to copy
   (if (not (tblsearch "BLOCK" *CP-BLOCK*))
     (progn
-      (princ (strcat "\nThe callout block \"" *CP-BLOCK* "\" is not in this drawing."))
-      (princ "\nInsert one copy of it, then run CPCAL and click it."))
+      (princ (strcat "\nNo block named \"" *CP-BLOCK* "\" in this drawing"
+                     " -- let us find yours."))
+      (c:CPCAL)))
+  (if (not (tblsearch "BLOCK" *CP-BLOCK*))
+    (princ "\nStill no callout block. Run CPCAL and click one of your callouts.")
     (progn
       (initget "Type Pick List Calibrate Settings")
       (setq mode (getkword "\nPlace a coordinate [Type/Pick/List/Calibrate/Settings] <Type>: "))
@@ -390,7 +398,23 @@
          (princ (strcat "\n\n" (itoa n) " callout(s) placed. One UNDO reverses them."))))))
   (princ))
 
+(defun c:CPSTAT ()
+  (princ "\n--- CP is currently set to ---")
+  (princ (strcat "\n  Block      " *CP-BLOCK*
+                 (if (tblsearch "BLOCK" *CP-BLOCK*)
+                   "   (present in this drawing)"
+                   "   (NOT in this drawing -- run CPCAL)")))
+  (princ (strcat "\n  Scale      " (rtos *CP-SCALE* 2 6)
+                 "   Rotation " (rtos *CP-ROT* 2 3)))
+  (princ (strcat "\n  Northing   " *CP-NPFX* "   Easting " *CP-EPFX*
+                 "   to " (itoa *CP-PREC*) " decimals"))
+  (princ (strcat "\n  Tag        " (if (= *CP-TAGON* 1) "yes" "no")
+                 "   next " *CP-NEXT* "   layer " *CP-TAGLAY*))
+  (princ (strcat "\n  Offset     E" (rtos *CP-OFFE* 2 3) " N" (rtos *CP-OFFN* 2 3)))
+  (princ))
+
 (defun c:CPEND () (princ "\nCP.lsp: whole file loaded.") (princ))
 
 (princ "\nCP.lsp loaded.  CPCAL to learn your block, then CP to place callouts.")
+(princ "\n  CPSTAT shows the current settings.")
 (princ)
