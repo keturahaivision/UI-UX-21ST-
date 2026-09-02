@@ -130,18 +130,28 @@ def main(argv=None) -> int:
     ap.add_argument("--label-dy", type=float, default=-3.906)
     args = ap.parse_args(argv)
 
-    rows = []
+    rows, skipped = [], []
     with open(args.csv, newline="", encoding="utf-8-sig") as fh:
-        for r in csv.DictReader(fh):
+        for lineno, r in enumerate(csv.DictReader(fh), start=2):
             keys = {k.strip().upper(): k for k in r if k}
             try:
-                name = r[keys["POINTS"]].strip()
+                name = (r[keys["POINTS"]] or "").strip()
                 e = float(r[keys["EASTING"]])
                 n = float(r[keys["NORTHING"]])
-            except (KeyError, ValueError, TypeError):
+            except KeyError:
+                skipped.append((lineno, "missing a POINTS/EASTING/NORTHING column"))
                 continue
-            if name:
-                rows.append((name, e, n))
+            except (ValueError, TypeError):
+                skipped.append((lineno, "easting or northing is not a number"))
+                continue
+            if not name:
+                skipped.append((lineno, "no point name"))
+                continue
+            rows.append((name, e, n))
+
+    # dropping rows silently is how a list quietly comes up short
+    for lineno, why in skipped:
+        print(f"  skipped line {lineno}: {why}", file=sys.stderr)
 
     if not rows:
         print("no usable rows — expected POINTS / EASTING / NORTHING columns",
@@ -149,10 +159,15 @@ def main(argv=None) -> int:
         return 1
 
     p = args.precision
-    width = max(len(r[0]) for r in rows) + 2
-    points = "\n".join(
-        f'  ({("%r" % name).replace(chr(39), chr(34)):<{width}} {e:.{p}f} {n:.{p}f})'
-        for name, e, n in rows)
+
+    def lisp_str(text: str) -> str:
+        """AutoLISP string literal. Backslash and quote both need escaping —
+        unescaped, a quote ends the string early and breaks the whole file."""
+        return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+    quoted = [(lisp_str(name), e, n) for name, e, n in rows]
+    width = max(len(q[0]) for q in quoted) + 1
+    points = "\n".join(f"  ({q:<{width}} {e:.{p}f} {n:.{p}f})" for q, e, n in quoted)
 
     out_name = args.output.replace("\\", "/").rsplit("/", 1)[-1]
     text = TEMPLATE.format(
@@ -173,7 +188,8 @@ def main(argv=None) -> int:
     )
     with open(args.output, "w", encoding="utf-8") as fh:
         fh.write(text)
-    print(f"wrote {args.output} — {len(rows)} points", file=sys.stderr)
+    print(f"wrote {args.output} — {len(rows)} points"
+          + (f", {len(skipped)} row(s) skipped" if skipped else ""), file=sys.stderr)
     return 0
 
 
