@@ -41,7 +41,8 @@ GV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABE
 | **GVTABLE** | Draws the **GATE VALVE COORDINATES** table from the current list at a picked point |
 | **GVCSV** | Writes the current list to a CSV file |
 | **GVSETUP** | Review and change the settings (below). Stored in the drawing, so they travel with the DWG |
-| **GVLABEL** | Place an `N=` / `E=` coordinate callout at any picked point |
+| **GVANNO** | Put a boxed `N=` / `E=` callout on **every** GV point at once, positioning the boxes automatically |
+| **GVLABEL** | Place one boxed callout at a picked point |
 | **GVAUDIT** | Check the drawing's **GATE VALVE COORDINATES** table against the valve positions and report any row whose label disagrees. Reports only — changes nothing |
 | **GVFIXTABLE** | The same check, then corrects the mislabelled row names after you confirm |
 | **GVMARK** | Ring the points on the drawing and label them with a leader — all of them, or just the ones needing attention |
@@ -85,6 +86,7 @@ Run GVTABLE to draw the table, or GVCSV to export.
 | `TOL` | `0.150` | How close a table row must be to a valve to count as that valve |
 | `ROWTOL` | `1.0` | Y tolerance when grouping table cells into a row |
 | `TXTHT` | `1.5` | Text height for labels and callouts |
+| `CALDIST` | `12.0` | How far a coordinate box sits from its point |
 | `LBLDX` / `LBLDY` | `0.340` / `-3.906` | Where a new label is placed relative to the valve |
 | `OFFE` `OFFN` `ROT` `SCL` | `0 0 0 1` | WCS → survey-grid transform (see below) |
 
@@ -92,6 +94,36 @@ Patterns are AutoCAD `wcmatch` patterns and may be comma-separated, so
 `*CI_PW_GV*` also catches the bound-xref form
 `25_114D_P_NOC_WAT_Rev06$0$…$0$CI_PW_GVN_PROP`. Dynamic blocks are resolved
 through their effective name, so anonymous `*U12` names still match.
+
+### Coordinate callouts
+
+A callout is a box holding `N=` over `E=`, with a leader that leaves the side of
+the box facing the point, runs level, then turns and arrows onto the valve —
+the way these are drawn by hand.
+
+`GVANNO` places one on every GV point in a single pass:
+
+```
+Command: GVANNO
+Annotate which points? [All/Select] <All>:
+Placed 174 coordinate box(es) on layer "Proposed Spare Duct Coordinates".
+One UNDO reverses the whole run.
+```
+
+Boxes are positioned automatically: diagonals first, then the axes, then further
+out, taking the first position that clashes with neither an already-placed box
+nor any valve. Every point is kept clear before placing begins, so a box never
+lands on another valve. `CALDIST` sets how far out they sit — raise it in
+congested areas.
+
+`GVLABEL` and `GVPICK` place a single callout, asking you to pick where the box
+goes so you can dodge existing content.
+
+**Run this on a drawing whose old callouts have been removed.** `GVANNO` adds
+callouts, it does not look for existing ones, so you would otherwise end up with
+two boxes per valve. Removing them first is worth doing regardless: hand-copied
+callouts go stale — in the supplied drawing several carry a neighbour's
+coordinates, GV4's box reading GV5's values.
 
 ### Auditing the coordinate table
 

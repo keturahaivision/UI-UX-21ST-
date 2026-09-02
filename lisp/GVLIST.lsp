@@ -421,13 +421,128 @@
   (setq q (list (+ (car p) (gv:num "LBLDX")) (+ (cadr p) (gv:num "LBLDY"))))
   (gv:make-text q (gv:name num) (gv:get "LBLLAYER") (gv:num "TXTHT") rot))
 
-(defun gv:place-callout (p grid rot / h dy)
-  "Put N= / E= coordinate text beside the point p (grid = (E N))."
-  (setq h (gv:num "TXTHT") dy (* 1.4 h))
-  (gv:make-text (list (car p) (+ (cadr p) dy))
-                (strcat "N=" (gv:rtos (cadr grid))) (gv:get "CALLAYER") h rot)
-  (gv:make-text (list (car p) (cadr p))
-                (strcat "E=" (gv:rtos (car grid))) (gv:get "CALLAYER") h rot))
+(defun gv:line (a b lay)
+  (entmakex (list '(0 . "LINE") '(100 . "AcDbEntity") (cons 8 lay)
+                  '(100 . "AcDbLine")
+                  (cons 10 (list (car a) (cadr a) 0.0))
+                  (cons 11 (list (car b) (cadr b) 0.0)))))
+
+(defun gv:unit (a b / dx dy d)
+  "Unit vector a -> b, defaulting to straight down for a degenerate pair."
+  (setq dx (- (car b) (car a))
+        dy (- (cadr b) (cadr a))
+        d  (sqrt (+ (* dx dx) (* dy dy))))
+  (if (< d 1e-9) (list 0.0 -1.0) (list (/ dx d) (/ dy d))))
+
+(defun gv:text-width (str h / tb)
+  "Plotted width of str, from the current text style; estimated if that fails."
+  (setq tb (textbox (list (cons 1 str) (cons 40 h))))
+  (if tb
+    (- (car (cadr tb)) (car (car tb)))
+    (* 0.65 h (strlen str))))
+
+(defun gv:arrow (tip dir h lay / alen awid bx by px py a1 a2)
+  "Filled arrowhead at tip, pointing along dir."
+  (setq alen (* 1.3 h)
+        awid (* 0.35 h)
+        bx   (- (car  tip) (* alen (car  dir)))
+        by   (- (cadr tip) (* alen (cadr dir)))
+        px   (- (cadr dir))
+        py   (car dir)
+        a1   (list (+ bx (* awid px)) (+ by (* awid py)))
+        a2   (list (- bx (* awid px)) (- by (* awid py))))
+  (entmakex (list '(0 . "SOLID") '(100 . "AcDbEntity") (cons 8 lay)
+                  '(100 . "AcDbTrace")
+                  (cons 10 (list (car tip) (cadr tip) 0.0))
+                  (cons 11 (list (car a1)  (cadr a1)  0.0))
+                  (cons 12 (list (car a2)  (cadr a2)  0.0))
+                  (cons 13 (list (car a2)  (cadr a2)  0.0)))))
+
+(defun gv:callout-size (grid h / pad gap sn se)
+  "Width and height of the box that gv:callout would draw for these values."
+  (setq pad (* 0.6 h)
+        gap (* 0.5 h)
+        sn  (strcat "N=" (gv:rtos (cadr grid)))
+        se  (strcat "E=" (gv:rtos (car  grid))))
+  (list (+ (max (gv:text-width sn h) (gv:text-width se h)) (* 2.0 pad))
+        (+ (* 2.0 h) gap (* 2.0 pad))))
+
+(defun gv:rect (c sz)
+  "Box centred on c as (x1 y1 x2 y2)."
+  (list (- (car c) (/ (car sz) 2.0)) (- (cadr c) (/ (cadr sz) 2.0))
+        (+ (car c) (/ (car sz) 2.0)) (+ (cadr c) (/ (cadr sz) 2.0))))
+
+(defun gv:clashes (r placed m / q res)
+  (setq res nil)
+  (foreach q placed
+    (if (not (or (< (caddr r) (- (car q) m))   (> (car r)  (+ (caddr q) m))
+                 (< (cadddr r) (- (cadr q) m)) (> (cadr r) (+ (cadddr q) m))))
+      (setq res T)))
+  res)
+
+(defun gv:auto-box (p sz d placed / dirs ang c r found ring)
+  "Where to put this point's box: the first candidate position that does not
+   collide with a box already placed. Diagonals are tried first because that is
+   how these callouts are drawn by hand, then the axes, then further out."
+  (setq dirs  (list 0.7854 2.3562 3.9270 5.4978 1.5708 0.0 3.1416 4.7124)
+        found nil
+        ring  0)
+  (while (and (not found) (< ring 4))
+    (foreach ang dirs
+      (if (not found)
+        (progn
+          (setq c (polar (list (car p) (cadr p)) ang (* d (+ 1.0 (* 0.8 ring)))))
+          (setq r (gv:rect c sz))
+          (if (not (gv:clashes r placed (gv:num "TXTHT"))) (setq found c)))))
+    (setq ring (1+ ring)))
+  (if found found (polar (list (car p) (cadr p)) 0.7854 d)))
+
+(defun gv:callout (p grid c / lay h pad gap sn se sz w ht bl tip exitx land elbow dir)
+  "Boxed N= / E= callout centred on c, with a dogleg leader to the point p.
+
+   The leader leaves the side of the box that faces the point, runs level to
+   above (or below) the point, then turns and arrows onto it. When the box sits
+   directly over the point there is nothing to dogleg around, so the leader
+   drops straight out of the nearest horizontal edge."
+  (setq lay (gv:get "CALLAYER")
+        h   (gv:num "TXTHT")
+        pad (* 0.6 h)
+        gap (* 0.5 h)
+        sn  (strcat "N=" (gv:rtos (cadr grid)))
+        se  (strcat "E=" (gv:rtos (car  grid))))
+  (gv:ensure-layer lay)
+  (setq sz (gv:callout-size grid h)
+        w  (car sz)
+        ht (cadr sz))
+  (setq bl (list (- (car c) (/ w 2.0)) (- (cadr c) (/ ht 2.0))))
+
+  (entmakex (list '(0 . "LWPOLYLINE") '(100 . "AcDbEntity") (cons 8 lay)
+                  '(100 . "AcDbPolyline") '(90 . 4) '(70 . 1)
+                  (cons 10 bl)
+                  (cons 10 (list (+ (car bl) w) (cadr bl)))
+                  (cons 10 (list (+ (car bl) w) (+ (cadr bl) ht)))
+                  (cons 10 (list (car bl) (+ (cadr bl) ht)))))
+
+  ;; N above E, as drawn
+  (gv:make-text (list (+ (car bl) pad) (+ (cadr bl) pad h gap)) sn lay h 0.0)
+  (gv:make-text (list (+ (car bl) pad) (+ (cadr bl) pad))       se lay h 0.0)
+
+  (setq tip (list (car p) (cadr p)))
+  (if (> (abs (- (car tip) (car c))) (/ w 2.0))
+    (progn
+      (setq exitx (if (< (car tip) (car c)) (car bl) (+ (car bl) w)))
+      (setq land  (list exitx (cadr c))
+            elbow (list (car tip) (cadr c)))
+      (gv:line land elbow lay)
+      (gv:line elbow tip lay)
+      (setq dir (gv:unit elbow tip)))
+    (progn
+      (setq elbow (list (car tip)
+                        (if (< (cadr tip) (cadr c)) (cadr bl) (+ (cadr bl) ht))))
+      (gv:line elbow tip lay)
+      (setq dir (gv:unit elbow tip))))
+  (gv:arrow tip dir h lay)
+  T)
 
 (defun gv:ensure-marker-layer ( / nm)
   "The review layer is created in a loud colour so markup reads as markup, and
@@ -534,6 +649,7 @@
     (cons "MRKCOLOR" "Review marker layer colour")
     (cons "MAXDIST"  "Label search radius")
     (cons "TXTHT"    "Text height")
+    (cons "CALDIST"  "Distance from a point to its coordinate box")
     (cons "LBLDX"    "Label offset X from valve")
     (cons "LBLDY"    "Label offset Y from valve")
     (cons "OFFE"     "Grid transform: Easting offset")
@@ -548,7 +664,7 @@
   (princ "\nSettings saved in this drawing.")
   (princ))
 
-(defun c:GVPICK ( / e ed p grid num rot ans lab)
+(defun c:GVPICK ( / e ed p grid num rot ans lab cpt)
   (gv:cfg-load)
   (princ "\nSelect a gate valve (or press Enter to pick a point): ")
   (setq e (car (entsel)))
@@ -586,10 +702,12 @@
       (if (/= ans "No")
         (progn
           (if (not lab) (gv:place-label p num rot))
-          (gv:place-callout (list (+ (car p) (* 3.0 (gv:num "TXTHT")))
-                                  (cadr p))
-                            grid rot)
-          (princ (strcat "\nAnnotated " (gv:name num) "."))))))
+          (setq cpt (getpoint p "\nPick where the coordinate box goes: "))
+          (if cpt
+            (progn
+              (gv:callout p grid cpt)
+              (princ (strcat "\nAnnotated " (gv:name num) ".")))
+            (princ "\nNo box placed."))))))
   (princ))
 
 (defun gv:label-at (p / best bestd d lab)
@@ -663,14 +781,15 @@
             (princ "\nCould not open that file for writing."))))))
   (princ))
 
-(defun c:GVLABEL ( / p grid)
+(defun c:GVLABEL ( / p grid cpt)
   (gv:cfg-load)
   (setq p (getpoint "\nPick the point to annotate: "))
   (if p
     (progn
       (setq grid (gv:to-grid p))
-      (gv:place-callout (list (+ (car p) (* 3.0 (gv:num "TXTHT"))) (cadr p)) grid 0.0)
-      (princ (strcat "\nE=" (gv:rtos (car grid)) "  N=" (gv:rtos (cadr grid))))))
+      (princ (strcat "\nE=" (gv:rtos (car grid)) "  N=" (gv:rtos (cadr grid))))
+      (setq cpt (getpoint p "\nPick where the coordinate box goes: "))
+      (if cpt (gv:callout p grid cpt))))
   (princ))
 
 (defun c:GVAUDIT ( / res okc bad)
@@ -765,5 +884,46 @@
       (princ (strcat "\nErased " (itoa n) " marker object(s)."))))
   (princ))
 
-(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE  GVMARK  GVMARKCLR")
+(defun c:GVANNO ( / mode ss pts item p grid sz c placed n h keep)
+  (gv:cfg-load)
+  (initget "All Select")
+  (setq mode (getkword "\nAnnotate which points? [All/Select] <All>: "))
+  (if (not mode) (setq mode "All"))
+  (setq ss nil)
+  (if (= mode "Select")
+    (progn
+      (princ "\nSelect the valves to annotate: ")
+      (setq ss (ssget '((0 . "INSERT"))))))
+  (if (and (= mode "Select") (not ss))
+    (princ "\nNothing selected.")
+    (progn
+      (setq pts (gv:build ss) h (gv:num "TXTHT") placed nil n 0)
+      ;; keep every point clear before placing anything, so a box never lands
+      ;; on top of another valve
+      (setq keep (* 2.2 h))
+      (foreach item pts
+        (setq p (gv:point-wcs item))
+        (if p
+          (setq placed (cons (list (- (car p) keep) (- (cadr p) keep)
+                                   (+ (car p) keep) (+ (cadr p) keep))
+                             placed))))
+      (if (null pts)
+        (princ "\nNo gate-valve symbols found -- check GVSETUP.")
+        (progn
+          (foreach item pts
+            (setq p (gv:point-wcs item))
+            (if p
+              (progn
+                (setq grid (list (cadr item) (caddr item)))
+                (setq sz (gv:callout-size grid h))
+                (setq c  (gv:auto-box p sz (gv:num "CALDIST") placed))
+                (setq placed (cons (gv:rect c sz) placed))
+                (gv:callout p grid c)
+                (setq n (1+ n)))))
+          (princ (strcat "\nPlaced " (itoa n) " coordinate box(es) on layer \""
+                         (gv:get "CALLAYER") "\"."))
+          (princ "\nOne UNDO reverses the whole run.")))))
+  (princ))
+
+(princ "\nGV point list loaded.  Commands: GVPICK  GVLIST  GVTABLE  GVCSV  GVSETUP  GVLABEL  GVAUDIT  GVFIXTABLE  GVANNO  GVMARK  GVMARKCLR")
 (princ)
