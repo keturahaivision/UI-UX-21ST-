@@ -14,6 +14,8 @@ table of POINTS / EASTING / NORTHING.
 | `lisp/GVLIST.lsp` | the AutoCAD tool — click a valve, or scan the whole drawing |
 | `tools/gv_extract.py` | the same extraction offline, from DXF or DWG, without AutoCAD |
 | `data/gate_valve_coordinates.csv` | the 174 points generated from the supplied drawing |
+| `data/gate_valve_coordinates.xlsx` | the same list as a formatted Excel workbook |
+| `tools/make_xlsx.py` | rebuilds that workbook from the CSV |
 | `docs/drawing-review.md` | what the automated pass found in the existing manual table |
 
 ---
@@ -167,6 +169,19 @@ Useful options: `--table-layer` / `--tol` / `--row-tol` for the audit,
 `--label-layer` to restrict where labels are read from (worth setting when the
 drawing has a coordinate *table* in model space whose `GV…` cells could be
 mistaken for labels), `--max-dist`, `--precision`, `--no-renumber`.
+
+### As an Excel workbook
+
+```bash
+python3 tools/gv_extract.py drawing.json -o data/gate_valve_coordinates.csv
+python3 tools/make_xlsx.py
+```
+
+`data/gate_valve_coordinates.xlsx` has the list on one sheet — frozen header,
+filter row, coordinates to 3 dp, the auto-numbered point highlighted — and the
+source, assumptions and points to check on a second. The counts on the Notes
+sheet are formulas over the data range, so they stay right if rows are filtered
+or added.
 
 ---
 
