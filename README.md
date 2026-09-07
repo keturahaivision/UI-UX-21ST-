@@ -95,6 +95,11 @@ paste `HF_TOKEN` and `RENDER_API_KEY` when prompted, and Render generates `AGENT
 (read it from the service's Environment tab). Set `AGENT_MAX_MODE` to `auto` only if you want the hosted
 agent to be able to suspend and delete.
 
+## Claude Desktop
+
+One script wires Hugging Face (free rendering via Spaces), Comfy Cloud, and the Render Agent server into
+Claude Desktop: `node scripts/setup-claude-desktop.js`. Full walkthrough in [docs/claude-desktop.md](docs/claude-desktop.md).
+
 ## Claude Code integration
 
 `.mcp.json` registers the MCP server for this project. Export `HF_TOKEN` and `RENDER_API_KEY` in your shell,
