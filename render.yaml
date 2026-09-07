@@ -1,0 +1,23 @@
+# Deploy Render Agent's web UI on Render: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: render-agent
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: HF_TOKEN
+        sync: false
+      - key: RENDER_API_KEY
+        sync: false
+      - key: HF_MODEL
+        value: Qwen/Qwen3-Coder-Next
+      - key: AGENT_MAX_MODE
+        value: safe
+      - key: AGENT_ACCESS_TOKEN
+        generateValue: true
