@@ -27,3 +27,13 @@ python3 masterplan/l200_masterplan.py
 ## Result
 Soft landscape 3,904 m² = 61.5 % of net area, above the client's 60 % aspiration
 (previous concept: 53.0 %, 441.9 m² shortfall).
+
+## Sheet set (all derived from `site_model.py`)
+
+| Sheet | Script | Outputs |
+|---|---|---|
+| L-200 Masterplan | `l200_masterplan.py` | `L-200_Masterplan.png/.svg`, `L-200_Area_Takeoff.csv/.json` |
+| L-201 Zoning | `l201_zoning.py` | `L-201_Zoning.png/.svg`, `L-201_Zone_Areas.csv` |
+| L-202 Circulation | `l202_circulation.py` | `L-202_Circulation.png/.svg`, `L-202_Route_Schedule.csv` |
+
+`site_model.py` holds the boundary, every programme polygon, overlap resolution, the take-off and tree placement. `sheet.py` holds the shared A2 frame. Edit geometry only in `site_model.py`, then rerun the three sheet scripts.
