@@ -1,0 +1,22 @@
+{
+  "name": "render-agent",
+  "version": "0.1.0",
+  "description": "Manus-style autonomous operations agent for Render, powered by open models on the Hugging Face Inference Router. Ships a CLI, a web UI, and an MCP server for Claude Code.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.12"
+  },
+  "bin": {
+    "render-agent": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "cli": "node src/cli.js",
+    "mcp": "node src/mcp.js",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0"
+  }
+}

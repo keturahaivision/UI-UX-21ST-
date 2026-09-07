@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "render-agent": {
+      "command": "node",
+      "args": ["src/mcp.js"],
+      "env": {
+        "HF_TOKEN": "${HF_TOKEN}",
+        "RENDER_API_KEY": "${RENDER_API_KEY}",
+        "HF_MODEL": "${HF_MODEL:-Qwen/Qwen3-Coder-Next}",
+        "AGENT_MAX_MODE": "${AGENT_MAX_MODE:-safe}"
+      }
+    }
+  }
+}
