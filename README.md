@@ -86,7 +86,11 @@ npm start          # http://localhost:3000
 Set `AGENT_ACCESS_TOKEN` to require a bearer token (the page asks for it once). Conversations are kept in
 memory per browser session. Streams every tool call live over Server-Sent Events.
 
-**Deploy it on Render**: the included `render.yaml` is a Blueprint. Create a new Blueprint from this repo,
+**Deploy it on Render**:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/keturahaivision/UI-UX-21ST-)
+
+The included `render.yaml` is a Blueprint. Click the button (or create a new Blueprint from this repo),
 paste `HF_TOKEN` and `RENDER_API_KEY` when prompted, and Render generates `AGENT_ACCESS_TOKEN` for you
 (read it from the service's Environment tab). Set `AGENT_MAX_MODE` to `auto` only if you want the hosted
 agent to be able to suspend and delete.
@@ -100,6 +104,11 @@ open Claude Code in this directory, and approve the `render-agent` server when p
   `get_logs` and friends itself.
 - Delegate: *"run render_agent_run to diagnose why checkout is 500ing and fix it"*. The Hugging Face model
   does the multi-step work and returns a report plus a step transcript.
+
+`.mcp.json` also registers **comfy-cloud** (ComfyUI's hosted MCP server at `https://cloud.comfy.org/mcp`) for
+image and video generation. Run `/mcp` in Claude Code, pick `comfy-cloud`, and authenticate in the browser.
+For a local ComfyUI instead, follow https://docs.comfy.org/agent-tools/mcp.md and run
+`claude mcp add comfy-mcp -e COMFY_BIN=/path/to/venv/bin/comfy -- comfy-mcp`.
 
 The `.claude/skills/render-ops` skill teaches Claude Code the playbook (resolve IDs first, wait for deploys,
 verify with logs and HTTP). Policy is enforced by `AGENT_MAX_MODE` in the server's environment, not by the
