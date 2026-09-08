@@ -50,6 +50,19 @@ curl -s https://router.huggingface.co/v1/models | jq -r '.data[].id'
 Tested targets: `Qwen/Qwen3-Coder-Next` (default), `zai-org/GLM-5.3-Flash`, `moonshotai/Kimi-K2.7-Code`,
 `openai/gpt-oss-120b`, `deepseek-ai/DeepSeek-V3.2`. Coder-tuned models follow the "act then verify" loop best.
 
+## Free rendering (Hugging Face Spaces)
+
+The agent can generate and edit images without any MCP server, by calling Hugging Face Spaces' Gradio HTTP API
+directly. ZeroGPU Spaces are free with a daily quota but reject anonymous calls, so `HF_TOKEN` is required.
+
+```
+render-agent "render a matte black headphone on a marble pedestal, then remove the background"
+```
+
+`render_image` uses `evalstate/flux1_schnell`. For anything else, `space_info` reports a Space's endpoints and
+parameter order, and `call_space` invokes one, e.g. `not-lain/background-removal`, `fffiloni/InstantIR`, or
+your own duplicated `FLUX.2-Klein-Multi-LoRA`. Results come back as file URLs on the Space.
+
 ## Permission modes
 
 Every tool has a risk tier. The mode decides what runs without a human:
@@ -130,6 +143,8 @@ model.
 | `list_env_vars` | read | keys with masked values (`reveal: true` to show) |
 | `list_custom_domains`, `list_datastores` | read | domains, Postgres and Key Value instances |
 | `http_check` | read | GET a URL, report status, latency, body preview |
+| `space_info` | read | list a Hugging Face Space's API endpoints and parameters |
+| `render_image`, `call_space` | write | free image generation on ZeroGPU Spaces (FLUX.1 schnell by default), or any Space endpoint: editing, background removal, image-to-video, TTS |
 | `wait_for_deploy` | read | poll a deploy to a terminal state |
 | `trigger_deploy`, `cancel_deploy`, `rollback_deploy` | write | ship, stop, or revert |
 | `restart_service`, `resume_service`, `scale_service` | write | runtime control |
