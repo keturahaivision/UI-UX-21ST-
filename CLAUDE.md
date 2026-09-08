@@ -6,6 +6,7 @@ Manus-style operations agent for Render.com. The reasoning model runs on the Hug
 ## Layout
 - `src/hf.js` – HF router chat client with tool calling, retries, `<think>` stripping.
 - `src/render.js` – thin Render API client.
+- `src/spaces.js` – Hugging Face Spaces (Gradio) HTTP client for free rendering; needs `HF_TOKEN`.
 - `src/tools.js` – tool catalog with risk tiers (`read` / `write` / `destructive`) and the policy `authorize()`.
 - `src/agent.js` – the agent loop and system prompt.
 - `src/cli.js`, `src/server.js` + `public/index.html`, `src/mcp.js` – the three front doors.

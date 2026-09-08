@@ -4,6 +4,7 @@
 //   destructive -> allowed only in "auto" mode, prompted in "ask" mode
 
 import { RenderClient } from './render.js';
+import { createSpacesClient, extractFileUrls } from './spaces.js';
 
 const TERMINAL_DEPLOY_STATES = new Set([
   'live',
@@ -73,7 +74,14 @@ function isoHoursAgo(hours) {
   return new Date(Date.now() - hours * 3600 * 1000).toISOString();
 }
 
-export function buildTools({ render, fetchImpl = globalThis.fetch, sleep = (ms) => new Promise((r) => setTimeout(r, ms)) }) {
+export const DEFAULT_IMAGE_SPACE = 'evalstate/flux1_schnell';
+
+export function buildTools({
+  render,
+  spaces = createSpacesClient(),
+  fetchImpl = globalThis.fetch,
+  sleep = (ms) => new Promise((r) => setTimeout(r, ms)),
+}) {
   const ownerCache = new Map();
   async function ownerIdFor(serviceId) {
     if (!ownerCache.has(serviceId)) {
@@ -252,6 +260,69 @@ export function buildTools({ render, fetchImpl = globalThis.fetch, sleep = (ms) 
           await sleep(10000);
         }
         return { done: false, timedOut: true, deploy: summarizeDeploy(deploy) };
+      },
+    },
+
+    // -------------------------------------------------------- rendering (HF Spaces)
+    {
+      name: 'render_image',
+      risk: 'write',
+      description:
+        'Generate an image from a text prompt on a free Hugging Face ZeroGPU Space (default FLUX.1 schnell). Returns image URL(s). Consumes your daily ZeroGPU quota; requires HF_TOKEN.',
+      parameters: obj(
+        {
+          prompt: str('What to render'),
+          width: int('Width in px (default 1024)', { minimum: 256, maximum: 2048 }),
+          height: int('Height in px (default 1024)', { minimum: 256, maximum: 2048 }),
+          steps: int('Inference steps (default 4 for schnell)', { minimum: 1, maximum: 50 }),
+          seed: int('Seed for reproducibility; omit for random', { minimum: 0 }),
+        },
+        ['prompt'],
+      ),
+      run: async (a) => {
+        const seed = a.seed ?? 0;
+        const out = await spaces.call(DEFAULT_IMAGE_SPACE, '/infer', [
+          a.prompt,
+          seed,
+          a.seed === undefined,
+          a.width ?? 1024,
+          a.height ?? 1024,
+          a.steps ?? 4,
+        ]);
+        return { space: DEFAULT_IMAGE_SPACE, images: extractFileUrls(out), seed: Array.isArray(out) ? out[1] : seed };
+      },
+    },
+    {
+      name: 'call_space',
+      risk: 'write',
+      description:
+        'Call any Hugging Face Space (Gradio) API endpoint directly: image editing, background removal, image-to-video, TTS, upscaling. Use space_info first to learn the endpoint and its parameter order. Requires HF_TOKEN for ZeroGPU Spaces.',
+      parameters: obj(
+        {
+          space: str('Space id, e.g. not-lain/background-removal'),
+          endpoint: str('API endpoint name, e.g. /predict or /infer'),
+          data: { type: 'array', description: 'Positional arguments in the order space_info reports', items: {} },
+        },
+        ['space', 'endpoint', 'data'],
+      ),
+      run: async (a) => {
+        const out = await spaces.call(a.space, a.endpoint, a.data);
+        return { result: out, files: extractFileUrls(out) };
+      },
+    },
+    {
+      name: 'space_info',
+      risk: 'read',
+      description: 'List the API endpoints and parameters of a Hugging Face Space so you can call it with call_space.',
+      parameters: obj({ space: str('Space id') }, ['space']),
+      run: async (a) => {
+        const info = await spaces.info(a.space);
+        return Object.fromEntries(
+          Object.entries(info.named_endpoints ?? {}).map(([name, ep]) => [
+            name,
+            (ep.parameters ?? []).map((p) => ({ name: p.parameter_name, type: p.python_type?.type, default: p.parameter_default })),
+          ]),
+        );
       },
     },
 
