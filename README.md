@@ -103,7 +103,7 @@ memory per browser session. Streams every tool call live over Server-Sent Events
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/keturahaivision/UI-UX-21ST-)
 
-The included `render.yaml` is a Blueprint. Click the button (or create a new Blueprint from this repo),
+The included `render.yaml` is a Blueprint. Click the button (or create a new Blueprint from this repo). The Blueprint uses the free instance type, which sleeps after 15 minutes idle and wakes on the next request;
 paste `HF_TOKEN` and `RENDER_API_KEY` when prompted, and Render generates `AGENT_ACCESS_TOKEN` for you
 (read it from the service's Environment tab). Set `AGENT_MAX_MODE` to `auto` only if you want the hosted
 agent to be able to suspend and delete.
