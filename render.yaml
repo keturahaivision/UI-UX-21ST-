@@ -3,7 +3,7 @@ services:
   - type: web
     name: render-agent
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm ci --omit=dev
     startCommand: npm start
     healthCheckPath: /healthz

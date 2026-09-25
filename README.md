@@ -50,6 +50,19 @@ curl -s https://router.huggingface.co/v1/models | jq -r '.data[].id'
 Tested targets: `Qwen/Qwen3-Coder-Next` (default), `zai-org/GLM-5.3-Flash`, `moonshotai/Kimi-K2.7-Code`,
 `openai/gpt-oss-120b`, `deepseek-ai/DeepSeek-V3.2`. Coder-tuned models follow the "act then verify" loop best.
 
+## Free rendering (Hugging Face Spaces)
+
+The agent can generate and edit images without any MCP server, by calling Hugging Face Spaces' Gradio HTTP API
+directly. ZeroGPU Spaces are free with a daily quota but reject anonymous calls, so `HF_TOKEN` is required.
+
+```
+render-agent "render a matte black headphone on a marble pedestal, then remove the background"
+```
+
+`render_image` uses `evalstate/flux1_schnell`. For anything else, `space_info` reports a Space's endpoints and
+parameter order, and `call_space` invokes one, e.g. `not-lain/background-removal`, `fffiloni/InstantIR`, or
+your own duplicated `FLUX.2-Klein-Multi-LoRA`. Results come back as file URLs on the Space.
+
 ## Permission modes
 
 Every tool has a risk tier. The mode decides what runs without a human:
@@ -86,10 +99,19 @@ npm start          # http://localhost:3000
 Set `AGENT_ACCESS_TOKEN` to require a bearer token (the page asks for it once). Conversations are kept in
 memory per browser session. Streams every tool call live over Server-Sent Events.
 
-**Deploy it on Render**: the included `render.yaml` is a Blueprint. Create a new Blueprint from this repo,
+**Deploy it on Render**:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/keturahaivision/UI-UX-21ST-)
+
+The included `render.yaml` is a Blueprint. Click the button (or create a new Blueprint from this repo). The Blueprint uses the free instance type, which sleeps after 15 minutes idle and wakes on the next request;
 paste `HF_TOKEN` and `RENDER_API_KEY` when prompted, and Render generates `AGENT_ACCESS_TOKEN` for you
 (read it from the service's Environment tab). Set `AGENT_MAX_MODE` to `auto` only if you want the hosted
 agent to be able to suspend and delete.
+
+## Claude Desktop
+
+One script wires Hugging Face (free rendering via Spaces), Comfy Cloud, and the Render Agent server into
+Claude Desktop: `node scripts/setup-claude-desktop.js`. Full walkthrough in [docs/claude-desktop.md](docs/claude-desktop.md).
 
 ## Claude Code integration
 
@@ -100,6 +122,11 @@ open Claude Code in this directory, and approve the `render-agent` server when p
   `get_logs` and friends itself.
 - Delegate: *"run render_agent_run to diagnose why checkout is 500ing and fix it"*. The Hugging Face model
   does the multi-step work and returns a report plus a step transcript.
+
+`.mcp.json` also registers **comfy-cloud** (ComfyUI's hosted MCP server at `https://cloud.comfy.org/mcp`) for
+image and video generation. Run `/mcp` in Claude Code, pick `comfy-cloud`, and authenticate in the browser.
+For a local ComfyUI instead, follow https://docs.comfy.org/agent-tools/mcp.md and run
+`claude mcp add comfy-mcp -e COMFY_BIN=/path/to/venv/bin/comfy -- comfy-mcp`.
 
 The `.claude/skills/render-ops` skill teaches Claude Code the playbook (resolve IDs first, wait for deploys,
 verify with logs and HTTP). Policy is enforced by `AGENT_MAX_MODE` in the server's environment, not by the
@@ -116,6 +143,8 @@ model.
 | `list_env_vars` | read | keys with masked values (`reveal: true` to show) |
 | `list_custom_domains`, `list_datastores` | read | domains, Postgres and Key Value instances |
 | `http_check` | read | GET a URL, report status, latency, body preview |
+| `space_info` | read | list a Hugging Face Space's API endpoints and parameters |
+| `render_image`, `call_space` | write | free image generation on ZeroGPU Spaces (FLUX.1 schnell by default), or any Space endpoint: editing, background removal, image-to-video, TTS |
 | `wait_for_deploy` | read | poll a deploy to a terminal state |
 | `trigger_deploy`, `cancel_deploy`, `rollback_deploy` | write | ship, stop, or revert |
 | `restart_service`, `resume_service`, `scale_service` | write | runtime control |
