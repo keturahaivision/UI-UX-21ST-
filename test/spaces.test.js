@@ -44,6 +44,20 @@ test('anonymous ZeroGPU failure produces an actionable error', async () => {
   await assert.rejects(() => client.call('evalstate/flux1_schnell', '/infer', ['p']), /set HF_TOKEN/);
 });
 
+test('an unexpanded ${HF_TOKEN} placeholder counts as no token', async () => {
+  const { fetchImpl, calls } = fakeSpaceFetch({ complete: false });
+  const client = createSpacesClient({ token: '${HF_TOKEN}', fetchImpl });
+  await assert.rejects(() => client.call('evalstate/flux1_schnell', '/infer', ['p']), /set HF_TOKEN/);
+  assert.equal(calls[0].init.headers.authorization, undefined);
+});
+
+test('surrounding whitespace is trimmed off a real token', async () => {
+  const { fetchImpl, calls } = fakeSpaceFetch();
+  const client = createSpacesClient({ token: '  hf_t\n', fetchImpl });
+  await client.call('evalstate/flux1_schnell', '/infer', ['p']);
+  assert.equal(calls[0].init.headers.authorization, 'Bearer hf_t');
+});
+
 test('render_image and space_info tools wrap the client', async () => {
   const { fetchImpl } = fakeSpaceFetch();
   const spaces = createSpacesClient({ token: 'hf_t', fetchImpl });
