@@ -22,7 +22,17 @@ export function parseSSE(text) {
   return events;
 }
 
+// A launcher that cannot expand "${HF_TOKEN}" passes the placeholder through literally.
+// Treating that as a token sends a bogus bearer header and misreports the failure as a
+// Space/quota problem, so discard anything that is not a real token.
+export function normalizeToken(raw) {
+  const token = typeof raw === 'string' ? raw.trim() : '';
+  if (!token || /^\$\{.*\}$/.test(token)) return undefined;
+  return token;
+}
+
 export function createSpacesClient({ token = process.env.HF_TOKEN, fetchImpl = globalThis.fetch, timeoutMs = 240000 } = {}) {
+  token = normalizeToken(token);
   const headers = () => ({
     'content-type': 'application/json',
     ...(token ? { authorization: `Bearer ${token}` } : {}),
