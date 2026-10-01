@@ -1,0 +1,114 @@
+{
+  "sheet": "L-200",
+  "revision": "P01",
+  "issue": "Preliminary concept \u2014 for client review",
+  "site_area_m2": 6348.0,
+  "categories_m2": {
+    "HARD": 1255.1,
+    "SOFT": 3904.0,
+    "ACTIVITY": 939.0,
+    "STRUCTURE": 250.0
+  },
+  "categories_pct": {
+    "HARD": 19.8,
+    "SOFT": 61.5,
+    "ACTIVITY": 14.8,
+    "STRUCTURE": 3.9
+  },
+  "soft_landscape_pct": 61.5,
+  "client_target_pct": 60.0,
+  "shortfall_to_target_m2": 0.0,
+  "elements": [
+    {
+      "key": "01",
+      "element": "South arrival plaza (main entry)",
+      "category": "HARD",
+      "area_m2": 136.0,
+      "pct_of_site": 2.1
+    },
+    {
+      "key": "02",
+      "element": "Central plaza & seating terraces",
+      "category": "HARD",
+      "area_m2": 322.0,
+      "pct_of_site": 5.1
+    },
+    {
+      "key": "03",
+      "element": "Green spine \u2014 native shade planting",
+      "category": "SOFT",
+      "area_m2": 475.3,
+      "pct_of_site": 7.5
+    },
+    {
+      "key": "04",
+      "element": "Green spine accessible path, 3.0 m",
+      "category": "HARD",
+      "area_m2": 137.0,
+      "pct_of_site": 2.2
+    },
+    {
+      "key": "05",
+      "element": "Jogging & walking loop, 2.0 m",
+      "category": "HARD",
+      "area_m2": 545.6,
+      "pct_of_site": 8.6
+    },
+    {
+      "key": "06",
+      "element": "Secondary accessible paths, 2.0 m",
+      "category": "HARD",
+      "area_m2": 114.5,
+      "pct_of_site": 1.8
+    },
+    {
+      "key": "07",
+      "element": "Multi-use court 25x15 m + 1 m run-off (TO VERIFY)",
+      "category": "ACTIVITY",
+      "area_m2": 459.0,
+      "pct_of_site": 7.2
+    },
+    {
+      "key": "08",
+      "element": "Children's play area, rubber safety surface",
+      "category": "ACTIVITY",
+      "area_m2": 348.0,
+      "pct_of_site": 5.5
+    },
+    {
+      "key": "09",
+      "element": "Outdoor fitness zone",
+      "category": "ACTIVITY",
+      "area_m2": 132.0,
+      "pct_of_site": 2.1
+    },
+    {
+      "key": "10",
+      "element": "Community clubhouse (footprint)",
+      "category": "STRUCTURE",
+      "area_m2": 100.0,
+      "pct_of_site": 1.6
+    },
+    {
+      "key": "11",
+      "element": "Service / toilets / plant",
+      "category": "STRUCTURE",
+      "area_m2": 30.0,
+      "pct_of_site": 0.5
+    },
+    {
+      "key": "12",
+      "element": "Shade pergolas (3 nos, 4x10 m)",
+      "category": "STRUCTURE",
+      "area_m2": 120.0,
+      "pct_of_site": 1.9
+    },
+    {
+      "key": "13",
+      "element": "Lawn terraces & planting beds (TSE)",
+      "category": "SOFT",
+      "area_m2": 3428.7,
+      "pct_of_site": 54.0
+    }
+  ]
+}
